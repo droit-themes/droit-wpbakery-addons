@@ -43,6 +43,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
             include_once "core.php";
 			add_action( 'plugins_loaded', [$this, 'init'] );
 			add_action( 'plugins_loaded', [$this, 'shortcode_init'] );
+			add_action( 'wp_enqueue_scripts', array( $this, 'droit_wpbakery_scripts' ) );
 
 		}
 
@@ -69,6 +70,20 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			vc_set_shortcodes_templates_dir( $dir );
 		}
 		
+		//  load droit wpbakery css and js
+
+		public function droit_wpbakery_scripts () {
+			// wp_register_style( 'pulse', DROIT_WPBAKERY_CSS_URL.'/pulse.css', '', DROIT_WPBAKERY_ADDONS );
+			// wp_enqueue_style( 'pulse' );
+
+			// Register script 
+			wp_enqueue_script('parallax', DROIT_WPBAKERY_JS_URL.'/parallax.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_enqueue_script('parallaxie', DROIT_WPBAKERY_JS_URL.'/parallaxie.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			// Main plugin script
+			wp_enqueue_script('droit-wpbakery-addons-script', DROIT_WPBAKERY_JS_URL.'/droit-wpbakery-addons-script.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+
+		}
+
 		// Load shortcode 
 
 		public function shortcode_init() {

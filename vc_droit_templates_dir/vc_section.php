@@ -54,9 +54,8 @@ if ( vc_shortcode_custom_css_has_property( $css, array(
 	'background',
 ) ) || $video_bg || $parallax
 ) {
-	$css_classes[] = 'vc_section-has-fill farid';
+	$css_classes[] = 'vc_section-has-fill';
 }
-$css_classes[] = 'vc_section-has-fill farid';
 
 $wrapper_attributes = array();
 // build attributes for wrapper
@@ -95,7 +94,7 @@ if ( $has_video_bg ) {
 	$css_classes[] = 'vc_video-bg-container';
 	wp_enqueue_script( 'vc_youtube_iframe_api_js' );
 }
-
+$css_classes[] = 'banner_area';
 if ( ! empty( $parallax ) ) {
 	wp_enqueue_script( 'vc_jquery_skrollr_js' );
 	$wrapper_attributes[] = 'data-vc-parallax="' . esc_attr( $parallax_speed ) . '"'; // parallax speed
