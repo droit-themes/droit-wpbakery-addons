@@ -1,3 +1,8 @@
+.banner_area {
+  background-color: #240056;
+  overflow: hidden;
+  position: relative;
+}
 .banner_dot {
   margin-bottom: 0px;
 }
@@ -8,7 +13,7 @@
   height: 48px;
   border-radius: 50%;
   background: #922763;
-  z-index: -1;
+  z-index: 1;
 }
 
 .banner_dot li:nth-child(1) {
@@ -168,9 +173,7 @@
   right: 400px;
   bottom: 120px;
 }
-/*
-============ keyframes animation  =============
-*/
+
 @keyframes pulse {
   0% {
     opacity: 1;

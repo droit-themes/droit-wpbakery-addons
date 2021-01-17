@@ -94,7 +94,13 @@ if ( $has_video_bg ) {
 	$css_classes[] = 'vc_video-bg-container';
 	wp_enqueue_script( 'vc_youtube_iframe_api_js' );
 }
-$css_classes[] = 'banner_area';
+
+$pulse_content = '';
+if($pulse_effect){
+	$css_classes[] = 'banner_area';
+	$pulse_content = '<ul class="list-unstyled banner_dot_two"> <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul><ul class="list-unstyled banner_dot"> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li></ul>';
+}
+
 if ( ! empty( $parallax ) ) {
 	wp_enqueue_script( 'vc_jquery_skrollr_js' );
 	$wrapper_attributes[] = 'data-vc-parallax="' . esc_attr( $parallax_speed ) . '"'; // parallax speed
@@ -126,8 +132,7 @@ $css_class = preg_replace( '/\s+/', ' ', apply_filters( VC_SHORTCODE_CUSTOM_CSS_
 $wrapper_attributes[] = 'class="' . esc_attr( trim( $css_class ) ) . '"';
 
 $output .= '<section ' . implode( ' ', $wrapper_attributes ) . '>';
-$output .= '<ul class="list-unstyled banner_dot_two"> <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>';
-$output .= '<ul class="list-unstyled banner_dot"> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li></ul>';
+$output .= $pulse_content;
 $output .= wpb_js_remove_wpautop( $content );
 $output .= '</section>';
 $output .= $after_output;

@@ -57,10 +57,10 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			$attributes = array(
 				array(
 				'type' => 'checkbox',
-				'heading' => "Style",
-				'param_name' => 'aroro_effect',
-				'value' => array( 'key' => 'value' ),
-				'description' => __( "New style attribute", "my-text-domain" )
+				'heading' => "Pulse Effect",
+				'param_name' => 'pulse_effect',
+				'value' => array( 'pulse' => 'Yes' ),
+				'description' => __( "Enable Pulse Effect On Your Section", "droit-wbpakery-addons" )
 				),
 			  );
 			  vc_add_params( 'vc_section', $attributes ); // Note: 'vc_message' was used as a base for "Message box" element
@@ -68,18 +68,19 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
             //  Overwriting VC default tempalte 
 			$dir = DROIT_WPBAKERY_ADDONS_ABS_PATH. '/vc_droit_templates_dir';
 			vc_set_shortcodes_templates_dir( $dir );
+			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/helpers.php');
 		}
 		
 		//  load droit wpbakery css and js
 
 		public function droit_wpbakery_scripts () {
-			// wp_register_style( 'pulse', DROIT_WPBAKERY_CSS_URL.'/pulse.css', '', DROIT_WPBAKERY_ADDONS );
-			// wp_enqueue_style( 'pulse' );
+			 wp_register_style( 'pulse', DROIT_WPBAKERY_CSS_URL.'/pulse.css', '', DROIT_WPBAKERY_ADDONS );
+			 wp_enqueue_style( 'pulse' );
 
-			// Register script 
-			wp_enqueue_script('parallax', DROIT_WPBAKERY_JS_URL.'/parallax.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
-			wp_enqueue_script('parallaxie', DROIT_WPBAKERY_JS_URL.'/parallaxie.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
-			// Main plugin script
+			// // Register script 
+			// wp_enqueue_script('parallax', DROIT_WPBAKERY_JS_URL.'/parallax.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			// wp_enqueue_script('parallaxie', DROIT_WPBAKERY_JS_URL.'/parallaxie.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			// // Main plugin script
 			wp_enqueue_script('droit-wpbakery-addons-script', DROIT_WPBAKERY_JS_URL.'/droit-wpbakery-addons-script.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 
 		}
@@ -92,6 +93,9 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/testwidgets/testwidgets.php');
 				new shortcodes\testwidgtds\testwidgets;
+                // Heading   
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/heading/heading.php');
+				new shortcodes\dt_heading\dt_heading;
 
 			}
 			
