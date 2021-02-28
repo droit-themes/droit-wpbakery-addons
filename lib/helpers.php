@@ -18,7 +18,7 @@ if ( ! function_exists( 'dt_template_part' ) ) {
 	 *
 	 * @return string/html
 	 */
-	function dt_template_part( $shortcode, $style = null, $params = array() ) {
+	function dt_template_part( $shortcode, $style = null, $params = array(), $content = null ) {
 		
 		$file_extension            = '.php';
 		
@@ -58,4 +58,154 @@ if(!function_exists('dt_extention_wp_kses')) {
 
       return  wp_kses($data, $allow_html);
     }
+}
+
+if ( ! function_exists( 'droit_vc_get_custom_link_attributes' ) ) {
+	/**
+	 * Get custom link attributes
+	 *
+	 * @param $custom_link array - link parameters value
+	 * @param $custom_classes string - custom class value
+	 *
+	 * @return array
+	 */
+	function droit_vc_get_custom_link_attributes( $custom_link = array(), $custom_classes = '' ) {
+		$attributes = array();
+		
+		if ( ! empty( $custom_link ) ) {
+			$link = function_exists( 'vc_build_link' ) ? vc_build_link( $custom_link ) : array();
+			
+			if ( ! empty( $link ) && ! empty( $link['url'] ) ) {
+				if ( ! empty( $custom_classes ) ) {
+					$attributes[] = 'class="' . esc_attr( $custom_classes ) . '"';
+				}
+				
+				$attributes[] = 'href="' . esc_url( trim( $link['url'] ) ) . '"';
+				
+				if ( ! empty( $link['target'] ) ) {
+					$attributes[] = 'target="' . esc_attr( trim( $link['target'] ) ) . '"';
+				}
+				
+				if ( ! empty( $link['title'] ) ) {
+					$attributes[] = 'title="' . esc_attr( trim( $link['title'] ) ) . '"';
+				}
+				
+				if ( ! empty( $link['rel'] ) ) {
+					$attributes[] = 'rel="' . esc_attr( trim( $link['rel'] ) ) . '"';
+				}
+			}
+		}
+		
+		return $attributes;
+	}
+}
+
+if(!function_exists('droit_css')) {
+	function droit_css( $css_rander = array()) {
+		$css_output = '';
+		if(!empty($css_rander)) {
+			
+			foreach($css_rander as $key => $css) {
+				$css_data = '';
+				if( empty($css) ){
+					continue;
+				}
+				foreach( $css as $property=>$value){
+					if( empty($value) ){
+						continue;
+					}
+                   $css_data .= $property.':'.$value." !important;";
+				}
+				$css_output .=  '.'.$key.'{'.$css_data.'}'."\n";
+			}
+		}
+      return $css_output;
+	}
+}
+if(!function_exists('droit_getCSSAnimation')) {
+
+	function droit_getCSSAnimation( $css_animation ) {
+		$output = '';
+		if ( '' !== $css_animation && 'none' !== $css_animation ) {
+			wp_enqueue_script( 'vc_waypoints' );
+			wp_enqueue_style( 'vc_animate-css' );
+			$output = ' wpb_animate_when_almost_visible wpb_' . $css_animation . ' ' . $css_animation;
+		}
+
+		return $output;
+	}
+
+}
+
+if(!function_exists('dt_get_attachment_image')) {
+	
+	function dt_get_attachment_image($id, $size = null) {
+		
+		return wp_get_attachment_image($id, $size);
+	}
+
+}
+
+if(!function_exists('dt_return')) {
+	
+	function dt_return( $data ) {
+		
+		return $data;
+	}
+
+}
+
+// link before after 
+
+if(!function_exists('dt_link_before_after')) {
+
+	function dt_link_before_after( $id = array(), $before_after ) {
+		/**
+		 * Get link data
+		 * generate before after link with link attr 
+		 * Retun link before value with condition 
+		 * if faild all condition return empty 
+		 * @param 2, 
+		 */
+
+		$url_attrs = vc_build_link($id);
+		$link_beofre = '';
+		$link_after = '';
+		$link_attr = '';
+                 
+		if(!empty($url_attrs)){
+			foreach ($url_attrs as $key => $attr){
+			
+				if($key != 'title' && $attr != ''){
+
+					if($key == 'url'){
+						$key = 'href';
+					}
+
+					$link_attr .= $key.'='.$attr.' ';
+		
+				}
+			}
+
+			if($url_attrs['url'] != ''){
+
+				$link_beofre = '<a '.esc_attr( $link_attr ).'>';  
+				$link_after = '</a>';
+
+			}
+		
+		}
+
+        if($before_after == 'before') {
+			return $link_beofre;
+		}
+
+		if($before_after == 'after') {
+			return $link_after;
+		}
+
+		return '';
+		
+	}
+
 }

@@ -6,6 +6,17 @@
 .banner_dot {
   margin-bottom: 0px;
 }
+.banner_area .vc_vc_row,
+.banner_area .vc_row-fluid{
+  width: 100%;
+}
+.list-unstyled,
+ul.list-unstyled.banner_dot{
+  z-index: 0 !important; 
+}
+.bottom_btn {
+  text-align: center;
+}
 
 .banner_dot li {
   position: absolute;
@@ -13,7 +24,6 @@
   height: 48px;
   border-radius: 50%;
   background: #922763;
-  z-index: 1;
 }
 
 .banner_dot li:nth-child(1) {

@@ -1,0 +1,6 @@
+.about_gallery li img {
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #aaaaaa;
+    box-shadow: 0px 30px 70px 0px #eff0f6;
+}

@@ -44,6 +44,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			add_action( 'plugins_loaded', [$this, 'init'] );
 			add_action( 'plugins_loaded', [$this, 'shortcode_init'] );
 			add_action( 'wp_enqueue_scripts', array( $this, 'droit_wpbakery_scripts' ) );
+			add_action( 'vc_frontend_editor_enqueue_js_css', array( $this, 'droit_wpbakery_scripts' ) );
 
 		}
 
@@ -74,13 +75,24 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 		//  load droit wpbakery css and js
 
 		public function droit_wpbakery_scripts () {
-			 wp_register_style( 'pulse', DROIT_WPBAKERY_CSS_URL.'/pulse.css', '', DROIT_WPBAKERY_ADDONS );
-			 wp_enqueue_style( 'pulse' );
 
-			// // Register script 
-			// wp_enqueue_script('parallax', DROIT_WPBAKERY_JS_URL.'/parallax.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
-			// wp_enqueue_script('parallaxie', DROIT_WPBAKERY_JS_URL.'/parallaxie.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
-			// // Main plugin script
+			 wp_register_style( 'pulse', DROIT_WPBAKERY_CSS_URL.'/pulse.css', '', DROIT_WPBAKERY_ADDONS );
+			 wp_register_style( 'dt-vc-main', DROIT_WPBAKERY_CSS_URL.'/main.css', '', DROIT_WPBAKERY_ADDONS );
+			 wp_register_style( 'slick', DROIT_WPBAKERY_VENDORS_URL.'/slick/slick.css', '', DROIT_WPBAKERY_ADDONS );
+			 wp_register_style( 'slick-theme', DROIT_WPBAKERY_VENDORS_URL.'/slick/slick-theme.css', '', DROIT_WPBAKERY_ADDONS );
+			 wp_register_style( 'odometer', DROIT_WPBAKERY_VENDORS_URL.'/odometer/odometer.css', '', DROIT_WPBAKERY_ADDONS );
+			
+			 wp_enqueue_style( 'pulse' );
+			 wp_enqueue_style( 'slick' );
+			 wp_enqueue_style( 'slick-theme' );
+			 wp_enqueue_style( 'odometer' );
+
+			 //  counter up
+	
+			 wp_enqueue_script('viewport', DROIT_WPBAKERY_VENDORS_URL.'/odometer/viewport.jquery.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_enqueue_script('odometer', DROIT_WPBAKERY_VENDORS_URL.'/odometer/odometer.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			
+			wp_enqueue_script('slick', DROIT_WPBAKERY_VENDORS_URL.'/slick/slick.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_enqueue_script('droit-wpbakery-addons-script', DROIT_WPBAKERY_JS_URL.'/droit-wpbakery-addons-script.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 
 		}
@@ -93,9 +105,44 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/testwidgets/testwidgets.php');
 				new shortcodes\testwidgtds\testwidgets;
-                // Heading   
+				
+				// Heading   
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/heading/heading.php');
 				new shortcodes\dt_heading\dt_heading;
+
+				// Scroll section 
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/scroll-to-section/scroll-to-section.php');
+				new shortcodes\dt_scroll_to_section\dt_scroll_to_section;
+
+				
+			//	 Gallery 
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/gallery/gallery.php');
+				new shortcodes\dt_gallery\dt_gallery;
+
+
+				//  Image Box 
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/image-box/image-box.php');
+				new shortcodes\dt_image_box\dt_image_box;
+
+				// Button
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/button/button.php');
+				new shortcodes\dt_button\dt_button;
+
+				// Carousel
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/carousel/carousel.php');
+				new shortcodes\dt_carousel\dt_carousel;
+				
+				// Counter Up
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/counter-up/counter-up.php');
+				new shortcodes\dt_counter_up\dt_counter_up;
+
+
 
 			}
 			
@@ -137,6 +184,3 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 	Droit_WPBakery_Addons::getInstance();
 }
-
-
-
