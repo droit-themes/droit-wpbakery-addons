@@ -71,6 +71,34 @@ jQuery(function($){
 				}
 			});
 		});
+	};
+ 
+	// testimonial Slider 
+	
+	if ($('.h_testimonial_slider_inner').length) {
+		$('.h_testimonial_slider').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+			draggable: false,
+			swipe: false,
+			pauseOnHover: false,
+			autoplay: true,
+			asNavFor: '.h_testimonial_thumb',
+		});
+		$('.h_testimonial_thumb').slick({
+			slidesToShow: 6,
+			slidesToScroll: 1,
+			asNavFor: '.h_testimonial_slider',
+			draggable: false,
+			swipe: false,
+			arrows: false,
+			dots: false,
+			autoplay: true,
+			infinite: false,
+			focusOnSelect: true,
+			responsive: [],
+		});
 	}
 
 });

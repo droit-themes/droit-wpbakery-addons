@@ -24,62 +24,19 @@ class dt_counter_up {
             "controls" => "full",
             "icon" => plugins_url('assets/asterisk_yellow.png', __FILE__), // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
-            "params" => array(
+            "params" => array_merge(array(
+      
                 array(
                     'type' => 'textfield',
-                    'heading' => esc_html__( 'Ttitle', 'droit-wbpakery-addons' ),
-                    'param_name' => 'dt_counter_up_title',
-                ),
-                array(
-                    'type' => 'textfield',
-                    'heading' => esc_html__( 'Conter Number', 'droit-wbpakery-addons' ),
-                    'param_name' => 'dt_btn_text',
+                    'heading' => esc_html__( 'Title ', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_cunter_up_title',
                 ),
                 array(
                     'type' => 'textfield',
-                    'heading' => esc_html__( 'Conter Number', 'droit-wbpakery-addons' ),
-                    'param_name' => 'dt_btn_text',
+                    'heading' => esc_html__( 'Counter Number', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_cunter_up_number',
                 ),
-                array(
-                    'type' => 'vc_link',
-                    'heading' => esc_html__( 'URL (Link)', 'droit-wbpakery-addons' ),
-                    'param_name' => 'dt_counter_up_link',
-                    'description' => esc_html__( 'Add link to button.', 'droit-wbpakery-addons' ),
-                ),
-                array(
-                    'type' => 'colorpicker',
-                    'heading' => esc_html__( 'Color', 'droit-wbpakery-addons' ),
-                    'param_name' => 'dt_counter_up_color',
-                    'description' => esc_html__( 'Color.', 'droit-wbpakery-addons' ),
-                    'param_holder_class' => 'vc_colored-dropdown vc_btn3-colored-dropdown',
-                    'edit_field_class' => 'vc_col-sm-2',
-                ),
-                array(
-                    'type' => 'colorpicker',
-                    'heading' => esc_html__( 'Hover Color', 'droit-wbpakery-addons' ),
-                    'param_name' => 'dt_btn_hover_color_with_border',
-                    'description' => esc_html__( 'Hover Color.', 'droit-wbpakery-addons' ),
-                    'param_holder_class' => 'vc_colored-dropdown vc_btn3-colored-dropdown',
-                    'edit_field_class' => 'vc_col-sm-2',
-                ),
-                array(
-                    'type' => 'textfield',
-                    'heading' => esc_html__( 'Font Size', 'droit-wbpakery-addons' ),
-                    'param_name' => 'dt_btn_font_size',
-                    'edit_field_class' => 'vc_col-sm-4',
-                ),
-                array(
-                    'type' => 'textfield',
-                    'heading' => esc_html__( 'Font Size icon', 'droit-wbpakery-addons' ),
-                    'param_name' => 'dt_btn_icon_font_size',
-                    'edit_field_class' => 'vc_col-sm-4',
-                ),
-                array(
-                    'type' => 'iconpicker',
-                    'heading' => esc_html__( 'Select Icon  ', 'droit-wbpakery-addons' ),
-                    'param_name' => 'dt_btn_icon_selector',
-                ),
-            )
+            ), vc_typography_selections('Title', 'title'), vc_typography_selections('Counter Number', 'number')),
         ) );
     }
     
@@ -89,7 +46,8 @@ class dt_counter_up {
     public function dt_counter_up_rander( $atts, $content = null ) {
 
       extract( shortcode_atts( array(
-        'dt_btn_text' => 'Discover more about Rave',
+        'dt_cunter_up_title' => 'Discover more about Rave',
+        'dt_cunter_up_number' => '30295',
       ), $atts ) );
      
       $output = dt_template_part('counter-up', null , $atts);

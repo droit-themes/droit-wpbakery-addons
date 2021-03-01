@@ -139,9 +139,9 @@ if(!function_exists('droit_getCSSAnimation')) {
 
 if(!function_exists('dt_get_attachment_image')) {
 	
-	function dt_get_attachment_image($id, $size = null) {
+	function dt_get_attachment_image($id, $size = 'thumbnail', $attr = []) {
 		
-		return wp_get_attachment_image($id, $size);
+		return wp_get_attachment_image($id, $size, '' , $attr);
 	}
 
 }
@@ -206,6 +206,46 @@ if(!function_exists('dt_link_before_after')) {
 
 		return '';
 		
+	}
+
+}
+
+if(!function_exists('vc_typography_selections')) {
+
+	function vc_typography_selections ( $group_title = 'Font Size', $id = null  ) {
+		return [
+			array(
+				'type' => 'textfield',
+				'heading' => esc_html__( $group_title, 'droit-wbpakery-addons' ),
+				'param_name' => 'dt_font_size_'.$id,
+				'edit_field_class' => 'vc_col-sm-3',
+				'group' => esc_html__( 'Typography', 'droit-wbpakery-addons' ),
+			),
+			array(
+				'type' => 'textfield',
+				'heading' => esc_html__( 'Line Height', 'droit-wbpakery-addons' ),
+				'param_name' => 'dt_line_height_'.$id,
+				'edit_field_class' => 'vc_col-sm-3',
+				'group' => esc_html__( 'Typography', 'droit-wbpakery-addons' ),
+			),
+			array(
+				'type' => 'dropdown',
+				'heading' => "Font Weight",
+				'param_name' => 'dt_font_weight_'.$id,
+				'value' => array( "100", "200", "300", "400", "500", "600", "700", "800", "900" ),
+				'group' => esc_html__( 'Typography', 'droit-wbpakery-addons' ),
+				'edit_field_class' => 'vc_col-sm-3',
+			),
+			array(
+				'type' => 'colorpicker',
+				'heading' => esc_html__( 'Color', 'droit-wbpakery-addons' ),
+				'param_name' => 'dt_font_color_'.$id,
+				'description' => esc_html__( 'Font Color.', 'droit-wbpakery-addons' ),
+				'edit_field_class' => 'vc_col-sm-3',
+				'group' => esc_html__( 'Typography', 'droit-wbpakery-addons' ),
+			),
+
+		];
 	}
 
 }

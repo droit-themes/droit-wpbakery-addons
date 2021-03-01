@@ -17,6 +17,12 @@ ul.list-unstyled.banner_dot{
 .bottom_btn {
   text-align: center;
 }
+.about_gallery li img {
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #aaaaaa;
+  box-shadow: 0px 30px 70px 0px #eff0f6;
+}
 
 .banner_dot li {
   position: absolute;

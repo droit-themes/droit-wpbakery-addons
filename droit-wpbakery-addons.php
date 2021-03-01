@@ -92,9 +92,10 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			 wp_enqueue_script('viewport', DROIT_WPBAKERY_VENDORS_URL.'/odometer/viewport.jquery.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_enqueue_script('odometer', DROIT_WPBAKERY_VENDORS_URL.'/odometer/odometer.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			
-			wp_enqueue_script('slick', DROIT_WPBAKERY_VENDORS_URL.'/slick/slick.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
-			wp_enqueue_script('droit-wpbakery-addons-script', DROIT_WPBAKERY_JS_URL.'/droit-wpbakery-addons-script.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
-
+			wp_register_script('slick', DROIT_WPBAKERY_VENDORS_URL.'/slick/slick.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_enqueue_script('slick');
+			wp_register_script('droit-wpbakery-addons-script', DROIT_WPBAKERY_JS_URL.'/droit-wpbakery-addons-script.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_enqueue_script('droit-wpbakery-addons-script');
 		}
 
 		// Load shortcode 
@@ -142,7 +143,10 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/counter-up/counter-up.php');
 				new shortcodes\dt_counter_up\dt_counter_up;
 
+				// Testimonial 
 
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/testimonial/testimonial.php');
+				new shortcodes\dt_testimonial\dt_testimonial;
 
 			}
 			
