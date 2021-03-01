@@ -147,6 +147,16 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/testimonial/testimonial.php');
 				new shortcodes\dt_testimonial\dt_testimonial;
+				
+				// Portfolio 
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/portfolio/portfolio.php');
+				new shortcodes\dt_portfolio\dt_portfolio;
+				
+				// Client Logo 
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/client-logo/client-logo.php');
+				new shortcodes\dt_clinet_logo\dt_clinet_logo;
 
 			}
 			
