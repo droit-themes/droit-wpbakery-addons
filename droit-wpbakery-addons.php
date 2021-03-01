@@ -158,6 +158,11 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/client-logo/client-logo.php');
 				new shortcodes\dt_clinet_logo\dt_clinet_logo;
 
+				//  Team 
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/team/team.php');
+				new shortcodes\dt_team\dt_team;
+
 			}
 			
 		}
