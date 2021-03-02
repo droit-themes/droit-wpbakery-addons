@@ -249,3 +249,32 @@ if(!function_exists('vc_typography_selections')) {
 	}
 
 }
+
+// estimation reading time count 
+if(!function_exists('dt_estimation_reading_count')) {
+   
+	function dt_estimation_reading_count ( $content ) {
+      
+		$word = str_word_count(strip_tags($content));
+	
+		$m = floor($word / 200);
+		$s = floor($word % 200 / (200 / 60));
+		$m_cont = $m>0 ? $m.' '.__('minute', 'droit-wbpakery-addons').($m == 1 ? ' ' : 's ') : '';
+		return $est = $m_cont . $s.' '. __('second', 'droit-wbpakery-addons') . ($s == 1 ? '' : 's').' '.__('read', 'droit-wbpakery-addons');
+
+	}
+}
+
+// get post content 
+if(!function_exists('dt_get_post_content')) {
+   
+	function dt_get_post_content ( $id ) {
+      
+		$content_post = get_post($id);
+		$content = $content_post->post_content;
+		$content = apply_filters('the_content', $content);
+		$content = str_replace(']]>', ']]&gt;', $content);
+        return $content;
+	}
+}
+

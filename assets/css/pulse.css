@@ -23,6 +23,27 @@ ul.list-unstyled.banner_dot{
   background-color: #aaaaaa;
   box-shadow: 0px 30px 70px 0px #eff0f6;
 }
+.home_news_list_inner.dt-vc{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+.home_news_features_item{
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+.home_news_list_inner .home_news_list_item{
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
 
 .banner_dot li {
   position: absolute;

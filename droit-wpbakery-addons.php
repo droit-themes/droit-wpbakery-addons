@@ -162,7 +162,11 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/team/team.php');
 				new shortcodes\dt_team\dt_team;
+				
+				//  post 
 
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/post/post.php');
+				new shortcodes\dt_post\dt_post;
 			}
 			
 		}
