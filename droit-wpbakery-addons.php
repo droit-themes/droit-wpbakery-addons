@@ -81,7 +81,9 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			 wp_register_style( 'slick', DROIT_WPBAKERY_VENDORS_URL.'/slick/slick.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'slick-theme', DROIT_WPBAKERY_VENDORS_URL.'/slick/slick-theme.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'odometer', DROIT_WPBAKERY_VENDORS_URL.'/odometer/odometer.css', '', DROIT_WPBAKERY_ADDONS );
+			 wp_register_style( 'animate', DROIT_WPBAKERY_CSS_URL.'/animate.css', '', DROIT_WPBAKERY_ADDONS );
 			
+			 wp_enqueue_style( 'animate' );
 			 wp_enqueue_style( 'pulse' );
 			 wp_enqueue_style( 'slick' );
 			 wp_enqueue_style( 'slick-theme' );
@@ -93,8 +95,11 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			wp_enqueue_script('odometer', DROIT_WPBAKERY_VENDORS_URL.'/odometer/odometer.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			
 			wp_register_script('slick', DROIT_WPBAKERY_VENDORS_URL.'/slick/slick.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
-			wp_enqueue_script('slick');
+			wp_register_script('ajax-chimp', DROIT_WPBAKERY_JS_URL.'/ajax-chimp.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_register_script('droit-wpbakery-addons-script', DROIT_WPBAKERY_JS_URL.'/droit-wpbakery-addons-script.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_register_script('wow', DROIT_WPBAKERY_JS_URL.'/wow.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_enqueue_script('wow');
+			wp_enqueue_script('slick');
 			wp_enqueue_script('droit-wpbakery-addons-script');
 		}
 
@@ -121,7 +126,6 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/gallery/gallery.php');
 				new shortcodes\dt_gallery\dt_gallery;
-
 
 				//  Image Box 
 
@@ -167,6 +171,11 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/post/post.php');
 				new shortcodes\dt_post\dt_post;
+
+				//  Subscribe form 
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/subscribe/subscribe.php');
+				new shortcodes\dt_subscribe\dt_subscribe;
 			}
 			
 		}
@@ -207,3 +216,4 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 	Droit_WPBakery_Addons::getInstance();
 }
+
