@@ -37,6 +37,13 @@ class dt_button {
                     'description' => esc_html__( 'Add link to button.', 'droit-wbpakery-addons' ),
                 ),
                 array(
+                    "type" => "checkbox",
+                    "heading" => __( "Show Top Border", "droit-wbpakery-addons" ),
+                    "param_name" => "dt_show_border_dispaly_yes",
+                    "value" => array(esc_html__('Yes', 'droit-wbpakery-addons') => 'yes'),
+                    "std"   => 'yes'
+                  ),   
+                array(
                     'type' => 'colorpicker',
                     'heading' => esc_html__( 'Color', 'droit-wbpakery-addons' ),
                     'param_name' => 'dt_button_color',

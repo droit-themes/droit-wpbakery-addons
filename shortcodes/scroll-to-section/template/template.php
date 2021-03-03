@@ -4,7 +4,7 @@ $uniqueu_class = wp_unique_id('scroll-to-section-');
 
 $btn_class[] = $uniqueu_class;
 $btn_class[] = vc_shortcode_custom_css_class($scroll_to_section_css);;
-$btn_class[] = 'bottom_btn scroll-t';
+$btn_class[] = 'bottom_btn scroll-t vc-scroll-to-section';
 $btn_class[] = $dt_scroll_to_section_custon_class;
 
 

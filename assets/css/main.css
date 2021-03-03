@@ -1,0 +1,17 @@
+.vc-scroll-to-section.bottom_btn{
+    position: initial;
+    text-align: center;
+    display: inline-block;
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0);
+}
+.overflow-visibale{
+    
+      overflow: visible !important;
+    
+    }
+.background-attachme-fix{
+    
+    background-attachment: fixed !important;
+}

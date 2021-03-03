@@ -2,10 +2,14 @@
 
 $args = array(
     'numberposts'      => 3,
-    'orderby'          => 'date',
-    'order'            => 'DESC',
+    'orderby'          => ($dt_select_protflow_orderby != '') ? $dt_select_protflow_orderby : 'date',
+    'order'            => ($dt_select_protflow_orderby != '') ? $dt_select_protflow_orderby : 'DESC',
     'post_type'        => 'portfolio',
 );
+
+if($dt_select_catagory != '' && $dt_category_dispaly == 'yes') {
+    $args['category'] =   $dt_select_catagory; 
+}
 
 $posts = get_posts($args);
 
