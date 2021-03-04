@@ -8,8 +8,14 @@ $args = array(
 );
 
 if($dt_select_catagory != '' && $dt_category_dispaly == 'yes') {
-    $args['category'] =   $dt_select_catagory; 
+    $args['tax_query'] =  [
+            [
+                'taxonomy' => 'portfolio_cat',
+                'terms' => $dt_select_catagory,
+            ]
+        ];
 }
+
 
 $posts = get_posts($args);
 

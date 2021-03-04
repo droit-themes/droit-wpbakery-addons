@@ -65,7 +65,7 @@ if('' != $get_post) :
             <?php if(has_post_thumbnail($post->ID)){ ?>
                 <div class="col-lg-6">
                     <div class="news_features_img wow fadeInRight" data-wow-delay="0.2s">
-                       <?php get_the_post_thumbnail($post->ID, array(400, 365)); ?>
+                       <?php echo get_the_post_thumbnail($post->ID, array(400, 365)); ?>
                     </div>
                 </div>
             <?php } ?>

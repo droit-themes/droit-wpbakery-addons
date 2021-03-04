@@ -132,4 +132,28 @@ jQuery(function($){
 		});
 	}
 	new WOW().init();
+
+	if (
+		$(
+			'#apps_craft_animation,#craft_animation,.stratup_banner_area,.banner_area'
+		).length > 0
+	) {
+		$(
+			'#apps_craft_animation,#craft_animation,.stratup_banner_area,.banner_area'
+		).parallax({
+			scalarX: 10.0,
+			scalarY: 10.0,
+		});
+	}
+
+	function parallax() {
+		if ($('.parallaxie').length) {
+			if ($(window).width() > 767) {
+				$('.parallaxie').parallaxie({
+					speed: 0.5,
+				});
+			}
+		}
+	}
+	parallax();
 });
