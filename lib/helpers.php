@@ -53,7 +53,9 @@ if(!function_exists('dt_extention_wp_kses')) {
             'br' => array(),
             'em' => array(),
             'strong' => array(),
-            'span'   => array()
+            'span'   => array(),
+			'sub'    => array(), 
+			'sup'    => array(), 
         );
 
       return  wp_kses($data, $allow_html);

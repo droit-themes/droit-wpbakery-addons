@@ -11,6 +11,7 @@ $p_unique_class = wp_unique_id('dt-counter-up-title-');
 <div class="counter_item text-center">
     <div class="odometer_content">
         <h3 class="<?php echo esc_attr( $title_class ); ?>" data-odometer-final="<?php echo esc_attr($dt_cunter_up_number); ?>"></h3>
+        <span class="<?php echo esc_attr( $title_unique_class ); ?>"><?php echo dt_extention_wp_kses($dt_cunter_up_suffix); ?></span>
     </div>
     <p class="<?php echo esc_attr( $p_unique_class ); ?>"><?php echo dt_extention_wp_kses($dt_cunter_up_title); ?></p>
 </div>           

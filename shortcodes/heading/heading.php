@@ -75,7 +75,7 @@ class dt_heading {
 
               ),
               array(
-                  "type" => "textfield",
+                  "type" => "textarea",
                   "holder" => "div",
                   "class" => "",
                   "heading" => __("Title", 'droit-wbpakery-addons'),
@@ -108,15 +108,6 @@ class dt_heading {
                 "heading" => __("Line height", 'droit-wbpakery-addons'),
                 "param_name" => "dt_title_line_height",
                 "description" => __("Title font size eg: 60px .", 'droit-wbpakery-addons'),
-                'group' => __( 'Title Style', 'droit-wbpakery-addons' ),
-              ),
-              array(
-                "type" => "textfield",
-                "holder" => "div",
-                "class" => "dt-title-font",
-                "heading" => __("Line height", 'droit-wbpakery-addons'),
-                "param_name" => "dt_title_line_height",
-                "description" => __("Title  font size line height eg: 60px .", 'droit-wbpakery-addons'),
                 'group' => __( 'Title Style', 'droit-wbpakery-addons' ),
               ),
               array(

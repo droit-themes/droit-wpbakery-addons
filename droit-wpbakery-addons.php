@@ -181,10 +181,6 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/subscribe/subscribe.php');
 				new shortcodes\dt_subscribe\dt_subscribe;
 
-				// Icon box 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/icon-box/icon-box.php');
-				new shortcodes\dt_icon_box\dt_icon_box;
 			}
 			
 		}

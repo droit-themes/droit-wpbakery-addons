@@ -36,6 +36,11 @@ class dt_counter_up {
                     'heading' => esc_html__( 'Counter Number', 'droit-wbpakery-addons' ),
                     'param_name' => 'dt_cunter_up_number',
                 ),
+                array(
+                    'type' => 'textarea',
+                    'heading' => esc_html__( 'Suffix', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_cunter_up_suffix',
+                ),
             ), vc_typography_selections('Title', 'title'), vc_typography_selections('Counter Number', 'number')),
         ) );
     }

@@ -471,7 +471,7 @@ function droit_icon_array() {
         array('icon-arrow-down-2' => esc_html__('Arrow Down 2', 'droit-wbpakery-addons')),
 	);
 }
-add_filter( 'vc_iconpicker-type-dt_icon_box', 'droit_icon_array' );
+add_filter( 'vc_iconpicker-type-droit_icon', 'droit_icon_array' );
 
 
 /**
