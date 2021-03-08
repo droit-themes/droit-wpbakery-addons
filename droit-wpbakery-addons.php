@@ -70,6 +70,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			$dir = DROIT_WPBAKERY_ADDONS_ABS_PATH. '/vc_droit_templates_dir';
 			vc_set_shortcodes_templates_dir( $dir );
 			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/helpers.php');
+			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/droit-icon.php');
 		}
 		
 		//  load droit wpbakery css and js
@@ -179,6 +180,11 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/subscribe/subscribe.php');
 				new shortcodes\dt_subscribe\dt_subscribe;
+
+				// Icon box 
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/icon-box/icon-box.php');
+				new shortcodes\dt_icon_box\dt_icon_box;
 			}
 			
 		}
