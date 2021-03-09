@@ -181,6 +181,11 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/subscribe/subscribe.php');
 				new shortcodes\dt_subscribe\dt_subscribe;
 
+				// image freame
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/image-frame/image-frame.php');
+				new shortcodes\dt_image_frame\dt_image_frame;
+
 			}
 			
 		}

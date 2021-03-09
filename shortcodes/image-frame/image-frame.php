@@ -61,7 +61,6 @@ class dt_image_frame {
                     ),
                    
                 )),
-              vc_map_add_css_animation(true),
             )
         ) );
     }
@@ -80,7 +79,7 @@ class dt_image_frame {
       ), $atts ) );
      
 
-      $output = dt_template_part('image-box', null , $atts);
+      $output = dt_template_part('image-frame', null , $atts);
      
       return $output;
       
