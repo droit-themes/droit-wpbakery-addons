@@ -64,6 +64,15 @@ class dt_heading {
                 'group' => __( 'Sub Title Style', 'droit-wbpakery-addons' ),
               ),
               array(
+                "type" => "textfield",
+                "holder" => "div",
+                "class" => "dt-subtitle-font",
+                "heading" => __("Font Wegiht", 'droit-wbpakery-addons'),
+                "param_name" => "dt_subtitle_font_weight",
+                "description" => __("Sub title font weight eg: 500 .", 'droit-wbpakery-addons'),
+                'group' => __( 'Sub Title Style', 'droit-wbpakery-addons' ),
+              ),
+              array(
                   "type" => "css_editor",
                   "holder" => "div",
                   "class" => "",
@@ -72,7 +81,6 @@ class dt_heading {
                   "value" => '#FF0000', 
                   "description" => __("Choose text color", 'droit-wbpakery-addons'),
                   'group' => __( 'Sub Title Style', 'droit-wbpakery-addons' ),
-
               ),
               array(
                   "type" => "textarea",
@@ -108,6 +116,15 @@ class dt_heading {
                 "heading" => __("Line height", 'droit-wbpakery-addons'),
                 "param_name" => "dt_title_line_height",
                 "description" => __("Title font size eg: 60px .", 'droit-wbpakery-addons'),
+                'group' => __( 'Title Style', 'droit-wbpakery-addons' ),
+              ),
+              array(
+                "type" => "textfield",
+                "holder" => "div",
+                "class" => "dt-title-font",
+                "heading" => __("Line height", 'droit-wbpakery-addons'),
+                "param_name" => "dt_title_font_wegiht",
+                "description" => __("Title font wight: 600 .", 'droit-wbpakery-addons'),
                 'group' => __( 'Title Style', 'droit-wbpakery-addons' ),
               ),
               array(
@@ -163,6 +180,15 @@ class dt_heading {
               "heading" => __("Line height", 'droit-wbpakery-addons'),
               "param_name" => "dt_title_description_line_height",
               "description" => __("Title description line height eg: 60px .", 'droit-wbpakery-addons'),
+              'group' => __( 'Description Style', 'droit-wbpakery-addons' ),
+            ),
+            array(
+              "type" => "textfield",
+              "holder" => "div",
+              "class" => "dt-title-font",
+              "heading" => __("Line height", 'droit-wbpakery-addons'),
+              "param_name" => "dt_title_description_font_weight",
+              "description" => __("Title description font weight eg: 400 .", 'droit-wbpakery-addons'),
               'group' => __( 'Description Style', 'droit-wbpakery-addons' ),
             ),
 

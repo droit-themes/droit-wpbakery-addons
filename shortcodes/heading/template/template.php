@@ -53,6 +53,11 @@ $title_desc_unique_class = wp_unique_id('dt-title-description-');
         $template_css[$subtitle_unique_class]['line-height'] =  $dt_subtitle_line_height;      
    }
 
+   if($dt_subtitle_font_weight != ''){
+       
+        $template_css[$subtitle_unique_class]['font-weight'] =  $dt_subtitle_font_weight;      
+   }
+
    //  title 
 
    if($dt_title_color != ''){
@@ -77,6 +82,10 @@ $title_desc_unique_class = wp_unique_id('dt-title-description-');
    if($dt_title_margin_bottom != ''){
        
         $template_css[$title_unique_class]['margin-bottom'] =  $dt_title_margin_bottom;      
+   }
+   if($dt_title_font_wegiht != ''){
+       
+        $template_css[$title_unique_class]['font-weight'] =  $dt_title_font_wegiht;      
    }
 
    // Title Description 
