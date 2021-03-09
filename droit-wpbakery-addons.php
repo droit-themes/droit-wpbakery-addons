@@ -185,6 +185,10 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/image-frame/image-frame.php');
 				new shortcodes\dt_image_frame\dt_image_frame;
+				
+				// pricing
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/pricing/pricing.php');
+				new shortcodes\dt_pricing\dt_pricing;
 
 			}
 			
