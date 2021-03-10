@@ -161,7 +161,7 @@ if(!function_exists('dt_return')) {
 
 if(!function_exists('dt_link_before_after')) {
 
-	function dt_link_before_after( $id = array(), $before_after ) {
+	function dt_link_before_after( $id = array(), $before_after,  $class = '' ) {
 		/**
 		 * Get link data
 		 * generate before after link with link attr 
@@ -191,7 +191,7 @@ if(!function_exists('dt_link_before_after')) {
 
 			if($url_attrs['url'] != ''){
 
-				$link_beofre = '<a '.esc_attr( $link_attr ).'>';  
+				$link_beofre = '<a '.esc_attr( $link_attr ).' class="'.$class.'">';  
 				$link_after = '</a>';
 
 			}

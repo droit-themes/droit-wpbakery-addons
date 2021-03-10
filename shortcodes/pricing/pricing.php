@@ -25,21 +25,15 @@ class dt_pricing {
             "icon" => plugins_url('assets/asterisk_yellow.png', __FILE__), // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
             "params" => array(
-              // array(
-              //   "type" => "checkbox",
-              //   "heading" => esc_html__( "Show Pricing Switch?", "droit-wbpakery-addons" ),
-              //   "param_name" => "dt_show_pricing_tab",
-              //   "value" => array(esc_html__('Yes', 'droit-wbpakery-addons') => 'yes'),
-              //   "std"   => 'yes'
-              // ),   
+              
               array(
                 'type' => 'dropdown',
                 'heading' => __( 'Tab or simple pricing',  "droit-wbpakery-addons" ),
                 'param_name' => 'dt_show_pricing_tab',
-                'default' => 'tab',
+                'default' => 'yes',
                 'value' => array(
-                  esc_html__( 'Image',  "droit-wbpakery-addons"  ) => 'simple',
-                  esc_html__( 'Icon',  "droit-wbpakery-addons"  ) => 'tab',
+                  esc_html__( 'Simple',  "droit-wbpakery-addons"  ) => 'simple',
+                  esc_html__( 'Tabs',  "droit-wbpakery-addons"  ) => 'yes',
                 ),
               ),
               array(
@@ -50,7 +44,7 @@ class dt_pricing {
                 "param_name" => "dt_pricing_tab_title",
                 'dependency' => array(
                   'element' => 'dt_show_pricing_tab',
-                  'not_empty' => TRUE,
+                  'value_not_equal_to' => 'simple',
                 ),
               ),
               array(
@@ -61,7 +55,7 @@ class dt_pricing {
                 "param_name" => "dt_pricing_tab_title_2",
                 'dependency' => array(
                   'element' => 'dt_show_pricing_tab',
-                  'not_empty' => TRUE,
+                  'value_not_equal_to' => 'simple',
                 ),
                ),
                array(
@@ -153,7 +147,7 @@ class dt_pricing {
                 'param_name' => 'droit_pricing_content_2',
                 'dependency' => array(
                   'element' => 'dt_show_pricing_tab',
-                  'not_empty' => TRUE,
+                  'value_not_equal_to' => 'simple',
                 ),
                 // Note params is mapped inside param-group:
                 'params' => array(
