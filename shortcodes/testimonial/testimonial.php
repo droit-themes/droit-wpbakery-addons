@@ -25,11 +25,20 @@ class dt_testimonial {
             "icon" => plugins_url('assets/asterisk_yellow.png', __FILE__), // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
             "params" => array_merge(array(
-      
+                array(
+                  'type' => 'dropdown',
+                  'heading' => __( 'Testimonial Style',  "droit-wbpakery-addons" ),
+                  'param_name' => 'dt_testimonial_style',
+                  'default' => 'yes',
+                  'value' => array(
+                    esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
+                    esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
+                  ),
+                ),
                 array(
                     'type' => 'textfield',
                     'heading' => esc_html__( 'Title ', 'droit-wbpakery-addons' ),
-                    'param_name' => 'dt_cunter_up_title',
+                    'param_name' => 'dt_testimonial_title',
                     'value'      => 'Testimonial'
                 ),
                 array(
@@ -76,9 +85,10 @@ class dt_testimonial {
       extract( shortcode_atts( array(
         'dt_cunter_up_title' => 'Discover more about Rave',
         'dt_cunter_up_number' => '30295',
+        'dt_testimonial_style' => '1'
       ), $atts ) );
      
-      $output = dt_template_part('testimonial', null , $atts);
+      $output = dt_template_part('testimonial', $dt_testimonial_style , $atts);
      
       return $output;
       

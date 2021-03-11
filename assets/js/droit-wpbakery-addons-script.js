@@ -156,4 +156,45 @@ jQuery(function($){
 		}
 	}
 	parallax();
+
+	if ($('.testimonial_slider').length) {
+		$('.testimonial_slider').slick({
+			slidesToShow: 2,
+			slidesToScroll: 1,
+			centerMode: true,
+			centerPadding: '350px',
+			autoplay: true,
+			nextArrow: '.next',
+			pauseOnHover: true,
+			autoplaySpeed: '1500',
+
+			responsive: [
+				{
+					breakpoint: 1000,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 1,
+						centerPadding: '200px',
+					},
+				},
+				{
+					breakpoint: 670,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1,
+						centerPadding: '400px',
+					},
+				},
+				{
+					breakpoint: 576,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1,
+						centerPadding: '0px',
+						centerMode: false,
+					},
+				},
+			],
+		});
+	}
 });

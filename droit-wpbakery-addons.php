@@ -70,6 +70,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			$dir = DROIT_WPBAKERY_ADDONS_ABS_PATH. '/vc_droit_templates_dir';
 			vc_set_shortcodes_templates_dir( $dir );
 			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/helpers.php');
+			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/controls.php');
 			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/droit-icon.php');
 		}
 		
@@ -189,6 +190,10 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				// pricing
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/pricing/pricing.php');
 				new shortcodes\dt_pricing\dt_pricing;
+				
+				// pricing
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/hero/hero.php');
+				new shortcodes\dt_hero\dt_hero;
 
 			}
 			
