@@ -49,6 +49,12 @@ class dt_hero {
                     'edit_field_class' => 'vc_col-sm-6',
                 ),
                 array(
+                    'type' => 'textfield',
+                    'heading' => esc_html__( 'Image Vertical Postion', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_hero_img_pos',
+                    'edit_field_class' => 'vc_col-sm-6',
+                ),
+                array(
                     'type' => 'attach_image',
                     'heading' => esc_html__( 'Animated image', 'droit-wbpakery-addons' ),
                     'param_name' => 'dt_hero_animate_image',
@@ -61,7 +67,7 @@ class dt_hero {
                     'description' => esc_html__( 'Font Color.', 'droit-wbpakery-addons' ),
                     'edit_field_class' => 'vc_col-sm-3',
                 ),
-            ), dt_button_control('hero'), vc_typography_selections('Hero title', 'hero_title'), vc_typography_selections('Hero Title', 'hero_subtitle'), vc_typography_selections('Hero description', 'hero_description')),
+            ), dt_button_control('hero'), vc_typography_selections('Hero title', 'hero_title'), vc_typography_selections('Hero Sub Title', 'hero_subtitle'), vc_typography_selections('Hero description', 'hero_description')),
          
         ));
     }

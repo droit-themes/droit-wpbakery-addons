@@ -29,3 +29,26 @@ background-image: linear-gradient(
 .height-initial .saas_banner_content{
   height: initial;
 }
+
+.dd-flex{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.dd-inline-flex{
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.dd-align-item-center{
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+              -ms-grid-row-align: center;
+          align-items: center;
+}
+.startup_btn i{
+  margin-right: 5px;
+}
+.startup_btn.icon-right i{
+  margin-left: 5px;
+}

@@ -99,7 +99,7 @@ if('' != $get_post) :
             <div class="news_btn">
                
                 <span><?php echo dt_estimation_reading_count(dt_get_post_content($post->ID)); ?></span>
-                <a href="<?php echo esc_url( get_the_permalink( $post-ID) ); ?>" class="agency_learn_btn h_text_btn" data-text="<?php echo esc_attr__('Continue Reading', 'droit-wbpakery-addons'); ?>"><?php echo esc_html__('Continue
+                <a href="<?php echo esc_url( get_the_permalink( $post->ID) ); ?>" class="agency_learn_btn h_text_btn" data-text="<?php echo esc_attr__('Continue Reading', 'droit-wbpakery-addons'); ?>"><?php echo esc_html__('Continue
                     Reading', 'droit-wbpakery-addons'); ?>
                     <i class="ti-arrow-right"></i>
                 </a>

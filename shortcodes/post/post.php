@@ -26,6 +26,16 @@ class dt_post {
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
             "params" => array_merge(array(
               array(
+                'type' => 'dropdown',
+                'heading' => __( 'Post Style',  "droit-wbpakery-addons" ),
+                'param_name' => 'dt_post_style',
+                'default' => 'yes',
+                'value' => array(
+                  esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
+                  esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
+                ),
+              ),
+              array(
                 "type" => "checkbox",
                 "heading" => __( "Select Category", "droit-wbpakery-addons" ),
                 "param_name" => "dt_category_dispaly",
@@ -86,6 +96,10 @@ class dt_post {
                     "description" => __( "Display sticky post ? ", "droit-wbpakery-addons" ),
                     "param_name" => "dt_ignor_stcky",
                     "value" => array(esc_html__('Yes', 'droit-wbpakery-addons') => 'yes'),
+                    'dependency'    => array(
+                      'element'   => 'dt_post_style',
+                      'value'     => '1'
+                      )  
                   ),  
             ), vc_typography_selections('Title', 'title')),
         ) );
@@ -122,9 +136,10 @@ class dt_post {
 
       extract( shortcode_atts( array(
         'dt_select_post_order' => 'DESC',
+        'dt_post_style'        => 1,
       ), $atts ) );
-     
-      $output = dt_template_part('post', null , $atts);
+    
+      $output = dt_template_part('post', $dt_post_style , $atts);
      
       return $output;
       

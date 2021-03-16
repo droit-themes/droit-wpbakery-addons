@@ -84,7 +84,7 @@ if(!function_exists('dt_button_control')) {
             array(
                 'type' => 'dropdown',
                 'heading' => __( 'Icon Position',  "droit-wbpakery-addons" ),
-                'param_name' => 'dt_client_logo_style_list'.$id,
+                'param_name' => 'dt_hero_btn_icon_'.$id,
                 'default' => 'left',
                 'value' => array(
                   esc_html__( 'Left',  "droit-wbpakery-addons"  ) => 'left',
@@ -99,7 +99,7 @@ if(!function_exists('dt_button_control')) {
               array(
                 'type' => 'textfield',
                 'heading' => esc_html__( 'Icon left Margin', 'droit-wbpakery-addons' ),
-                'param_name' => 'dt_btn_left_margin'.$id,
+                'param_name' => 'dt_btn_left_margin_'.$id,
                 'group' => esc_html__( 'Button', 'droit-wbpakery-addons' ),
                 'edit_field_class' => 'vc_col-sm-6',
                 'dependency' => array(
@@ -110,7 +110,7 @@ if(!function_exists('dt_button_control')) {
             array(
                 'type' => 'textfield',
                 'heading' => esc_html__( 'Icon Right Margin', 'droit-wbpakery-addons' ),
-                'param_name' => 'dt_btn_right_margin'.$id,
+                'param_name' => 'dt_btn_right_margin_'.$id,
                 'group' => esc_html__( 'Button', 'droit-wbpakery-addons' ),
                 'edit_field_class' => 'vc_col-sm-6',
                 'dependency' => array(
@@ -123,7 +123,7 @@ if(!function_exists('dt_button_control')) {
             array(
                 'type' => 'textfield',
                 'heading' => esc_html__( 'Font Size', 'droit-wbpakery-addons' ),
-                'param_name' => 'dt_btn_font_size'.$id,
+                'param_name' => 'dt_btn_font_size_'.$id,
                 'group' => esc_html__( 'Button typography', 'droit-wbpakery-addons' ),
                 'edit_field_class' => 'vc_col-sm-4',
             ),
@@ -131,7 +131,7 @@ if(!function_exists('dt_button_control')) {
             array(
                 'type' => 'textfield',
                 'heading' => esc_html__( 'Line Height', 'droit-wbpakery-addons' ),
-                'param_name' => 'dt_btn_font_line_height'.$id,
+                'param_name' => 'dt_btn_font_line_height_'.$id,
                 'group' => esc_html__( 'Button typography', 'droit-wbpakery-addons' ),
                 'edit_field_class' => 'vc_col-sm-4',
             ),
@@ -139,7 +139,7 @@ if(!function_exists('dt_button_control')) {
             array(
                 'type' => 'textfield',
                 'heading' => esc_html__( 'Font Weight', 'droit-wbpakery-addons' ),
-                'param_name' => 'dt_btn_font_weight'.$id,
+                'param_name' => 'dt_btn_font_weight_'.$id,
                 'group' => esc_html__( 'Button typography', 'droit-wbpakery-addons' ),
                 'edit_field_class' => 'vc_col-sm-4',
             ),
@@ -147,7 +147,7 @@ if(!function_exists('dt_button_control')) {
             array(
                 'type' => 'textfield',
                 'heading' => esc_html__( 'Border', 'droit-wbpakery-addons' ),
-                'param_name' => 'dt_btn_border_width'.$id,
+                'param_name' => 'dt_btn_border_width_'.$id,
                 'group' => esc_html__( 'Button typography', 'droit-wbpakery-addons' ),
                 'edit_field_class' => 'vc_col-sm-4',
             ),
@@ -156,11 +156,11 @@ if(!function_exists('dt_button_control')) {
                 "type" => "colorpicker",
                 "class" => "",
                 "heading" => __( "Border color", "droit-wbpakery-addons" ),
-                "param_name" => "dt_button_border_color".$id,
+                "param_name" => "dt_button_border_color_".$id,
                 "value" => '', //Default Red color
                 'group' => esc_html__( 'Button typography', 'droit-wbpakery-addons' ),
                 'dependency' => array(
-                    'element' => 'dt_btn_border_width'.$id,
+                    'element' => 'dt_btn_border_width_'.$id,
                     'not_empty' => TRUE
                   ),
                   'edit_field_class' => 'vc_col-sm-4',
@@ -170,11 +170,11 @@ if(!function_exists('dt_button_control')) {
                 "type" => "colorpicker",
                 "class" => "",
                 "heading" => __( "Border hover color", "droit-wbpakery-addons" ),
-                "param_name" => "dt_button_border_color_hover".$id,
+                "param_name" => "dt_button_border_color_hover_".$id,
                 "value" => '', //Default Red color
                 'group' => esc_html__( 'Button typography', 'droit-wbpakery-addons' ),
                 'dependency' => array(
-                    'element' => 'dt_btn_border_width'.$id,
+                    'element' => 'dt_btn_border_width_'.$id,
                     'not_empty' => TRUE
                   ),
                   'edit_field_class' => 'vc_col-sm-4',
@@ -204,7 +204,7 @@ if(!function_exists('dt_button_control')) {
                 "type" => "colorpicker",
                 "class" => "",
                 "heading" => __( "Backgroud Color", "droit-wbpakery-addons" ),
-                "param_name" => "dt_button_color_".$id,
+                "param_name" => "dt_button_bg_color_".$id,
                 "value" => '', //Default Red color
                 'group' => esc_html__( 'Button typography', 'droit-wbpakery-addons' ),
                  'edit_field_class' => 'vc_col-sm-4',
@@ -214,7 +214,7 @@ if(!function_exists('dt_button_control')) {
                 "type" => "colorpicker",
                 "class" => "",
                 "heading" => __( "Background hover color", "droit-wbpakery-addons" ),
-                "param_name" => "dt_button_hover_color_".$id,
+                "param_name" => "dt_button_bg_hover_color_".$id,
                 "value" => '', //Default Red color
                 'group' => esc_html__( 'Button typography', 'droit-wbpakery-addons' ),
                

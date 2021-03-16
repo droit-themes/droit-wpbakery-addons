@@ -143,7 +143,7 @@ if(!function_exists('dt_get_attachment_image')) {
 	
 	function dt_get_attachment_image($id, $size = 'thumbnail', $attr = []) {
 		
-		return wp_get_attachment_image($id, $size, '' , $attr);
+		return wp_get_attachment_image($id, $size, null , $attr);
 	}
 
 }

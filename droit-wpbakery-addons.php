@@ -191,9 +191,14 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/pricing/pricing.php');
 				new shortcodes\dt_pricing\dt_pricing;
 				
-				// pricing
+				// hero
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/hero/hero.php');
 				new shortcodes\dt_hero\dt_hero;
+
+				// service 
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/service/service.php');
+				new shortcodes\dt_service\dt_service;
 
 			}
 			
