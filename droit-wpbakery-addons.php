@@ -200,6 +200,11 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/service/service.php');
 				new shortcodes\dt_service\dt_service;
 
+				//  Icon list 
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/iconlist/iconlist.php');
+				new shortcodes\dt_icon_list\dt_icon_list;
+
 			}
 			
 		}

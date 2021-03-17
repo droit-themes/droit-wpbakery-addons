@@ -10,6 +10,7 @@ if(!function_exists('vc_typography_selections')) {
 				'param_name' => 'dt_font_size_'.$id,
 				'edit_field_class' => 'vc_col-sm-3',
 				'group' => esc_html__( 'Typography', 'droit-wbpakery-addons' ),
+                'description' => esc_html__( 'Font Size', 'droit-wbpakery-addons' ),
 			),
 			array(
 				'type' => 'textfield',
@@ -17,6 +18,7 @@ if(!function_exists('vc_typography_selections')) {
 				'param_name' => 'dt_line_height_'.$id,
 				'edit_field_class' => 'vc_col-sm-3',
 				'group' => esc_html__( 'Typography', 'droit-wbpakery-addons' ),
+                'description' => esc_html__( 'Line Height', 'droit-wbpakery-addons' ),
 			),
 			array(
 				'type' => 'dropdown',
@@ -25,6 +27,7 @@ if(!function_exists('vc_typography_selections')) {
 				'value' => array( "100", "200", "300", "400", "500", "600", "700", "800", "900" ),
 				'group' => esc_html__( 'Typography', 'droit-wbpakery-addons' ),
 				'edit_field_class' => 'vc_col-sm-3',
+                'description' => esc_html__( 'Font Weight', 'droit-wbpakery-addons' ),
 			),
 			array(
 				'type' => 'colorpicker',
@@ -33,6 +36,7 @@ if(!function_exists('vc_typography_selections')) {
 				'description' => esc_html__( 'Font Color.', 'droit-wbpakery-addons' ),
 				'edit_field_class' => 'vc_col-sm-3',
 				'group' => esc_html__( 'Typography', 'droit-wbpakery-addons' ),
+                'description' => esc_html__( 'Font color', 'droit-wbpakery-addons' ),
 			),
 
 		];
@@ -224,4 +228,144 @@ if(!function_exists('dt_button_control')) {
          ];
 
     }
+}
+
+if(!function_exists('vc_iconfont_selections')) {
+
+	function vc_iconfont_selections ( $id = null  ) {
+		return [
+            array(
+                'type' => 'dropdown',
+                'heading' => __( 'Style',  "droit-wbpakery-addons" ),
+                'param_name' => 'icon_type',
+                'default' => 'droit_icon',
+                'value' => array(
+                    esc_html__( 'Droit',  "droit-wbpakery-addons"  ) => 'droit_icon',
+                    esc_html__( 'Font Awesome 5', 'js_composer' ) => 'fontawesome',
+                    esc_html__( 'Open Iconic', 'js_composer' ) => 'openiconic',
+                    esc_html__( 'Typicons', 'js_composer' ) => 'typicons',
+                    esc_html__( 'Entypo', 'js_composer' ) => 'entypo',
+                    esc_html__( 'Linecons', 'js_composer' ) => 'linecons',
+                    esc_html__( 'Mono Social', 'js_composer' ) => 'monosocial',
+                    esc_html__( 'Image', 'js_composer' ) => 'image',
+                ),
+              ),
+            array(
+                "type" => "iconpicker",
+                'param_name' => 'icon_picker_droit_icon',
+                "holder" => "div",
+                "heading" => __("Icon ", 'droit-wbpakery-addons'),
+                "settings" => array(
+                    'emptyIcon' => false,
+                    'type' => 'droit_icon',
+                    'iconsPerPage' => 200,
+                ),
+                'dependency' => array(
+                  'element' => 'icon_type',
+                  'value' => 'droit_icon',
+                ),
+              ),
+              array(
+                "type" => "iconpicker",
+                'param_name' => 'icon_picker_fontawesome',
+                "holder" => "div",
+                "heading" => __("Icon ", 'droit-wbpakery-addons'),
+                "settings" => array(
+                    'emptyIcon' => false,
+                    'type' => 'fontawesome',
+                    'iconsPerPage' => 200,
+                ),
+                'dependency' => array(
+                  'element' => 'icon_type',
+                  'value' => 'fontawesome',
+                ),
+              ),
+              array(
+                "type" => "iconpicker",
+                'param_name' => 'icon_picker_openiconic',
+                "holder" => "div",
+                "heading" => __("Icon ", 'droit-wbpakery-addons'),
+                "settings" => array(
+                    'emptyIcon' => false,
+                    'type' => 'openiconic',
+                    'iconsPerPage' => 200,
+                ),
+                'dependency' => array(
+                  'element' => 'icon_type',
+                  'value' => 'openiconic',
+                ),
+              ),  
+              array(
+                "type" => "iconpicker",
+                'param_name' => 'icon_picker_typicons',
+                "holder" => "div",
+                "heading" => __("Icon ", 'droit-wbpakery-addons'),
+                "settings" => array(
+                    'emptyIcon' => false,
+                    'type' => 'typicons',
+                    'iconsPerPage' => 200,
+                ),
+                'dependency' => array(
+                  'element' => 'icon_type',
+                  'value' => 'typicons',
+                ),
+              ),  
+              array(
+                "type" => "iconpicker",
+                'param_name' => 'icon_picker_entypo',
+                "holder" => "div",
+                "heading" => __("Icon ", 'droit-wbpakery-addons'),
+                "settings" => array(
+                    'emptyIcon' => false,
+                    'type' => 'entypo',
+                    'iconsPerPage' => 200,
+                ),
+                'dependency' => array(
+                  'element' => 'icon_type',
+                  'value' => 'entypo',
+                ),
+              ),  
+              array(
+                "type" => "iconpicker",
+                'param_name' => 'icon_picker_linecons',
+                "holder" => "div",
+                "heading" => __("Icon ", 'droit-wbpakery-addons'),
+                "settings" => array(
+                    'emptyIcon' => false,
+                    'type' => 'linecons',
+                    'iconsPerPage' => 200,
+                ),
+                'dependency' => array(
+                  'element' => 'icon_type',
+                  'value' => 'linecons',
+                ),
+              ),  
+              array(
+                "type" => "iconpicker",
+                'param_name' => 'icon_picker_monosocial',
+                "holder" => "div",
+                "heading" => __("Icon ", 'droit-wbpakery-addons'),
+                "settings" => array(
+                    'emptyIcon' => false,
+                    'type' => 'monosocial',
+                    'iconsPerPage' => 200,
+                ),
+                'dependency' => array(
+                  'element' => 'icon_type',
+                  'value' => 'monosocial',
+                ),
+              ),
+              array(
+                "type" => "attach_image",
+                'param_name' => 'icon_picker_image',
+                "holder" => "div",
+                "heading" => __("Image ", 'droit-wbpakery-addons'),
+                'dependency' => array(
+                  'element' => 'icon_type',
+                  'value' => 'image',
+                ),
+              ),
+		];
+	}
+
 }
