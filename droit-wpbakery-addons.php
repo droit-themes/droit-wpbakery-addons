@@ -142,6 +142,11 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/button/button.php');
 				new shortcodes\dt_button\dt_button;
 
+				//  greadent button 
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/greadent-button/greadent-button.php');
+				new shortcodes\dt_greadent_button\dt_greadent_button;
+
 				// Carousel
 
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/carousel/carousel.php');
