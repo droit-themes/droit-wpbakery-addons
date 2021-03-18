@@ -22,7 +22,7 @@ class dt_image_frame {
             "base" => "dt_image_frame",
             "class" => "",
             "controls" => "full",
-            "icon" => plugins_url('assets/asterisk_yellow.png', __FILE__), // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
+            "icon" => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
             "params" => array(
                 array(
@@ -31,6 +31,18 @@ class dt_image_frame {
                   "heading" => __("Image", 'droit-wbpakery-addons'),
                   "param_name" => "dt_image_frame_img_main",
               ),
+              array(
+                'type' => 'dropdown',
+                'heading' => __( 'Image Aligment',  "droit-wbpakery-addons" ),
+                'param_name' => 'dt_frame_aligment',
+                'default' => 'left',
+                'value' => array(
+                  __( 'Let',  "droit-wbpakery-addons"  ) => 'left',
+                  __( 'Right',  "droit-wbpakery-addons"  ) => 'right',
+                  __( 'Center',  "droit-wbpakery-addons"  ) => 'center',
+                ),
+                "description" => __( "Text aligment", "droit-wbpakery-addons" )
+            ),
               array(
                 'type' => 'param_group',
                 'value' => '',
@@ -58,6 +70,14 @@ class dt_image_frame {
                         "class" => "",
                         "heading" => __("Title", 'droit-wbpakery-addons'),
                         "param_name" => "dt_image_frame_left",
+                    ),
+
+                    array(
+                        "type" => "textfield",
+                        "holder" => "div",
+                        "class" => "",
+                        "heading" => __("Z Index", 'droit-wbpakery-addons'),
+                        "param_name" => "dt_image_frame_z_index",
                     ),
                    
                 )),

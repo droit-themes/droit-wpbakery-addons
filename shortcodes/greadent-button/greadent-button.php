@@ -46,29 +46,24 @@ class dt_greadent_button {
                     "heading" => __( "Add Icon?", "droit-wbpakery-addons" ),
                     "param_name" => "dt_button_icon_used",
                     "value" => array(esc_html__('Yes', 'droit-wbpakery-addons') => 'yes'),
-                    "std"   => '',
+                    "std"   => 'yes',
                     'group' => esc_html__( 'Button', 'droit-wbpakery-addons' ),
                   ), 
                   array(
                     'type' => 'dropdown',
                     'heading' => __( 'Style',  "droit-wbpakery-addons" ),
-                    'param_name' => 'icon_type',
+                    'param_name' => 'icon_type_gd_button',
                     'default' => 'droit_icon',
                     'value' => array(
+                        esc_html__( 'Select Icon Type',  "droit-wbpakery-addons"  ) => '',
                         esc_html__( 'Droit',  "droit-wbpakery-addons"  ) => 'droit_icon',
                         esc_html__( 'Font Awesome 5', 'js_composer' ) => 'fontawesome',
-                        esc_html__( 'Open Iconic', 'js_composer' ) => 'openiconic',
-                        esc_html__( 'Typicons', 'js_composer' ) => 'typicons',
-                        esc_html__( 'Entypo', 'js_composer' ) => 'entypo',
-                        esc_html__( 'Linecons', 'js_composer' ) => 'linecons',
-                        esc_html__( 'Mono Social', 'js_composer' ) => 'monosocial',
-                        esc_html__( 'Image', 'js_composer' ) => 'image',
-                        
+                        esc_html__( 'Open Iconic', 'js_composer' ) => 'openiconic',                        
                     ),
                     'group' => esc_html__( 'Button', 'droit-wbpakery-addons' ),
                     'dependency' => array(
                         'element' => 'dt_button_icon_used',
-                        'not_empty' => TRUE
+                        'value' => 'yes',
                       ),
                   ),    
                 array(
@@ -81,11 +76,28 @@ class dt_greadent_button {
                         'iconsPerPage' => 200,
                     ),
                     "heading" => __("Button icon", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_button_icon",
+                    "param_name" => "dt_button_icon__droit_icon",
                     'group' => esc_html__( 'Button', 'droit-wbpakery-addons' ),
                      'dependency' => array(
-                      'element' => 'icon_type',
+                      'element' => 'icon_type_gd_button',
                       'value' => 'droit_icon',
+                    ),
+                ),
+                array(
+                    "type" => "iconpicker",
+                    "holder" => "div",
+                    "class" => "",
+                    "settings" => array(
+                        'emptyIcon' => false,
+                        'type' => 'openiconic',
+                        'iconsPerPage' => 200,
+                    ),
+                    "heading" => __("Button icon", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_button_icon__openiconic",
+                    'group' => esc_html__( 'Button', 'droit-wbpakery-addons' ),
+                     'dependency' => array(
+                      'element' => 'icon_type_gd_button',
+                      'value' => 'openiconic',
                     ),
                 ),
                 array(
@@ -98,17 +110,17 @@ class dt_greadent_button {
                         'iconsPerPage' => 200,
                     ),
                     "heading" => __("Button icon", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_button_icon",
+                    "param_name" => "dt_button_icon__fontawesome",
                     'group' => esc_html__( 'Button', 'droit-wbpakery-addons' ),
                      'dependency' => array(
-                      'element' => 'icon_type',
+                      'element' => 'icon_type_gd_button',
                       'value' => 'fontawesome',
                     ),
                 ),
                 array(
                     'type' => 'dropdown',
                     'heading' => __( 'Icon Position',  "droit-wbpakery-addons" ),
-                    'param_name' => 'dt_hero_btn_icon',
+                    'param_name' => 'dt_gd_icon_pos',
                     'default' => 'left',
                     'value' => array(
                       esc_html__( 'Left',  "droit-wbpakery-addons"  ) => 'left',
@@ -227,8 +239,28 @@ class dt_greadent_button {
                 array(
                     "type" => "colorpicker",
                     "class" => "",
-                    "heading" => __( "Backgroud Color", "droit-wbpakery-addons" ),
-                    "param_name" => "dt_button_bg_color",
+                    "heading" => __( "Backgroud Greadent Color 1", "droit-wbpakery-addons" ),
+                    "param_name" => "dt_button_bg_color_1",
+                    "value" => '', //Default Red color
+                    'group' => esc_html__( 'Button typography', 'droit-wbpakery-addons' ),
+                     'edit_field_class' => 'vc_col-sm-4',
+                ),
+
+                array(
+                    "type" => "colorpicker",
+                    "class" => "",
+                    "heading" => __( "Backgroud Greadent Color 2", "droit-wbpakery-addons" ),
+                    "param_name" => "dt_button_bg_color_2",
+                    "value" => '', //Default Red color
+                    'group' => esc_html__( 'Button typography', 'droit-wbpakery-addons' ),
+                     'edit_field_class' => 'vc_col-sm-4',
+                ),
+
+                array(
+                    "type" => "colorpicker",
+                    "class" => "",
+                    "heading" => __( "Backgroud Greadent Color 3", "droit-wbpakery-addons" ),
+                    "param_name" => "dt_button_bg_color_3",
                     "value" => '', //Default Red color
                     'group' => esc_html__( 'Button typography', 'droit-wbpakery-addons' ),
                      'edit_field_class' => 'vc_col-sm-4',
@@ -237,8 +269,30 @@ class dt_greadent_button {
                 array(
                     "type" => "colorpicker",
                     "class" => "",
-                    "heading" => __( "Background hover color", "droit-wbpakery-addons" ),
-                    "param_name" => "dt_button_bg_hover_color",
+                    "heading" => __( "Background Greadent hover color 1", "droit-wbpakery-addons" ),
+                    "param_name" => "dt_button_bg_hover_color_1",
+                    "value" => '', //Default Red color
+                    'group' => esc_html__( 'Button typography', 'droit-wbpakery-addons' ),
+                   
+                    'edit_field_class' => 'vc_col-sm-4',
+                ),
+
+                array(
+                    "type" => "colorpicker",
+                    "class" => "",
+                    "heading" => __( "Background Greadent hover color 2", "droit-wbpakery-addons" ),
+                    "param_name" => "dt_button_bg_hover_color_2",
+                    "value" => '', //Default Red color
+                    'group' => esc_html__( 'Button typography', 'droit-wbpakery-addons' ),
+                   
+                    'edit_field_class' => 'vc_col-sm-4',
+                ),
+
+                array(
+                    "type" => "colorpicker",
+                    "class" => "",
+                    "heading" => __( "Background Greadent hover color 3", "droit-wbpakery-addons" ),
+                    "param_name" => "dt_button_bg_hover_color_3",
                     "value" => '', //Default Red color
                     'group' => esc_html__( 'Button typography', 'droit-wbpakery-addons' ),
                    
@@ -254,11 +308,11 @@ class dt_greadent_button {
     public function dt_greadent_button_rander( $atts, $content = null ) {
 
       extract( shortcode_atts( array(
-        'dt_btn_text' => 'Discover more about Rave',
+        'dt_btn_text' => 'Download For Free',
       ), $atts ) );
      
       $output = dt_template_part('greadent-button', null , $atts);
-     
+    
       return $output;
       
     }
@@ -267,10 +321,8 @@ class dt_greadent_button {
     Load plugin css and javascript files which you may need on front end of your site
     */
     public function dt_greadent_button_loadCssAndJs() {
-      wp_register_style( 'dt_extend_style', plugins_url('assets/droit-wbpakery-addons.css', __FILE__) );
 
-      // If you need any javascript files on front end, here is how you can load them.
-      //wp_enqueue_script( 'droit-wbpakery-addons_js', plugins_url('assets/droit-wbpakery-addons.js', __FILE__), array('jquery') );
+      wp_register_style( 'dt_greadent_button_style', plugins_url('assets/css/greadent-button.css', __FILE__) );
     }
 }
 // Finally initialize code

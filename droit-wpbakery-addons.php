@@ -57,12 +57,55 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			}
 			$attributes = array(
 				array(
+					'type' => 'checkbox',
+					'heading' => "Enable Dot Shap",
+					'param_name' => 'dt_enable_dot_shap',
+					'value' => array( 'Dot Shap' => 'Yes' ),
+					'description' => __( "It will be apper section left side", "droit-wbpakery-addons" )
+					),
+
+				array(
 				'type' => 'checkbox',
 				'heading' => "Pulse Effect",
 				'param_name' => 'pulse_effect',
 				'value' => array( 'pulse' => 'Yes' ),
 				'description' => __( "Enable Pulse Effect On Your Section", "droit-wbpakery-addons" )
 				),
+
+				array(
+					'type' => 'checkbox',
+					'heading' => "Use Greadent Background ?",
+					'param_name' => 'dt_gection_greading_bg',
+					'value' => array( 'Greadent' => 'yes' ),
+					'description' => __( "Enable Greadent Background On Your Section", "droit-wbpakery-addons" )
+					),
+				array(
+                    "type" => "colorpicker",
+                    "class" => "",
+                    "heading" => __( "Backgroud Greadent Color 1", "droit-wbpakery-addons" ),
+                    "param_name" => "dt_section_background_color_1",
+                    "value" => '', //Default Red color
+                     'edit_field_class' => 'vc_col-sm-6',
+					 'dependency' => array(
+                        'element' => 'dt_gection_greading_bg',
+                        'value' => 'yes'
+                      ),
+                ),
+
+                array(
+                    "type" => "colorpicker",
+                    "class" => "",
+                    "heading" => __( "Backgroud Greadent Color 2", "droit-wbpakery-addons" ),
+                    "param_name" => "dt_section_background_color_2",
+                    "value" => '', //Default Red color
+                    'edit_field_class' => 'vc_col-sm-6',
+					'dependency' => array(
+                        'element' => 'dt_gection_greading_bg',
+                        'value' => 'yes'
+                      ),
+                ),
+
+    
 			  );
 			  vc_add_params( 'vc_section', $attributes ); // Note: 'vc_message' was used as a base for "Message box" element
 			  
@@ -79,17 +122,20 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 		public function droit_wpbakery_scripts () {
 
 			 wp_register_style( 'pulse', DROIT_WPBAKERY_CSS_URL.'/pulse.css', '', DROIT_WPBAKERY_ADDONS );
+			 wp_register_style( 'dt_wp_inline_style', DROIT_WPBAKERY_CSS_URL.'/section.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'dt-vc-main', DROIT_WPBAKERY_CSS_URL.'/main.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'slick', DROIT_WPBAKERY_VENDORS_URL.'/slick/slick.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'slick-theme', DROIT_WPBAKERY_VENDORS_URL.'/slick/slick-theme.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'odometer', DROIT_WPBAKERY_VENDORS_URL.'/odometer/odometer.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'animate', DROIT_WPBAKERY_CSS_URL.'/animate.css', '', DROIT_WPBAKERY_ADDONS );
+			 wp_register_style( 'droit-wbpakery-addons', DROIT_WPBAKERY_CSS_URL.'/droit-wbpakery-addons.css', '', DROIT_WPBAKERY_ADDONS );
 			
 			 wp_enqueue_style( 'animate' );
 			 wp_enqueue_style( 'pulse' );
 			 wp_enqueue_style( 'slick' );
 			 wp_enqueue_style( 'slick-theme' );
 			 wp_enqueue_style( 'odometer' );
+			 wp_enqueue_style( 'droit-wbpakery-addons' );
 
 			 //  counter up
 	

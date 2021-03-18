@@ -101,6 +101,23 @@ if($pulse_effect){
 	$pulse_content = '<ul class="list-unstyled banner_dot_two"> <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul><ul class="list-unstyled banner_dot"> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li></ul>';
 }
 
+$dt_section_unique_class = wp_unique_id( 'vc-section-' );
+
+if($dt_gection_greading_bg) {
+	$css_classes[] = $dt_section_unique_class;
+	wp_enqueue_style('dt_wp_inline_style');
+	
+		$dt_greadent_bg = "
+				.{$dt_section_unique_class}{
+					background-image: linear-gradient(90deg, {$dt_section_background_color_1} 0%, {$dt_section_background_color_2} 100%);
+				}";
+	wp_add_inline_style( 'dt_wp_inline_style', $dt_greadent_bg );		
+}
+$dont_content = '';
+if($dt_enable_dot_shap) {
+	$dont_content = '<div class="dot_shap blue position-absulate"></div><div class="dot_shap purple position-absulate"></div><div class="dot_shap red position-absulate"></div>';
+}
+
 if ( ! empty( $parallax ) ) {
 	wp_enqueue_script( 'vc_jquery_skrollr_js' );
 	$wrapper_attributes[] = 'data-vc-parallax="' . esc_attr( $parallax_speed ) . '"'; // parallax speed
@@ -132,6 +149,7 @@ $css_class = preg_replace( '/\s+/', ' ', apply_filters( VC_SHORTCODE_CUSTOM_CSS_
 $wrapper_attributes[] = 'class="' . esc_attr( trim( $css_class ) ) . '"';
 
 $output .= '<section ' . implode( ' ', $wrapper_attributes ) . '>';
+$output .= $dont_content;
 $output .= $pulse_content;
 $output .= wpb_js_remove_wpautop( $content );
 $output .= '</section>';
