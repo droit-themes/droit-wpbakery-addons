@@ -22,7 +22,7 @@ class dt_testimonial {
             "description" => __("Droit Testimonial spacial button for your section", 'droit-wbpakery-addons'),
             "base" => "dt_testimonial",
             "controls" => "full",
-            "icon" => plugins_url('assets/asterisk_yellow.png', __FILE__), // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
+            "icon" => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
             "params" => array_merge(array(
                 array(
@@ -33,6 +33,7 @@ class dt_testimonial {
                   'value' => array(
                     esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
                     esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
+                    esc_html__( 'Style 3',  "droit-wbpakery-addons"  ) => '3',
                   ),
                 ),
                 array(

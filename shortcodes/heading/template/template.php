@@ -16,11 +16,19 @@ $subtitle_unique_class = wp_unique_id('dt-subtitle-');
 $title_unique_class = wp_unique_id('dt-title-');
 $title_desc_unique_class = wp_unique_id('dt-title-description-');
 
+
 ?>
+
 <div class="<?php echo esc_attr($wrapper_class); ?>">
 
      <?php if('' !=$dt_subtitle ) :  ?>
-        <span class="dt-subtitle brand_name <?php echo esc_attr($subtitle_unique_class.' '.$subtitle_class ); ?>"><?php echo esc_html($dt_subtitle); ?> </span>
+
+        <span class="dt-subtitle brand_name <?php echo esc_attr($subtitle_unique_class.' '.$subtitle_class ); ?>">
+        <?php if($dt_subtitle_tag != '') :  ?>  
+          <span class="b_tag_vc"><?php echo esc_html($dt_subtitle_tag); ?></span>
+        <?php endif; ?>  
+        <?php echo esc_html($dt_subtitle); ?> 
+       </span>
       <?php endif; ?>
 
      <?php if('' !=$dt_title ) :  ?>
@@ -33,11 +41,20 @@ $title_desc_unique_class = wp_unique_id('dt-title-description-');
 
 </div>
 <?php 
+
    wp_enqueue_style('dt_extend_style');
         
    $template_css = [];
 
    // sub title color 
+   if($dt_sub_title_batch_bg_color != ''){
+
+     $template_css[$subtitle_unique_class.' '.'span']['background-color'] = $dt_sub_title_batch_bg_color;     
+}
+if($dt_subtitle_batch_font_size != ''){
+
+     $template_css[$subtitle_unique_class.' '.'span']['font-size'] = $dt_subtitle_batch_font_size;     
+}
    if($dt_sub_title_color != ''){
 
         $template_css[$subtitle_unique_class]['color'] = $dt_sub_title_color;     
@@ -79,10 +96,12 @@ $title_desc_unique_class = wp_unique_id('dt-title-description-');
        
         $template_css[$title_unique_class]['margin-top'] =  $dt_title_margin_top;      
    }
+
    if($dt_title_margin_bottom != ''){
        
         $template_css[$title_unique_class]['margin-bottom'] =  $dt_title_margin_bottom;      
    }
+
    if($dt_title_font_wegiht != ''){
        
         $template_css[$title_unique_class]['font-weight'] =  $dt_title_font_wegiht;      

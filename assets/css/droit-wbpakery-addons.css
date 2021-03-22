@@ -3,7 +3,7 @@
 }
 .dot_shap{
     border-radius: 50%;
-    z-index: -1;
+    z-index: 2;
 }
 .dot_shap.blue {
     width: 80px;
@@ -32,3 +32,20 @@
 .image-center {
     margin: auto;
   }
+ .z-index-9{
+     z-index: 9;
+     position: relative;
+ } 
+
+  span.b_tag_vc {
+    background: #16d895;
+    border-radius: 45px;
+    color: #fff;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-right: 7px;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 500;
+}

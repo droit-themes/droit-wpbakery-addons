@@ -79,7 +79,77 @@ class dt_image_frame {
                         "heading" => __("Z Index", 'droit-wbpakery-addons'),
                         "param_name" => "dt_image_frame_z_index",
                     ),
-                   
+                    array(
+                      'type' => 'dropdown',
+                      'heading' => __( 'Animation type',  "droit-wbpakery-addons" ),
+                      'param_name' => 'dt_image_frame_animation_name',
+                      'default' => '',
+                      'value' => array(
+                          esc_html__( 'Select animation type',  "droit-wbpakery-addons"  ) => '',
+                          esc_html__( 'fadeInRight',  "droit-wbpakery-addons"  ) => 'fadeInRight',
+                          esc_html__( 'fadeInleft',  "droit-wbpakery-addons"  ) => 'fadeInRight',
+                      ),
+                    ), 
+                    array(
+                      "type" => "textfield",
+                      "holder" => "div",
+                      "class" => "",
+                      "heading" => esc_html__("Animation delay", 'droit-wbpakery-addons'),
+                      "param_name" => "dt_image_frame_animation_delay",
+                      'description'      =>     esc_html__("Eg: .1s", 'droit-wbpakery-addons'),            
+                      'dependency' => array(
+                        'element' => 'dt_image_frame_animation_name',
+                        'not_empty' => TRUE
+                      ),
+                      'edit_field_class' => 'vc_col-sm-6',
+                    ),
+                  array(
+                    "type" => "textfield",
+                    "holder" => "div",
+                    "class" => "",
+                    "heading" => esc_html__("Animation duration", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_image_frame_animation_duration",
+                    'description'      =>     esc_html__("Eg: .1s", 'droit-wbpakery-addons'),            
+                    'dependency' => array(
+                      'element' => 'dt_image_frame_animation_name',
+                      'not_empty' => TRUE
+                    ),
+                    'edit_field_class' => 'vc_col-sm-6',                    
+                  ),
+
+                  array(
+                    "type" => "checkbox",
+                    "class" => "",
+                    "heading" => esc_html__( "Enable Parallax?", "droit-wbpakery-addons" ),
+                    "param_name" => "dt_enable_parallex",
+                    "value" => esc_html__( "yes", "droit-wbpakery-addons" ),
+                  ),
+                  array(
+                    "type" => "textfield",
+                    "holder" => "div",
+                    "class" => "",
+                    "heading" => esc_html__("Paralle X", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_image_frame_parallex_x",
+                    'dependency' => array(
+                      'element' => 'dt_enable_parallex',
+                      'not_empty' => TRUE
+                    ),
+                    'edit_field_class' => 'vc_col-sm-6',  
+                    'description'      =>     esc_html__("Eg: 100", 'droit-wbpakery-addons'),                              
+                  ),
+                  array(
+                    "type" => "textfield",
+                    "holder" => "div",
+                    "class" => "",
+                    "heading" => esc_html__("Paralle Y", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_image_frame_parallex_y",
+                    'dependency' => array(
+                      'element' => 'dt_enable_parallex',
+                      'not_empty' => TRUE
+                    ),
+                    'edit_field_class' => 'vc_col-sm-6', 
+                    'description'      =>     esc_html__("Eg: 100", 'droit-wbpakery-addons'),            
+                  ),
                 )),
             )
         ) );
