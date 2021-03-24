@@ -242,3 +242,25 @@ if(!function_exists('dt_get_post_content')) {
 
 
 
+if(!function_exists('get_animation_attr')) {
+	
+	function get_animation_attr($animation_delay = null, $animation_duration = null)  {
+		
+		$delay = '';
+        $duration = ''; 
+
+		if('' != $animation_delay) {
+			$delay = 'data-wow-delay='.$animation_delay;
+		}
+
+		if('' != $animation_duration) {
+			
+			$duration = 'data-wow-duration='.$animation_duration;
+		}
+
+	
+		$animation_attr = $delay.' '.$duration ;
+		
+		return $animation_attr;
+	}
+}

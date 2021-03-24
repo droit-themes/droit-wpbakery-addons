@@ -4,6 +4,21 @@ if(!function_exists('vc_typography_selections')) {
 
 	function vc_typography_selections ( $group_title = 'Font Size', $id = null  ) {
 		return [
+      array(
+        'type' => 'dropdown',
+        'heading' => __( 'Responsive Option',  "droit-wbpakery-addons" ),
+        'param_name' => 'dt_responsive_divice'.$id,
+        'default' => '',
+        'group' => esc_html__( 'Typography', 'droit-wbpakery-addons' ),
+        'value' => array(
+            esc_html__( 'Select Responsive Divice',  "droit-wbpakery-addons"  ) => '',
+            esc_html__( '4k',  "droit-wbpakery-addons"  ) => 'four4',
+            esc_html__( 'Destop', 'js_composer' ) => 'destop',
+            esc_html__( 'Tab', 'js_composer' ) => 'tab',
+            esc_html__( 'Mobile', 'js_composer' ) => 'mobile',
+        ),
+      ),
+      
 			array(
 				'type' => 'textfield',
 				'heading' => esc_html__( $group_title, 'droit-wbpakery-addons' ),
@@ -240,6 +255,7 @@ if(!function_exists('vc_iconfont_selections')) {
                 'param_name' => 'icon_type',
                 'default' => 'droit_icon',
                 'value' => array(
+                    esc_html__( 'Select Icon Type',  "droit-wbpakery-addons"  ) => '',
                     esc_html__( 'Droit',  "droit-wbpakery-addons"  ) => 'droit_icon',
                     esc_html__( 'Font Awesome 5', 'js_composer' ) => 'fontawesome',
                     esc_html__( 'Open Iconic', 'js_composer' ) => 'openiconic',
@@ -368,4 +384,55 @@ if(!function_exists('vc_iconfont_selections')) {
 		];
 	}
 
+}
+
+if(!function_exists('dt_animation')) {
+    
+  function dt_animation( $id = 'button') {
+     
+       return [
+        array(
+          'type' => 'dropdown',
+          'heading' => __( 'Animation type',  "droit-wbpakery-addons" ),
+          'param_name' => 'dt_image_frame_animation_name',
+          'default' => '',
+          'value' => array(
+              esc_html__( 'Select animation type',  "droit-wbpakery-addons"  ) => '',
+              esc_html__( 'fadeInRight',  "droit-wbpakery-addons"  ) => 'fadeInRight',
+              esc_html__( 'fadeInleft',  "droit-wbpakery-addons"  ) => 'fadeInleft',
+              esc_html__( 'fadeInUp',  "droit-wbpakery-addons"  ) => 'fadeInUp',
+          ),
+          'group' => esc_html__('Animation', 'droit-wbpakery-addons')
+        ), 
+        array(
+          "type" => "textfield",
+          "holder" => "div",
+          "class" => "",
+          "heading" => esc_html__("Animation delay", 'droit-wbpakery-addons'),
+          "param_name" => "dt_image_frame_animation_delay",
+          'description'      =>     esc_html__("Eg: .1s", 'droit-wbpakery-addons'),            
+          'dependency' => array(
+            'element' => 'dt_image_frame_animation_name',
+            'not_empty' => TRUE
+          ),
+          'edit_field_class' => 'vc_col-sm-6',
+          'group' => esc_html__('Animation', 'droit-wbpakery-addons')
+        ),
+      array(
+        "type" => "textfield",
+        "holder" => "div",
+        "class" => "",
+        "heading" => esc_html__("Animation duration", 'droit-wbpakery-addons'),
+        "param_name" => "dt_image_frame_animation_duration",
+        'description'      =>     esc_html__("Eg: .1s", 'droit-wbpakery-addons'),            
+        'dependency' => array(
+          'element' => 'dt_image_frame_animation_name',
+          'not_empty' => TRUE
+        ),
+        'edit_field_class' => 'vc_col-sm-6',     
+        'group' => esc_html__('Animation', 'droit-wbpakery-addons')               
+      ),
+       ];
+
+  }
 }

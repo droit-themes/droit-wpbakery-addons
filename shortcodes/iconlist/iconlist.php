@@ -110,9 +110,6 @@ class dt_icon_list {
     */
     public function dt_icon_list_loadCssAndJs() {
       wp_register_style( 'dt_extend_style', plugins_url('assets/droit-wbpakery-addons.css', __FILE__) );
-      wp_enqueue_style( 'slick' );
-      wp_enqueue_style( 'slick-theme' );
-
       // If you need any javascript files on front end, here is how you can load them.
       //wp_enqueue_script( 'droit-wbpakery-addons_js', plugins_url('assets/droit-wbpakery-addons.js', __FILE__), array('jquery') );
     }

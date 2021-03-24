@@ -11,14 +11,30 @@ $image_class =  join(' ', $image_class);
 
 ?>
 
-<div class="dashboard_img">
+<div class="dashboard_img about_member_item ">
     <?php echo wp_get_attachment_image( $dt_image_frame_img_main, 'full', null, array('class'=>$image_class) ); ?>
     <?php  if($frame_image) : 
+    
          foreach($frame_image as $key=>$image) {
 
-            echo '<pre>';
-            print_r($image);
-            echo '</pre>';
+            $parallex = '';
+
+            if($image['dt_enable_parallex']) {
+
+               $paralexX = $image['dt_image_frame_parallex_x'];
+               $paralxY = $image['dt_image_frame_parallex_y'];
+
+               if($paralexX != '' && $paralxY != '') {
+                  $parallex =  '{"y": '.$paralexX.', "x": '.$paralxY.'}';
+               }
+
+               if($paralexX != '' && $paralxY == '') {
+                  $parallex =  '{ "x": '.$paralexX.'}';
+               }
+               if($paralxY != '' && $paralexX == '') {
+                  $parallex =  '{ "y": '.$paralxY.'}';
+               }
+            }
             
             $image_class = '';
             $dt_image_frame_animation_delay = '';
@@ -59,7 +75,7 @@ $image_class =  join(' ', $image_class);
              }
         ?>
         <?php 
-        echo wp_get_attachment_image($image['dt_image_frame_image'], 'full', null, array('class'=>$img_class.$image_class, 'style'=> $style, 'data-wow-delay' => $dt_image_frame_animation_delay, 'data-wow-duration' => $dt_image_frame_animation_duration ));
+        echo wp_get_attachment_image($image['dt_image_frame_image'], 'full', null, array('class'=>$img_class.$image_class, 'style'=> $style, 'data-wow-delay' => $dt_image_frame_animation_delay, 'data-wow-duration' => $dt_image_frame_animation_duration, 'data-parallax' => $parallex ));
          ?>
     <?php } endif; ?>
 </div>
