@@ -3,21 +3,7 @@
 if(!function_exists('vc_typography_selections')) {
 
 	function vc_typography_selections ( $group_title = 'Font Size', $id = null  ) {
-		return [
-      array(
-        'type' => 'dropdown',
-        'heading' => __( 'Responsive Option',  "droit-wbpakery-addons" ),
-        'param_name' => 'dt_responsive_divice'.$id,
-        'default' => '',
-        'group' => esc_html__( 'Typography', 'droit-wbpakery-addons' ),
-        'value' => array(
-            esc_html__( 'Select Responsive Divice',  "droit-wbpakery-addons"  ) => '',
-            esc_html__( '4k',  "droit-wbpakery-addons"  ) => 'four4',
-            esc_html__( 'Destop', 'js_composer' ) => 'destop',
-            esc_html__( 'Tab', 'js_composer' ) => 'tab',
-            esc_html__( 'Mobile', 'js_composer' ) => 'mobile',
-        ),
-      ),
+		return apply_filters( 'vc_group_responsive', [
       
 			array(
 				'type' => 'textfield',
@@ -25,7 +11,7 @@ if(!function_exists('vc_typography_selections')) {
 				'param_name' => 'dt_font_size_'.$id,
 				'edit_field_class' => 'vc_col-sm-3',
 				'group' => esc_html__( 'Typography', 'droit-wbpakery-addons' ),
-                'description' => esc_html__( 'Font Size', 'droit-wbpakery-addons' ),
+        'description' => esc_html__( 'Font Size', 'droit-wbpakery-addons' ),
 			),
 			array(
 				'type' => 'textfield',
@@ -54,7 +40,8 @@ if(!function_exists('vc_typography_selections')) {
                 'description' => esc_html__( 'Font color', 'droit-wbpakery-addons' ),
 			),
 
-		];
+		], $group_title, $id
+    );
 	}
 
 }
@@ -436,3 +423,7 @@ if(!function_exists('dt_animation')) {
 
   }
 }
+
+//  load responsive control 
+
+require_once DROIT_WPBAKERY_ADDONS_ABS_PATH."/lib/responsive.php";

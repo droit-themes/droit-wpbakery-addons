@@ -150,7 +150,6 @@ if($dt_font_size_designation!= ''){
  $template_css[$designation_unique_class]['color'] = $dt_font_color_designation ;     
  }
  
-
 $custom_css =  droit_css( $template_css );
 
 wp_add_inline_style( 'dt_extend_style', $custom_css );

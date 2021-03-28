@@ -102,6 +102,8 @@ if ( ! function_exists( 'droit_vc_get_custom_link_attributes' ) ) {
 	}
 }
 
+// css generator 
+
 if(!function_exists('droit_css')) {
 	function droit_css( $css_rander = array()) {
 		$css_output = '';
@@ -124,6 +126,32 @@ if(!function_exists('droit_css')) {
       return $css_output;
 	}
 }
+
+if(!function_exists('droit_css_responsive')) {
+	function droit_css_responsive( $css_rander = array(), $media_width = 'max-width' , $divice = '767') {
+		
+		$css_output = '';
+		if(!empty($css_rander)) {
+			
+			foreach($css_rander as $key => $css) {
+				$css_data = '';
+				if( empty($css) ){
+					continue;
+				}
+				foreach( $css as $property=>$value){
+					if( empty($value) ){
+						continue;
+					}
+                   $css_data .= $property.':'.$value." !important;";
+				}
+				$css_output .=  '@media only screen and ('.$media_width.': '.$divice.'px){ .'.$key.'{'.$css_data.'}'."\n".'}'."\n";
+			}
+		}
+		
+      return $css_output;
+	}
+}
+
 if(!function_exists('droit_getCSSAnimation')) {
 
 	function droit_getCSSAnimation( $css_animation ) {

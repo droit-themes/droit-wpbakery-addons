@@ -47,84 +47,86 @@ $title_desc_unique_class = wp_unique_id('dt-title-description-');
    $template_css = [];
 
    // sub title color 
-   if($dt_sub_title_batch_bg_color != ''){
+if($dt_sub_title_batch_bg_color != ''){
 
      $template_css[$subtitle_unique_class.' '.'span']['background-color'] = $dt_sub_title_batch_bg_color;     
 }
+
 if($dt_subtitle_batch_font_size != ''){
 
      $template_css[$subtitle_unique_class.' '.'span']['font-size'] = $dt_subtitle_batch_font_size;     
 }
-   if($dt_sub_title_color != ''){
 
-        $template_css[$subtitle_unique_class]['color'] = $dt_sub_title_color;     
-   }
+if($dt_sub_title_color != ''){
 
-   if($dt_subtitle_font_size != ''){
-       
-        $template_css[$subtitle_unique_class]['font-size'] =  $dt_subtitle_font_size;      
-   }
+     $template_css[$subtitle_unique_class]['color'] = $dt_sub_title_color;     
+}
 
-   if($dt_subtitle_line_height != ''){
-       
-        $template_css[$subtitle_unique_class]['line-height'] =  $dt_subtitle_line_height;      
-   }
+if($dt_subtitle_font_size != ''){
+     
+     $template_css[$subtitle_unique_class]['font-size'] =  $dt_subtitle_font_size;      
+}
 
-   if($dt_subtitle_font_weight != ''){
-       
-        $template_css[$subtitle_unique_class]['font-weight'] =  $dt_subtitle_font_weight;      
-   }
+if($dt_subtitle_line_height != ''){
+     
+     $template_css[$subtitle_unique_class]['line-height'] =  $dt_subtitle_line_height;      
+}
+
+if($dt_subtitle_font_weight != ''){
+     
+     $template_css[$subtitle_unique_class]['font-weight'] =  $dt_subtitle_font_weight;      
+}
 
    //  title 
 
-   if($dt_title_color != ''){
+if($dt_title_color != ''){
 
-        $template_css[$title_unique_class]['color'] = $dt_title_color;     
-   }
+     $template_css[$title_unique_class]['color'] = $dt_title_color;     
+}
 
-   if($dt_title_font_size != ''){
-       
-        $template_css[$title_unique_class]['font-size'] =  $dt_title_font_size;      
-   }
+if($dt_title_font_size != ''){
+     
+     $template_css[$title_unique_class]['font-size'] =  $dt_title_font_size;      
+}
 
-   if($dt_title_line_height != ''){
-       
-        $template_css[$title_unique_class]['line-height'] =  $dt_title_line_height;      
-   }
+if($dt_title_line_height != ''){
+     
+     $template_css[$title_unique_class]['line-height'] =  $dt_title_line_height;      
+}
 
-   if($dt_title_margin_top != ''){
-       
-        $template_css[$title_unique_class]['margin-top'] =  $dt_title_margin_top;      
-   }
+if($dt_title_margin_top != ''){
+     
+     $template_css[$title_unique_class]['margin-top'] =  $dt_title_margin_top;      
+}
 
-   if($dt_title_margin_bottom != ''){
-       
-        $template_css[$title_unique_class]['margin-bottom'] =  $dt_title_margin_bottom;      
-   }
+if($dt_title_margin_bottom != ''){
+     
+     $template_css[$title_unique_class]['margin-bottom'] =  $dt_title_margin_bottom;      
+}
 
-   if($dt_title_font_wegiht != ''){
-       
-        $template_css[$title_unique_class]['font-weight'] =  $dt_title_font_wegiht;      
-   }
+if($dt_title_font_wegiht != ''){
+     
+     $template_css[$title_unique_class]['font-weight'] =  $dt_title_font_wegiht;      
+}
 
    // Title Description 
 
-   if($dt_title_description_color != ''){
+if($dt_title_description_color != ''){
 
-        $template_css[$title_desc_unique_class]['color'] = $dt_title_description_color;     
-   }
+     $template_css[$title_desc_unique_class]['color'] = $dt_title_description_color;     
+}
 
-   if($dt_title_description_font_size != ''){
-       
-        $template_css[$title_desc_unique_class]['font-size'] =  $dt_title_description_font_size;      
-   }
+if($dt_title_description_font_size != ''){
+     
+     $template_css[$title_desc_unique_class]['font-size'] =  $dt_title_description_font_size;      
+}
 
-   if($dt_title_description_line_height != ''){
-       
-        $template_css[$title_desc_unique_class]['line-height'] =  $dt_title_description_line_height;      
-   }
+if($dt_title_description_line_height != ''){
+     
+     $template_css[$title_desc_unique_class]['line-height'] =  $dt_title_description_line_height;      
+}
 
-   $custom_css =  droit_css( $template_css );
+$custom_css =  droit_css( $template_css );
 
  wp_add_inline_style( 'dt_extend_style', $custom_css );
 

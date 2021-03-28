@@ -90,11 +90,11 @@ class dt_testimonial {
       ), $atts ) );
      
       $output = dt_template_part('testimonial', $dt_testimonial_style , $atts);
-     
+
       return $output;
       
     }
-
+    
     /*
     Load plugin css and javascript files which you may need on front end of your site
     */
