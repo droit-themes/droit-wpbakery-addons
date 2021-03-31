@@ -23,7 +23,7 @@ add_filter( 'vc_group_responsive', function( $data, $group_title, $id){
       $data[] = array(
         'type' => 'textfield',
         'heading' => esc_html__( $group_title, 'droit-wbpakery-addons' ),
-        'param_name' => 'asdfasdf'.$id,
+        'param_name' => 'dt_mobile_font_size_'.$id,
         'edit_field_class' => 'vc_col-sm-6',
         'group' => esc_html__( 'Responsive Mobile', 'droit-wbpakery-addons' ),
                 'description' => esc_html__( 'Mobile font size ', 'droit-wbpakery-addons' ),
@@ -32,7 +32,7 @@ add_filter( 'vc_group_responsive', function( $data, $group_title, $id){
       $data[] = array(
           'type' => 'textfield',
           'heading' => esc_html__( $group_title, 'droit-wbpakery-addons' ),
-          'param_name' => 'asdfasdf'.$id,
+          'param_name' => 'dt_mobile_line_height_'.$id,
           'edit_field_class' => 'vc_col-sm-6',
           'group' => esc_html__( 'Responsive Mobile', 'droit-wbpakery-addons' ),
           'description' => esc_html__( 'Mobile line height', 'droit-wbpakery-addons' ),

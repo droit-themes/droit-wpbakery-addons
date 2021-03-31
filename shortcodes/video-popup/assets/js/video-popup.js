@@ -12,6 +12,8 @@ jQuery(function($) {
         let videoLink = $(this).data('video');
         $(this).siblings('.vidoe-pop-up-wrapper').fadeIn('slow');
         $(this).siblings('.vidoe-pop-up-wrapper').find('iframe').attr('src', videoLink);
+        // prevent mouse scroll when popup show 
+        $('.pop-up').bind('mousewheel',function(){ return false; });
 
         return false;
 

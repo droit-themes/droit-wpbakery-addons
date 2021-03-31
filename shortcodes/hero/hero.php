@@ -22,15 +22,29 @@ class dt_hero {
             "base" => "dt_hero",
             "class" => "",
             "controls" => "full",
-            "icon" => plugins_url('assets/asterisk_yellow.png', __FILE__), // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
+            "icon" => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
             "params" => array_merge(array(
-      
+                array(
+                    'type' => 'dropdown',
+                    'heading' => __( 'Testimonial Style',  "droit-wbpakery-addons" ),
+                    'param_name' => 'dt_hero_style',
+                    'default' => '1',
+                    'value' => array(
+                      esc_html__( 'Select Style',  "droit-wbpakery-addons"  ) => '',
+                      esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
+                      esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
+                    ),
+                  ),
                 array(
                     'type' => 'textarea',
                     'heading' => esc_html__( 'Sub title ', 'droit-wbpakery-addons' ),
                     'param_name' => 'dt_hero_subtitle',
-                    'css' => 'csstyle'
+                    'css' => 'csstyle',
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '1',
+                      ),
                 ),
                 array(
                     'type' => 'textarea',
@@ -47,18 +61,48 @@ class dt_hero {
                     'heading' => esc_html__( 'Image', 'droit-wbpakery-addons' ),
                     'param_name' => 'dt_hero_image',
                     'edit_field_class' => 'vc_col-sm-6',
-                ),
+                  ),
+                  array(
+                    'type' => 'colorpicker',
+                    'heading' => esc_html__( 'Triangle overly Color 1', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_te_overly_color_1',
+                    'description' => esc_html__( 'Triangle overly Color.', 'droit-wbpakery-addons' ),
+                    'edit_field_class' => 'vc_col-sm-7',
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '2',
+                      ),
+                ),  
+                  array(
+                    'type' => 'colorpicker',
+                    'heading' => esc_html__( 'Triangle overly Color 2', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_te_overly_color_2',
+                    'description' => esc_html__( 'Triangle overly Color.', 'droit-wbpakery-addons' ),
+                    'edit_field_class' => 'vc_col-sm-5',
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '2',
+                      ),
+                ),  
                 array(
                     'type' => 'textfield',
                     'heading' => esc_html__( 'Image Vertical Postion', 'droit-wbpakery-addons' ),
                     'param_name' => 'dt_hero_img_pos',
                     'edit_field_class' => 'vc_col-sm-6',
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '1',
+                      ),
                 ),
                 array(
                     'type' => 'attach_image',
                     'heading' => esc_html__( 'Animated image', 'droit-wbpakery-addons' ),
                     'param_name' => 'dt_hero_animate_image',
                     'edit_field_class' => 'vc_col-sm-6',
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '1',
+                      ),
                 ),
                 array(
                     'type' => 'colorpicker',
@@ -66,6 +110,10 @@ class dt_hero {
                     'param_name' => 'dt_backgroud_color',
                     'description' => esc_html__( 'Font Color.', 'droit-wbpakery-addons' ),
                     'edit_field_class' => 'vc_col-sm-3',
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '1',
+                      ),
                 ),
             ), dt_button_control('hero'), vc_typography_selections('Hero title', 'hero_title'), vc_typography_selections('Hero Sub Title', 'hero_subtitle'), vc_typography_selections('Hero description', 'hero_description')),
          
@@ -82,8 +130,15 @@ class dt_hero {
         'dt_carosuel_title'     => '',
         'dt_client_logo_style_list' => 1
       ), $atts ) );
+
+      
+    $template_style = 1;
+
+    if($atts['dt_hero_style'] != '') {
+      $template_style = $atts['dt_hero_style'];
+    }
     
-      $output = dt_template_part('hero', null , $atts);
+      $output = dt_template_part('hero', $template_style , $atts);
      
       return $output;
       

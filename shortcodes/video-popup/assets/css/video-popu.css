@@ -3,7 +3,7 @@
     left: 0;
     top: 0;
     bottom: 0;
-    background-color: rgba(0 ,0, 0, .5);
+    background-color: rgba(0 ,0, 0, .8);
     width: 100%;
     z-index: 99999;
     display: none;
@@ -29,4 +29,21 @@
 }
 .close-vidoe-modal:hover{
     opacity: 1;
+}
+.show-video-pupup{
+    width: 72px;
+    height: 72px;
+    background: #35b7e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    color: #fff;
+}
+.show-video-pupup:hover{
+    background: #fff;
+    color: #35b7e1;
+}
+.show-video-pupup i{
+    transition: all .4s;
 }

@@ -49,3 +49,10 @@
     line-height: 20px;
     font-weight: 500;
 }
+.education_learn_btn{
+    display: flex !important;
+    align-items: center;
+}
+.dt-d-flex-row-reverse {
+    flex-direction: row-reverse;
+}

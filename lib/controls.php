@@ -238,7 +238,7 @@ if(!function_exists('vc_iconfont_selections')) {
 		return [
             array(
                 'type' => 'dropdown',
-                'heading' => __( 'Style',  "droit-wbpakery-addons" ),
+                'heading' => __( 'Select icon type',  "droit-wbpakery-addons" ),
                 'param_name' => 'icon_type',
                 'default' => 'droit_icon',
                 'value' => array(
