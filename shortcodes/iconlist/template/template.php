@@ -10,7 +10,6 @@ $wrapper_class []= 'app_features_content';
 $wrapper_class []= $dt_list_icon_wrapper_class;
 $wrapper_class = join(' ', $wrapper_class);
 
-
 ?>
 <div class="<?php echo esc_attr( $wrapper_class ); ?>">
    <?php if(is_array($group_data) && !empty($group_data)) : ?>

@@ -4,6 +4,7 @@ $url_attrs = array_filter(vc_build_link($dt_button_link));
 $button_wapper_uniqueue_class = wp_unique_id('doit-button-wrapper-');
 $button_wrapper_class[]=  $button_wapper_uniqueue_class;
 $button_wrapper_class[]= ($dt_show_border_dispaly_yes == 'yes') ?  'discover_button' : '';
+$button_wrapper_class[]= $dt_btn_class;
 
 $button_wrapper_class = join(' ', $button_wrapper_class);
 $link_beofre = '';

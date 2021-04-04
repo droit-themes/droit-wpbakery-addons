@@ -1,26 +1,26 @@
 <?php 
-namespace shortcodes\dt_post;
+namespace shortcodes\dt_event;
 
-class dt_post {
+class dt_event {
     
     function __construct() {
         // We safely integrate with VC with this hook
-        add_action( 'init', array( $this, 'dt_post' ) );
+        add_action( 'init', array( $this, 'dt_event' ) );
  
         // Use this when creating a shortcode addon
-        add_shortcode( 'dt_post', array( $this, 'dt_post_rander' ) );
+        add_shortcode( 'dt_event', array( $this, 'dt_event_rander' ) );
 
         // Register CSS and JS
-        add_action( 'wp_enqueue_scripts', array( $this, 'dt_post_loadCssAndJs' ) );
-        add_action( 'front_enqueue_js', array( $this, 'dt_post_loadCssAndJs' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'dt_event_loadCssAndJs' ) );
+        add_action( 'front_enqueue_js', array( $this, 'dt_event_loadCssAndJs' ) );
     }
  
-    public function dt_post() {
+    public function dt_event() {
       
         vc_map( array(
-            "name" => __("Droit Post", 'droit-wbpakery-addons'),
-            "description" => __("Droit Post spacial post section for your section", 'droit-wbpakery-addons'),
-            "base" => "dt_post",
+            "name" => __("Droit Event", 'droit-wbpakery-addons'),
+            "description" => __("Droit event spacial event section for your section", 'droit-wbpakery-addons'),
+            "base" => "dt_event",
             "controls" => "full",
             "icon" => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
@@ -28,7 +28,7 @@ class dt_post {
               array(
                 'type' => 'dropdown',
                 'heading' => __( 'Post Style',  "droit-wbpakery-addons" ),
-                'param_name' => 'dt_post_style',
+                'param_name' => 'dt_event_style',
                 'default' => 'yes',
                 'value' => array(
                   esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
@@ -42,11 +42,11 @@ class dt_post {
               array(
                 "type" => "textfield",
                 "heading" => __( "Read More button text", "droit-wbpakery-addons" ),
-                "param_name" => "dt_posts_read_more",
+                "param_name" => "dt_events_read_more",
                 "value" => '',
                 'edit_field_class' => 'vc_col-sm-4',
                 'dependency'    => array(
-                  'element'   => 'dt_post_style',
+                  'element'   => 'dt_event_style',
                   'value'     => '3'
                   )  
               ),
@@ -70,7 +70,7 @@ class dt_post {
                   array(
                     "type" => "textfield",
                     "heading" => __( "Post Per Page", "droit-wbpakery-addons" ),
-                    "param_name" => "dt_posts_per_page",
+                    "param_name" => "dt_events_per_page",
                     "value" => 4,
                     'edit_field_class' => 'vc_col-sm-4',
                   ),                  
@@ -112,7 +112,7 @@ class dt_post {
                     "param_name" => "dt_ignor_stcky",
                     "value" => array(esc_html__('Yes', 'droit-wbpakery-addons') => 'yes'),
                     'dependency'    => array(
-                      'element'   => 'dt_post_style',
+                      'element'   => 'dt_event_style',
                       'value'     => '1'
                       )  
                   ),  
@@ -147,14 +147,14 @@ class dt_post {
     /*
      Header randaraing 
     */
-    public function dt_post_rander( $atts, $content = null ) {
+    public function dt_event_rander( $atts, $content = null ) {
 
       extract( shortcode_atts( array(
         'dt_select_post_order' => 'DESC',
-        'dt_post_style'        => 1,
+        'dt_event_style'        => 1,
       ), $atts ) );
     
-      $output = dt_template_part('post', $dt_post_style , $atts);
+      $output = dt_template_part('post', $dt_event_style , $atts);
      
       return $output;
       
@@ -163,7 +163,7 @@ class dt_post {
     /*
     Load plugin css and javascript files which you may need on front end of your site
     */
-    public function dt_post_loadCssAndJs() {
+    public function dt_event_loadCssAndJs() {
       wp_register_style( 'dt_extend_style', plugins_url('assets/droit-wbpakery-addons.css', __FILE__) );
       wp_enqueue_script('slick');
       wp_enqueue_script('droit-wpbakery-addons-script');

@@ -76,6 +76,13 @@ class dt_button {
                     'heading' => esc_html__( 'Select Icon  ', 'droit-wbpakery-addons' ),
                     'param_name' => 'dt_btn_icon_selector',
                 ),
+
+                array(
+                    'type' => 'textfield',
+                    'heading' => esc_html__( 'Button Class', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_btn_class',
+                    'edit_field_class' => 'vc_col-sm-4',
+                ), 
             )
         ) );
     }
@@ -101,8 +108,6 @@ class dt_button {
     public function dt_button_loadCssAndJs() {
       wp_register_style( 'dt_extend_style', plugins_url('assets/droit-wbpakery-addons.css', __FILE__) );
 
-      // If you need any javascript files on front end, here is how you can load them.
-      //wp_enqueue_script( 'droit-wbpakery-addons_js', plugins_url('assets/droit-wbpakery-addons.js', __FILE__), array('jquery') );
     }
 }
 // Finally initialize code

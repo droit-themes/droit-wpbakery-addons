@@ -207,6 +207,11 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/testimonial/testimonial.php');
 				new shortcodes\dt_testimonial\dt_testimonial;
+
+				// Testimonial simple 
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/testimonial-simple/testimonial-simple.php');
+				new shortcodes\dt_testimonial_simple\dt_testimonial_simple;
 				
 				// Portfolio 
 
@@ -264,6 +269,11 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/video-popup/video-popup.php');
 				new shortcodes\dt_vidoe_popup\dt_vidoe_popup;	
+
+				//  card 
+
+				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/card/card.php');
+				new shortcodes\dt_card\dt_card;	
 			}
 			
 		}

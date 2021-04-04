@@ -43,6 +43,13 @@ class dt_image_frame {
                 ),
                 "description" => __( "Text aligment", "droit-wbpakery-addons" )
             ),
+            array(
+              "type" => "textfield",
+              "holder" => "div",
+              "class" => "",
+              "heading" => __("Border Radius", 'droit-wbpakery-addons'),
+              "param_name" => "dt_image_frame_border_radious",
+          ),
               array(
                 'type' => 'param_group',
                 'value' => '',

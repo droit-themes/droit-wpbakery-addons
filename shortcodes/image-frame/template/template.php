@@ -8,11 +8,16 @@ $image_class []=  'z-index-9';
 
 $image_class =  join(' ', $image_class);
 
+$style = '';
+if($dt_image_frame_border_radious != '') {
+   $style = 'border-radius:'.$dt_image_frame_border_radious;
+}
+
 
 ?>
 
 <div class="dashboard_img about_member_item ">
-    <?php echo wp_get_attachment_image( $dt_image_frame_img_main, 'full', null, array('class'=>$image_class) ); ?>
+    <?php echo wp_get_attachment_image( $dt_image_frame_img_main, 'full', null, array('class'=>$image_class, 'style' => $style ) ); ?>
     <?php  if($frame_image) : 
     
          foreach($frame_image as $key=>$image) {
