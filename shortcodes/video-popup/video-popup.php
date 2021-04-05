@@ -1,7 +1,7 @@
 <?php 
-namespace shortcodes\dt_vidoe_popup;
+namespace shortcodes\dt_video_popup;
 
-class dt_vidoe_popup {
+class dt_video_popup {
     
     function __construct() {
         // We safely integrate with VC with this hook

@@ -156,124 +156,64 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 		// Load shortcode 
 
+		public function widget_list () {
+			$list = apply_filters('dt_extention_widgets_list', [
+				'heading',
+				'scroll-to-section',
+				'gallery',
+				'image-box',
+				'button',
+				'carousel',
+				'counter-up',
+				'testimonial',
+				'testimonial-simple',
+				'portfolio',
+				'client-logo',
+				'team',
+				'post',
+				'image-frame',
+				'pricing',
+				'hero',
+				'service',
+				'icon-box',
+				'iconlist',
+				'video-popup',
+				'card',
+				'event', 
+				'slider', 
+			]);
+			return $list;
+		}
+
 		public function shortcode_init() {
 
 			if($this->droit_is_wpbakery_installed()) {
+                   //  load widgets class 
+				if(!empty($this->widget_list())) {
 
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/testwidgets/testwidgets.php');
-				new shortcodes\testwidgtds\testwidgets;
+					foreach ($this->widget_list() as $widgets) {
+
+                        $file_path = '/'.$widgets.'/';
+
+						$file_name = $widgets.'.php';
+						$name_space = 'dt_'.$widgets;
+
+                        $namespace_sep = '\\';
+
+						$class_name = str_replace('-', '_', 'shortcodes'.$namespace_sep.$name_space.$namespace_sep.$name_space);
 				
-				// Heading   
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/heading/heading.php');
-				new shortcodes\dt_heading\dt_heading;
 
-				// Scroll section 
+						$file_full_path = DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.$file_path.$file_name;
+						
+						if(is_readable($file_full_path) && file_exists($file_full_path) ) {
+							require_once $file_full_path;
+							new $class_name;
+						}
+	
+					 }
+				}
 
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/scroll-to-section/scroll-to-section.php');
-				new shortcodes\dt_scroll_to_section\dt_scroll_to_section;
-
-				
-			//	 Gallery 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/gallery/gallery.php');
-				new shortcodes\dt_gallery\dt_gallery;
-
-				//  Image Box 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/image-box/image-box.php');
-				new shortcodes\dt_image_box\dt_image_box;
-
-				// Button
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/button/button.php');
-				new shortcodes\dt_button\dt_button;
-
-				//  greadent button 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/greadent-button/greadent-button.php');
-				new shortcodes\dt_greadent_button\dt_greadent_button;
-
-				// Carousel
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/carousel/carousel.php');
-				new shortcodes\dt_carousel\dt_carousel;
-				
-				// Counter Up
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/counter-up/counter-up.php');
-				new shortcodes\dt_counter_up\dt_counter_up;
-
-				// Testimonial 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/testimonial/testimonial.php');
-				new shortcodes\dt_testimonial\dt_testimonial;
-
-				// Testimonial simple 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/testimonial-simple/testimonial-simple.php');
-				new shortcodes\dt_testimonial_simple\dt_testimonial_simple;
-				
-				// Portfolio 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/portfolio/portfolio.php');
-				new shortcodes\dt_portfolio\dt_portfolio;
-				
-				// Client Logo 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/client-logo/client-logo.php');
-				new shortcodes\dt_clinet_logo\dt_clinet_logo;
-
-				//  Team 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/team/team.php');
-				new shortcodes\dt_team\dt_team;
-				
-				//  post 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/post/post.php');
-				new shortcodes\dt_post\dt_post;
-
-				//  Subscribe form 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/subscribe/subscribe.php');
-				new shortcodes\dt_subscribe\dt_subscribe;
-
-				// image freame
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/image-frame/image-frame.php');
-				new shortcodes\dt_image_frame\dt_image_frame;
-				
-				// pricing
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/pricing/pricing.php');
-				new shortcodes\dt_pricing\dt_pricing;
-				
-				// hero
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/hero/hero.php');
-				new shortcodes\dt_hero\dt_hero;
-
-				// service 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/service/service.php');
-				new shortcodes\dt_service\dt_service;
-
-				//  Icon list 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/icon-box/icon-box.php');
-				new shortcodes\dt_icon_box\dt_icon_box;
-				//  Icon list 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/iconlist/iconlist.php');
-				new shortcodes\dt_icon_list\dt_icon_list;
-
-				//  video popup 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/video-popup/video-popup.php');
-				new shortcodes\dt_vidoe_popup\dt_vidoe_popup;	
-
-				//  card 
-
-				require_once (DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.'/card/card.php');
-				new shortcodes\dt_card\dt_card;	
+			
 			}
 			
 		}

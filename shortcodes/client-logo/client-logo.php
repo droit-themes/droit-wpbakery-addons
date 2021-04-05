@@ -1,7 +1,7 @@
 <?php 
-namespace shortcodes\dt_clinet_logo;
+namespace shortcodes\dt_client_logo;
 
-class dt_clinet_logo {
+class dt_client_logo {
     
     function __construct() {
         // We safely integrate with VC with this hook

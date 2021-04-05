@@ -1,7 +1,7 @@
 <?php 
-namespace shortcodes\dt_icon_list;
+namespace shortcodes\dt_iconlist;
 
-class dt_icon_list {
+class dt_iconlist {
     
     function __construct() {
         // We safely integrate with VC with this hook
