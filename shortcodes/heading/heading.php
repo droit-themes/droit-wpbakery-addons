@@ -228,7 +228,7 @@ class dt_heading {
                 'type' => 'dropdown',
                 'heading' => __( 'Sub title tag',  "droit-wbpakery-addons" ),
                 'param_name' => 'dt_heading_description_tag',
-                'default' => 'h2',
+                'default' => 'p',
                 'value' => array(
                   esc_html__( 'h1',  "droit-wbpakery-addons"  ) => 'h1',
                   esc_html__( 'h2',  "droit-wbpakery-addons"  ) => 'h2',
