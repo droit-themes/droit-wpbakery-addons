@@ -118,9 +118,6 @@ class dt_icon_box {
         'dt_icon_box' => ''
       ), $atts, $content ) );
 
-      echo "<pre>";
-      print_r($atts);
-      echo "</pre>";
     
       $tempalte_style = 1;
 
