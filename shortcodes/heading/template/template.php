@@ -16,6 +16,30 @@ $subtitle_unique_class = wp_unique_id('dt-subtitle-');
 $title_unique_class = wp_unique_id('dt-title-');
 $title_desc_unique_class = wp_unique_id('dt-title-description-');
 
+//  Sub heading 
+
+$subheadingtag = 'span';
+
+if($dt_heading_subtitle_tag_style != '') {
+
+     $subheadingtag = $dt_heading_subtitle_tag_style;
+}
+
+// heading tag 
+
+$heading_tag = 'h2';
+
+if($dt_heading_title_tag != '') {
+
+     $heading_tag = $dt_heading_title_tag;
+}
+
+$description_tag = 'p';
+
+if($dt_heading_description_tag != '') {
+
+     $description_tag = $dt_heading_description_tag;
+}
 
 ?>
 
@@ -23,20 +47,20 @@ $title_desc_unique_class = wp_unique_id('dt-title-description-');
 
      <?php if('' !=$dt_subtitle ) :  ?>
 
-        <span class="dt-subtitle brand_name <?php echo esc_attr($subtitle_unique_class.' '.$subtitle_class ); ?>">
+        <<?php echo dt_return($subheadingtag); ?> class="dt-subtitle brand_name <?php echo esc_attr($subtitle_unique_class.' '.$subtitle_class ); ?>">
         <?php if($dt_subtitle_tag != '') :  ?>  
           <span class="b_tag_vc"><?php echo esc_html($dt_subtitle_tag); ?></span>
         <?php endif; ?>  
         <?php echo esc_html($dt_subtitle); ?> 
-       </span>
+       </<?php echo dt_return($subheadingtag); ?>>
       <?php endif; ?>
 
      <?php if('' !=$dt_title ) :  ?>
-     <h2 class="dt-ttile title <?php echo esc_attr( $title_unique_class ); ?>"><?php echo dt_extention_wp_kses($dt_title); ?></h2>
+     <<?php echo dt_return($heading_tag); ?> class="dt-ttile title <?php echo esc_attr( $title_unique_class ); ?>"><?php echo dt_extention_wp_kses($dt_title); ?></<?php echo dt_return($heading_tag); ?>>
       <?php endif; ?>
 
      <?php if('' !=$dt_title_description ) :  ?>
-     <p class="dt-title-description subtitle <?php echo esc_attr( $title_desc_unique_class ); ?>"><?php echo dt_extention_wp_kses($dt_title_description); ?></p>
+     <<?php echo dt_return($description_tag); ?> class="dt-title-description subtitle <?php echo esc_attr( $title_desc_unique_class ); ?>"><?php echo dt_extention_wp_kses($dt_title_description); ?></<?php echo dt_return($description_tag); ?>>
       <?php endif; ?>
 
 </div>

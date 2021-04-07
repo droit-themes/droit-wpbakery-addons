@@ -69,6 +69,24 @@ class dt_heading {
                   "description" => esc_html__("Sub title .", 'droit-wbpakery-addons')
               ),
               array(
+                'type' => 'dropdown',
+                'heading' => __( 'Sub title tag',  "droit-wbpakery-addons" ),
+                'param_name' => 'dt_heading_subtitle_tag_style',
+                'default' => 'span',
+                'value' => array(
+                  esc_html__( 'h1',  "droit-wbpakery-addons"  ) => 'h1',
+                  esc_html__( 'h2',  "droit-wbpakery-addons"  ) => 'h2',
+                  esc_html__( 'h3',  "droit-wbpakery-addons"  ) => 'h3',
+                  esc_html__( 'h4',  "droit-wbpakery-addons"  ) => 'h4',
+                  esc_html__( 'h5',  "droit-wbpakery-addons"  ) => 'h5',
+                  esc_html__( 'h6',  "droit-wbpakery-addons"  ) => 'h6',
+                  esc_html__( 'div',  "droit-wbpakery-addons"  ) => 'div',
+                  esc_html__( 'span',  "droit-wbpakery-addons"  ) => 'span',
+                  esc_html__( 'p',  "droit-wbpakery-addons"  ) => 'p',
+                ),
+                'group' => esc_html__( 'Sub Title Style', 'droit-wbpakery-addons' ),
+              ),
+              array(
                   "type" => "colorpicker",
                   "holder" => "div",
                   "class" => "",
@@ -123,6 +141,24 @@ class dt_heading {
                   "heading" => esc_html__("Title", 'droit-wbpakery-addons'),
                   "param_name" => "dt_title",
                   "description" => esc_html__("Enter your content.", 'droit-wbpakery-addons')
+              ),
+              array(
+                'type' => 'dropdown',
+                'heading' => __( 'Sub title tag',  "droit-wbpakery-addons" ),
+                'param_name' => 'dt_heading_title_tag',
+                'default' => 'h2',
+                'value' => array(
+                  esc_html__( 'h1',  "droit-wbpakery-addons"  ) => 'h1',
+                  esc_html__( 'h2',  "droit-wbpakery-addons"  ) => 'h2',
+                  esc_html__( 'h3',  "droit-wbpakery-addons"  ) => 'h3',
+                  esc_html__( 'h4',  "droit-wbpakery-addons"  ) => 'h4',
+                  esc_html__( 'h5',  "droit-wbpakery-addons"  ) => 'h5',
+                  esc_html__( 'h6',  "droit-wbpakery-addons"  ) => 'h6',
+                  esc_html__( 'div',  "droit-wbpakery-addons"  ) => 'div',
+                  esc_html__( 'span',  "droit-wbpakery-addons"  ) => 'span',
+                  esc_html__( 'p',  "droit-wbpakery-addons"  ) => 'p',
+                ),
+                'group' => esc_html__( 'Title Style', 'droit-wbpakery-addons' ),
               ),
               array(
                   "type" => "colorpicker",
@@ -186,6 +222,25 @@ class dt_heading {
                   "heading" => esc_html__("Title Description", 'droit-wbpakery-addons'),
                   "param_name" => "dt_title_description",
                   "description" => esc_html__("Enter your description.", 'droit-wbpakery-addons')
+              ),
+
+              array(
+                'type' => 'dropdown',
+                'heading' => __( 'Sub title tag',  "droit-wbpakery-addons" ),
+                'param_name' => 'dt_heading_description_tag',
+                'default' => 'h2',
+                'value' => array(
+                  esc_html__( 'h1',  "droit-wbpakery-addons"  ) => 'h1',
+                  esc_html__( 'h2',  "droit-wbpakery-addons"  ) => 'h2',
+                  esc_html__( 'h3',  "droit-wbpakery-addons"  ) => 'h3',
+                  esc_html__( 'h4',  "droit-wbpakery-addons"  ) => 'h4',
+                  esc_html__( 'h5',  "droit-wbpakery-addons"  ) => 'h5',
+                  esc_html__( 'h6',  "droit-wbpakery-addons"  ) => 'h6',
+                  esc_html__( 'div',  "droit-wbpakery-addons"  ) => 'div',
+                  esc_html__( 'span',  "droit-wbpakery-addons"  ) => 'span',
+                  esc_html__( 'p',  "droit-wbpakery-addons"  ) => 'p',
+                ),
+                'group' => esc_html__( 'Description Style', 'droit-wbpakery-addons' ),
               ),
 
               array(
