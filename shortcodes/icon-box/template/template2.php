@@ -40,9 +40,9 @@ if($icon_type != 'image') {
     <?php echo dt_return($icon_html); ?>
   </div>
    <?php echo  dt_return(dt_link_before_after($dt_icon_box_link, 'before')); ?>
-        <h3 class="icon-box-style-2"><?php echo dt_extention_wp_kses( $dt_icon_box_title ); ?></h3>
+        <h3 class="dt-icon-box-style-2"><?php echo dt_extention_wp_kses( $dt_icon_box_title ); ?></h3>
    <?php echo dt_return(dt_link_before_after($dt_icon_box_link, 'after')); ?>
-    <p class="icon-box-description"><?php echo   dt_extention_wp_kses($dt_icon_box_description); ?></p>
+    <p class="dt-icon-box-description"><?php echo   dt_extention_wp_kses($dt_icon_box_description); ?></p>
    
     <?php echo dt_return(dt_link_before_after($dt_icon_box_link, 'before', 'agency_learn_btn arch_learn_btn', $dt_icon_box_link_title)); ?>
        <?php echo dt_extention_wp_kses($dt_icon_box_link_title); ?>
@@ -72,31 +72,31 @@ if($dt_icon_box_icon_bg_color != ''){
 
 if($dt_font_size_dt_icon_box_title != ''){
     
-    $icon_box_css[$wrapper_unique_class.' .icon-box-style-2']['font-size'] = $dt_font_size_dt_icon_box_title;       
+    $icon_box_css[$wrapper_unique_class.' .dt-icon-box-style-2']['font-size'] = $dt_font_size_dt_icon_box_title;       
 }
 if($dt_line_height_dt_icon_box_title != ''){
     
-    $icon_box_css[$wrapper_unique_class.' .icon-box-style-2']['line-height'] = $dt_font_size_dt_icon_box_title;       
+    $icon_box_css[$wrapper_unique_class.' .dt-icon-box-style-2']['line-height'] = $dt_font_size_dt_icon_box_title;       
 }
 
 if($dt_font_color_dt_icon_box_title != ''){
     
-    $icon_box_css[$wrapper_unique_class.' .icon-box-style-2']['color'] = $dt_font_color_dt_icon_box_title;       
+    $icon_box_css[$wrapper_unique_class.' .dt-icon-box-style-2']['color'] = $dt_font_color_dt_icon_box_title;       
 }
 //  description 
 if($dt_font_size_dt_icon_box_dec != ''){
     
-    $icon_box_css[$wrapper_unique_class.' .icon-box-description']['font-size'] = $dt_font_size_dt_icon_box_dec;       
+    $icon_box_css[$wrapper_unique_class.' .dt-icon-box-description']['font-size'] = $dt_font_size_dt_icon_box_dec;       
 }
 
 if($dt_line_height_dt_icon_box_dec != ''){
     
-    $icon_box_css[$wrapper_unique_class.' .icon-box-description']['line-height'] = $dt_line_height_dt_icon_box_dec;       
+    $icon_box_css[$wrapper_unique_class.' .dt-icon-box-description']['line-height'] = $dt_line_height_dt_icon_box_dec;       
 }
 
 if($dt_font_color_dt_icon_box_dec != ''){
     
-    $icon_box_css[$wrapper_unique_class.' .icon-box-description']['color'] = $dt_font_color_dt_icon_box_dec;       
+    $icon_box_css[$wrapper_unique_class.' .dt-icon-box-description']['color'] = $dt_font_color_dt_icon_box_dec;       
 }
 
 
