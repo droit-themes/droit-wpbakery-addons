@@ -29,11 +29,9 @@ if($icon_type != 'image') {
     </div>
     <?php echo dt_return(dt_link_before_after($dt_icon_box_link, 'before')); ?>
         <h3><?php echo dt_extention_wp_kses( $dt_icon_box_title ); ?></h3>
-    <?php echo dt_return(dt_link_before_after($dt_icon_box_link, 'after'));
-      ?>
+    <?php echo dt_return(dt_link_before_after($dt_icon_box_link, 'after')); ?>
       <div class="description"> 
-      <?php echo   dt_extention_wp_kses($dt_icon_box_description);
-    ?>
+      <?php echo   dt_extention_wp_kses($dt_icon_box_description); ?>
      </div>
 </div>
 

@@ -60,6 +60,7 @@ class dt_slider {
      
 
       $output = dt_template_part('slider', null , $atts);
+
      
       return $output;
       
@@ -69,11 +70,8 @@ class dt_slider {
     Load plugin css and javascript files which you may need on front end of your site
     */
     public function dt_slider_loadCssAndJs() {
-    //   wp_register_style( 'dt_extend_style', plugins_url('assets/droit-wbpakery-addons.css', __FILE__) );
-    //   wp_enqueue_style( 'dt_extend_style' );
-
-      // If you need any javascript files on front end, here is how you can load them.
-      //wp_enqueue_script( 'droit-wbpakery-addons_js', plugins_url('assets/droit-wbpakery-addons.js', __FILE__), array('jquery') );
-    }
+     // wp_register_style( 'dt_slider_css', DROIT_WPBAKERY_ADDONS_SHORTCODES_URL_PATH.'/video-popup/assets/css/video-popu.css' );
+      wp_register_script( 'dt_slider_js', DROIT_WPBAKERY_ADDONS_SHORTCODES_URL_PATH.'/slider/assets/js/slider.js',  array('jquery'), DROIT_WPBAKERY_ADDONS);
+  }
 }
 // Finally initialize code

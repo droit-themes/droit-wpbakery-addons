@@ -375,7 +375,7 @@ if(!function_exists('vc_iconfont_selections')) {
 
 if(!function_exists('dt_animation')) {
     
-  function dt_animation( $id = 'button') {
+  function dt_animation( $id = 'animation') {
      
        return [
         array(
