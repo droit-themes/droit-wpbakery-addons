@@ -36,6 +36,12 @@ class dt_simple_button {
                     'param_name' => 'dt_simple_button_link',
                     'description' => esc_html__( 'Add link to button.', 'droit-wbpakery-addons' ),
                 ),
+
+                array(
+                    'type' => 'textfield',
+                    'heading' => esc_html__( 'Custom Class', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_simple_button_class',
+                ),
             )
         ) );
     }
@@ -48,10 +54,6 @@ class dt_simple_button {
       extract( shortcode_atts( array(
         'dt_simple_button' => 'Button text',
       ), $atts ) );
-
-      echo "<pre>";
-      print_r($atts);
-      echo "</pre>";
      
       $output = dt_template_part('simple-button', null , $atts);
      
