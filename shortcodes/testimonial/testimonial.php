@@ -34,6 +34,7 @@ class dt_testimonial {
                     esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
                     esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
                     esc_html__( 'Style 3',  "droit-wbpakery-addons"  ) => '3',
+                    esc_html__( 'Style 4',  "droit-wbpakery-addons"  ) => '4',
                   ),
                 ),
                 array(
@@ -99,9 +100,8 @@ class dt_testimonial {
     Load plugin css and javascript files which you may need on front end of your site
     */
     public function dt_testimonial_loadCssAndJs() {
-      wp_register_style( 'dt_extend_style', plugins_url('assets/droit-wbpakery-addons.css', __FILE__) );
       wp_enqueue_script('slick');
-      wp_enqueue_script('droit-wpbakery-addons-script');
+      wp_register_script( 'dt_testimonial', plugins_url('assets/testimonial.js', __FILE__), array('jquery'));
     }
 }
 // Finally initialize code

@@ -22,9 +22,19 @@ class dt_portfolio {
             "description" => __("Droit Portfolio spacial button for your section", 'droit-wbpakery-addons'),
             "base" => "dt_portfolio",
             "controls" => "full",
-            "icon" => plugins_url('assets/asterisk_yellow.png', __FILE__), // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
+            "icon" => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
             "params" => array_merge(array(
+              array(
+                'type' => 'dropdown',
+                'heading' => __( 'Sub title tag',  "droit-wbpakery-addons" ),
+                'param_name' => 'dt_portfolio_style',
+                'default' => '1',
+                'value' => array(
+                  esc_html__( 'Style1',  "droit-wbpakery-addons"  ) => '1',
+                  esc_html__( 'Style2',  "droit-wbpakery-addons"  ) => '2',
+                ),
+              ),
               array(
                 "type" => "checkbox",
                 "heading" => __( "Select Category", "droit-wbpakery-addons" ),
@@ -113,7 +123,17 @@ class dt_portfolio {
         'dt_select_protflow_orderby' => '',
       ), $atts ) );
      
-      $output = dt_template_part('portfolio', null , $atts);
+      $portfolio_style = '1';
+
+      if(!empty($atts['dt_portfolio_style'])) {
+        $portfolio_style = $atts['dt_portfolio_style'];
+      }
+
+      echo "<pre>";
+      print_r($atts);
+      echo "</pre>";
+
+      $output = dt_template_part('portfolio', $portfolio_style , $atts);
      
       return $output;
       
