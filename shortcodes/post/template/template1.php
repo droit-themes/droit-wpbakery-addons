@@ -56,7 +56,7 @@ if('' != $get_post) :
                     <h6><?php echo esc_html__('Featured', 'droit-wbpakery-addons') ?></h6>
                     <h2><?php echo get_the_title($post->ID); ?></h2>
                     <p><?php echo get_the_excerpt( $post->ID ); ?></p>
-                    <a href="<?php echo esc_url( get_the_permalink( $post-ID) ); ?>" class="agency_learn_btn h_text_btn" data-text="<?php echo esc_attr__('Continue Reading', 'droit-wbpakery-addons'); ?>">
+                    <a href="<?php echo esc_url( get_the_permalink( $post->ID) ); ?>" class="agency_learn_btn h_text_btn" data-text="<?php echo esc_attr__('Continue Reading', 'droit-wbpakery-addons'); ?>">
                     <?php echo esc_html__('Continue Reading', 'droit-wbpakery-addons'); ?>
                         <i class="ti-arrow-right"></i>
                     </a>
