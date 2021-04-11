@@ -63,7 +63,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 					'heading' => "Enable Dot Shap",
 					'param_name' => 'dt_enable_dot_shap',
 					'value' => array( 'Dot Shap' => 'Yes' ),
-					'description' => __( "It will be apper section left side", "droit-wbpakery-addons" )
+					'description' => esc_html__( "It will be apper section left side", "droit-wbpakery-addons" )
 					),
 
 				array(
@@ -71,7 +71,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'heading' => "Pulse Effect",
 				'param_name' => 'pulse_effect',
 				'value' => array( 'pulse' => 'Yes' ),
-				'description' => __( "Enable Pulse Effect On Your Section", "droit-wbpakery-addons" )
+				'description' => esc_html__( "Enable Pulse Effect On Your Section", "droit-wbpakery-addons" )
 				),
 
 				array(
@@ -79,12 +79,12 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 					'heading' => "Use Greadent Background ?",
 					'param_name' => 'dt_gection_greading_bg',
 					'value' => array( 'Greadent' => 'yes' ),
-					'description' => __( "Enable Greadent Background On Your Section", "droit-wbpakery-addons" )
+					'description' => esc_html__( "Enable Greadent Background On Your Section", "droit-wbpakery-addons" )
 					),
 				array(
                     "type" => "colorpicker",
                     "class" => "",
-                    "heading" => __( "Backgroud Greadent Color 1", "droit-wbpakery-addons" ),
+                    "heading" => esc_html__( "Backgroud Greadent Color 1", "droit-wbpakery-addons" ),
                     "param_name" => "dt_section_background_color_1",
                     "value" => '', //Default Red color
                      'edit_field_class' => 'vc_col-sm-6',
@@ -97,7 +97,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
                 array(
                     "type" => "colorpicker",
                     "class" => "",
-                    "heading" => __( "Backgroud Greadent Color 2", "droit-wbpakery-addons" ),
+                    "heading" => esc_html__( "Backgroud Greadent Color 2", "droit-wbpakery-addons" ),
                     "param_name" => "dt_section_background_color_2",
                     "value" => '', //Default Red color
                     'edit_field_class' => 'vc_col-sm-6',
@@ -107,6 +107,24 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
                       ),
                 ),
 
+				array(
+					'type' => 'checkbox',
+					'heading' => "Enable for one page section?",
+					'param_name' => 'dt_one_page_section',
+					'value' => array( 'onepage' => 'yes' ),
+					'description' => esc_html__( "If you want to enable this section for one page scroll", "droit-wbpakery-addons" )
+					),
+					array(
+						'type' => 'checkbox',
+						'heading' => "Display this section on load?",
+						'param_name' => 'dt_one_page_active_section',
+						'value' => array( 'Active' => 'active' ),
+						'description' => esc_html__( "If you want to display this section on window on load", "droit-wbpakery-addons" ),
+						'dependency' => array(
+							'element' => 'dt_one_page_section',
+							'value' => 'yes'
+						  ),	
+					),	
     
 			  );
 			  vc_add_params( 'vc_section', $attributes ); // Note: 'vc_message' was used as a base for "Message box" element
@@ -186,6 +204,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'card',
 				'event', 
 				'slider', 
+				'one-page-heading'
 			]);
 			return $list;
 		}

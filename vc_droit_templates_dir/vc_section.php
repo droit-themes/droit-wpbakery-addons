@@ -57,6 +57,21 @@ if ( vc_shortcode_custom_css_has_property( $css, array(
 	$css_classes[] = 'vc_section-has-fill';
 }
 
+//  one page sectrion enable 
+
+
+if($dt_one_page_section == 'yes') {
+
+	$css_classes[] = 'section';
+}
+
+//  is active section 
+
+if($dt_one_page_active_section == 'active') {
+
+	$css_classes[] = 'active';
+}
+
 $wrapper_attributes = array();
 // build attributes for wrapper
 if ( ! empty( $el_id ) ) {
