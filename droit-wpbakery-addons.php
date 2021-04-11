@@ -128,6 +128,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			 wp_register_style( 'dt-vc-main', DROIT_WPBAKERY_CSS_URL.'/main.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'slick', DROIT_WPBAKERY_VENDORS_URL.'/slick/slick.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'slick-theme', DROIT_WPBAKERY_VENDORS_URL.'/slick/slick-theme.css', '', DROIT_WPBAKERY_ADDONS );
+			 wp_register_style( 'fullpage', DROIT_WPBAKERY_VENDORS_URL.'/fullpage/fullpage.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'odometer', DROIT_WPBAKERY_VENDORS_URL.'/odometer/odometer.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'animate', DROIT_WPBAKERY_CSS_URL.'/animate.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'droit-wbpakery-addons', DROIT_WPBAKERY_CSS_URL.'/droit-wbpakery-addons.css', '', DROIT_WPBAKERY_ADDONS );
@@ -141,8 +142,9 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 			 //  counter up
 	
-			 wp_enqueue_script('viewport', DROIT_WPBAKERY_VENDORS_URL.'/odometer/viewport.jquery.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_enqueue_script('viewport', DROIT_WPBAKERY_VENDORS_URL.'/odometer/viewport.jquery.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_enqueue_script('odometer', DROIT_WPBAKERY_VENDORS_URL.'/odometer/odometer.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_enqueue_script('fullpage', DROIT_WPBAKERY_VENDORS_URL.'/fullpage/fullpage.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_enqueue_script('parallax', DROIT_WPBAKERY_JS_URL.'/parallax.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_enqueue_script('parallaxie', DROIT_WPBAKERY_JS_URL.'/parallaxie.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_enqueue_script('parallax-scroll', DROIT_WPBAKERY_JS_URL.'/jquery.parallax-scroll.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
