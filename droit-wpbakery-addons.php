@@ -204,7 +204,8 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'card',
 				'event', 
 				'slider', 
-				'one-page-heading'
+				'one-page-heading',
+				'one-page-section'
 			]);
 			return $list;
 		}

@@ -1,6 +1,28 @@
 ;
 jQuery(function($){
    "use strict";
+
+   //  one page section setting 
+
+   let onePageSection = $('.page-template-onepage #wavescroll .section');
+   
+   if(onePageSection.length > 0 ){
+	onePageSection.each(function(i, e){
+        
+		if(i === 0) {
+			$(this).addClass('agency_scroll_section_one');
+		}else if (i === 1) {
+			$(this).addClass('agency_scroll_section_two');
+		} else if(i === (onePageSection.length - 1)){
+			$(this).addClass('agency_scroll_contact');
+		}else{
+			$(this).addClass('section agency_scroll_section');	
+		}
+
+	});
+   }
+
+
    $('.canvus_menu_btn,.nav_button,.shopping_cart').on('click', function (e) {
 	e.preventDefault();
 	$('body').removeClass('menu-is-closed').addClass('menu-is-opened');
