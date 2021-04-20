@@ -26,16 +26,34 @@ class dt_slider {
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
             "params" => array(
               array(
+                'type' => 'dropdown',
+                'heading' => __( 'Slider Style',  "droit-wbpakery-addons" ),
+                'param_name' => 'dt_slider_style',
+                'default' => 'yes',
+                'value' => array(
+                  esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
+                  esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
+                ),
+              ),
+              array(
                 "type" => "textarea",
                 "holder" => "div",
                 "heading" => __("Title", 'droit-wbpakery-addons'),
                 "param_name" => "dt_slider_title",
+                 'dependency' => array(
+                  'element' => 'dt_slider_style',
+                  'value' => '1',
+                ),
               ),
               array(
                 'type' => 'param_group',
                 'value' => '',
                 "heading" => __("Droit Slider", 'droit-wbpakery-addons'),
                 'param_name' => 'droit_slider_content',
+                'dependency' => array(
+                  'element' => 'dt_slider_style',
+                  'value' => '1',
+                ),
                 // Note params is mapped inside param-group:
                 'params' => array(
                     array(
@@ -44,6 +62,58 @@ class dt_slider {
                         "heading" => __("Image", 'droit-wbpakery-addons'),
                         "param_name" => "dt_slider_img",
                     ),
+            )),
+              array(
+                'type' => 'param_group',
+                'value' => '',
+                "heading" => __("Droit Slider", 'droit-wbpakery-addons'),
+                'param_name' => 'droit_slider_content_style_2',
+                'dependency' => array(
+                  'element' => 'dt_slider_style',
+                  'value' => '2',
+                ),
+                // Note params is mapped inside param-group:
+                'params' => array(
+                    array(
+                        "type" => "attach_image",
+                        "holder" => "div",
+                        "heading" => __("Image", 'droit-wbpakery-addons'),
+                        "param_name" => "dt_slider_img",
+                    ),
+                    array(
+                      "type" => "textarea",
+                      "heading" => __("Title ", 'droit-wbpakery-addons'),
+                      "param_name" => "dt_slider_title_style_2",
+                    ),
+                    array(
+                      "type" => "textarea",
+                      "heading" => __("Subtitle ", 'droit-wbpakery-addons'),
+                      "param_name" => "dt_slider_sub_title_style_2",
+                    ),
+                    array(
+                      "type" => "textfield",
+                      "heading" => __("Button 1 Text ", 'droit-wbpakery-addons'),
+                      "param_name" => "dt_slider_button_style_2",
+                    ),
+                    array(
+                      'type' => 'vc_link',
+                      'heading' => esc_html__( 'URL (Button 1 link)', 'droit-wbpakery-addons' ),
+                      'param_name' => 'dt_slider_button_link_1',
+                      'description' => esc_html__( 'Add link to button.', 'droit-wbpakery-addons' ),
+                      'group' => esc_html__( 'Button', 'droit-wbpakery-addons' ),
+                  ),
+                    array(
+                      "type" => "textfield",
+                      "heading" => __("Button 2 Text ", 'droit-wbpakery-addons'),
+                      "param_name" => "dt_slider_button_2_style_2",
+                    ),
+                    array(
+                      'type' => 'vc_link',
+                      'heading' => esc_html__( 'URL (Button 2 link)', 'droit-wbpakery-addons' ),
+                      'param_name' => 'dt_slider_button_link_2',
+                      'description' => esc_html__( 'Add link to button.', 'droit-wbpakery-addons' ),
+                      'group' => esc_html__( 'Button', 'droit-wbpakery-addons' ),
+                  ),
             )),
             )
         ) );
@@ -59,7 +129,7 @@ class dt_slider {
       ), $atts ) );
      
 
-      $output = dt_template_part('slider', null , $atts);
+      $output = dt_template_part('slider', $atts['dt_slider_style'] , $atts);
 
      
       return $output;

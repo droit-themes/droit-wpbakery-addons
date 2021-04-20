@@ -1,12 +1,17 @@
 <?php 
 
 $args = array(
-    'numberposts'      => ($dt_posts_per_page != '') ? $dt_posts_per_page : 4,
-    'orderby'          => $dt_select_post_orderby,
-    'order'            => $dt_select_post_order,
+    'numberposts'      => (isset($dt_posts_per_page) && $dt_posts_per_page != '') ? $dt_posts_per_page : 4,
 );
 
-if($dt_ignor_stcky != 'yes') {
+if(isset($dt_select_post_orderby) && $dt_select_post_orderby != '') {
+    $args['orderby'] = $dt_select_post_orderby;
+}
+if(isset($dt_select_post_order) && $dt_select_post_order != '') {
+    $args['order'] = $dt_select_post_order;
+}
+
+if(isset($dt_ignor_stcky) && $dt_ignor_stcky != 'yes') {
 
     $sticky_post = [];
 
@@ -25,15 +30,16 @@ if($dt_ignor_stcky != 'yes') {
     }
 }
 
-if($dt_select_catagory != '' && $dt_category_dispaly == 'yes') {
+if(isset($dt_select_catagory) && $dt_select_catagory != '' && $dt_category_dispaly == 'yes') {
     $args['category'] =   $dt_select_catagory; 
 }
+
 
 $get_post =  get_posts( $args );
 $read_more = 'Learn More';
 if('' != $get_post) :
    
-    if($dt_posts_read_more != '') {
+    if(isset($dt_posts_read_more) && $dt_posts_read_more != '') {
         $read_more = $dt_posts_read_more;
     }
 

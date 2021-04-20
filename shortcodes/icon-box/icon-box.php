@@ -27,12 +27,13 @@ class dt_icon_box {
             "params" => array_merge(vc_iconfont_selections(),  array(
               array(
                 'type' => 'dropdown',
-                'heading' => __( 'Testimonial Style',  "droit-wbpakery-addons" ),
+                'heading' => __( 'Icon Box Style',  "droit-wbpakery-addons" ),
                 'param_name' => 'dt_icon_box_style',
                 'default' => '1',
                 'value' => array(
                   esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
                   esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
+                  esc_html__( 'Style 3',  "droit-wbpakery-addons"  ) => '3',
                 ),
               ),
                 array(
@@ -115,7 +116,7 @@ class dt_icon_box {
       extract( shortcode_atts( array(
         'dt_list_icon_wrapper_class' => '',
         'icon_type' => 'droit_icon',
-        'dt_icon_box' => ''
+        'dt_icon_box_link' => '#'
       ), $atts, $content ) );
 
     

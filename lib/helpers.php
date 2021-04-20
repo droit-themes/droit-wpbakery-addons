@@ -189,7 +189,7 @@ if(!function_exists('dt_return')) {
 
 if(!function_exists('dt_link_before_after')) {
 
-	function dt_link_before_after( $id = array(), $before_after,  $class = '', $data_text = '' ) {
+	function dt_link_before_after( $id = array(), $before_after, $class="",  $data_text=[]) {
 		/**
 		 * Get link data
 		 * generate before after link with link attr 
@@ -197,6 +197,15 @@ if(!function_exists('dt_link_before_after')) {
 		 * if faild all condition return empty 
 		 * @param 3, 
 		 */
+
+       
+        $link_attr_custom = '';
+
+		if(!empty($data_text)) {
+			foreach($data_text as $key=>$text) {
+				$link_attr_custom .= $key.' = '.$text.' ';
+			}
+		}
 
 		$url_attrs = vc_build_link($id);
 		$link_beofre = '';
@@ -219,7 +228,7 @@ if(!function_exists('dt_link_before_after')) {
 
 			if($url_attrs['url'] != ''){
 
-				$link_beofre = '<a '.esc_attr( $link_attr ).' class="'.$class.'" data-text="'.$data_text.'">';  
+				$link_beofre = '<a '.esc_attr( $link_attr.' '.$link_attr_custom ).'class="'.$class.'">';  
 				$link_after = '</a>';
 
 			}

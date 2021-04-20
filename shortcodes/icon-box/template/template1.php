@@ -2,8 +2,8 @@
 
 $wrapper_unique_class = wp_unique_id('dt-icon-box-');
 $wrapper_class[] = $wrapper_unique_class;
-$wrapper_class[] = $dt_image_frame_animation_name;
-$wrapper_class[] = $dt_list_icon_wrapper_class;
+$wrapper_class[] = isset($dt_image_frame_animation_name) ? $dt_image_frame_animation_name : '';
+$wrapper_class[] = isset($dt_list_icon_wrapper_class) ? $dt_list_icon_wrapper_class : '';
 $wrapper_class[] = 'app_service_item text-center wow';
 $wrapper_class = join(' ', $wrapper_class);
 
@@ -41,17 +41,17 @@ $icon_box_css = [];
 
 // Icon css 
 
-if($dt_list_icon_font_size != ''){
+if(isset($dt_list_icon_font_size) != ''){
     
     $icon_box_css[$wrapper_unique_class.' .app_icon i']['font-size'] = $dt_list_icon_font_size;       
 }
 
-if($dt_icon_box_icon_color != ''){
+if(isset($dt_icon_box_icon_color) != ''){
     
     $icon_box_css[$wrapper_unique_class.' .app_icon i']['color'] = $dt_icon_box_icon_color;       
 }
 
-if($dt_icon_box_icon_bg_color != ''){
+if(isset($dt_icon_box_icon_bg_color) != ''){
     
     $icon_box_css[$wrapper_unique_class.' .app_icon']['background-color'] = $dt_icon_box_icon_bg_color;       
 }
@@ -59,34 +59,34 @@ if($dt_icon_box_icon_bg_color != ''){
 //  Heading css 
 
 
-if($dt_font_size_dt_icon_box_title != ''){
+if(isset($dt_font_size_dt_icon_box_title) != ''){
     
     $icon_box_css[$wrapper_unique_class.' h3']['font-size'] = $dt_font_size_dt_icon_box_title;       
 }
 
-if($dt_font_color_dt_icon_box_title != ''){
+if(isset($dt_font_color_dt_icon_box_title) != ''){
     
     $icon_box_css[$wrapper_unique_class.' h3']['color'] = $dt_font_color_dt_icon_box_title;       
 }
 
-if($dt_line_height_dt_icon_box_title != ''){
+if(isset($dt_line_height_dt_icon_box_title) != ''){
     
     $icon_box_css[$wrapper_unique_class.' h3']['line-height'] = $dt_line_height_dt_icon_box_title;       
 }
 
 // Description 
 
-if($dt_font_size_dt_icon_box_dec != ''){
+if(isset($dt_font_size_dt_icon_box_dec) != ''){
     
     $icon_box_css[$wrapper_unique_class.' .description']['font-size'] = $dt_font_size_dt_icon_box_dec;       
 }
 
-if($dt_font_color_dt_icon_box_dec != ''){
+if(isset($dt_font_color_dt_icon_box_dec)){
     
     $icon_box_css[$wrapper_unique_class.' .description']['color'] = $dt_font_color_dt_icon_box_dec;       
 }
 
-if($dt_line_height_dt_icon_box_title != ''){
+if(isset($dt_line_height_dt_icon_box_title)){
     
     $icon_box_css[$wrapper_unique_class.' .description']['line-height'] = $dt_line_height_dt_icon_box_title;       
 }

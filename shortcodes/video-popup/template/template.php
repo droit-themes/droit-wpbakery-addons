@@ -11,7 +11,17 @@ $wrapper_class[] = 'pop-up-content';
 $get_wrapper_class = join(' ', $wrapper_class);
 
  $video_link = $dt_vidoe_popup_video_link;
- $video_id = end(explode('/', $video_link));
+ $video_id = '';
+
+ if(isset($video_link) && !empty($video_link)) {
+
+  $video_id_explode = explode('/', $video_link);
+
+  if(is_array($video_id_explode)) {
+    $video_id = end($video_id_explode);
+  }
+
+ }
 
  //  Icon selector 
 
@@ -19,7 +29,7 @@ $get_wrapper_class = join(' ', $wrapper_class);
 
  $icon_id = 'icon_picker_'.$icon_type;
 
- if($$icon_id != '') {
+ if(isset($$icon_id) && $$icon_id != '') {
     $icon = $$icon_id;
  }
 
@@ -30,12 +40,21 @@ $get_wrapper_class = join(' ', $wrapper_class);
  
  $video_url = 'https://www.youtube.com/embed/'. $video_id;
 
- 
+ if($dt_video_button_style == 2){
+     
  ?>
+
+<div class="corporate_video_icon">
+    <a href="" class="icon popup-youtube show-video-popup-2" data-video ="<?php echo esc_url( $video_url); ?>">
+        <i class="icon-play"></i>
+    </a>
+    <p><?php echo esc_html($dt_vidoe_popup_button_text); ?></p>
+</div>
+<?php }else { ?>
 <a href="" class="show-video-pupup" data-video ="<?php echo esc_url( $video_url); ?>">
   <i class="<?php echo esc_attr(  $icon ); ?>"></i>
 </a>
-
+<?php } ?>
  <div class="vidoe-pop-up-wrapper pop-up">
         <div class="container">
             <div class="vidoe-content">
@@ -57,27 +76,37 @@ $get_wrapper_class = join(' ', $wrapper_class);
 
 $video_css = [];
 
-if($dt_pop_up_icon_color!= ''){
+if(isset($dt_pop_up_icon_color) && $dt_pop_up_icon_color != ''){
     $video_css[$unique_class.' .show-video-pupup i']['color'] = $dt_pop_up_icon_color;     
  }
 //  Icon hover color  
-if($dt_pop_up_icon_hv_color!= ''){
+if(isset($dt_pop_up_icon_hv_color) && $dt_pop_up_icon_hv_color!= ''){
     $video_css[$unique_class.' .show-video-pupup:hover i']['color'] = $dt_pop_up_icon_hv_color;     
  }
-if($dt_pop_up_icon_background_color!= ''){
+
+if(isset($dt_pop_up_icon_background_color) && $dt_pop_up_icon_background_color!= ''){
     $video_css[$unique_class.' .show-video-pupup']['background'] = $dt_pop_up_icon_background_color;     
  }
-if($dt_vidoe_popup_icon_padding!= ''){
+
+if(isset($dt_vidoe_popup_icon_padding) && $dt_vidoe_popup_icon_padding!= ''){
     $video_css[$unique_class.' .show-video-pupup']['padding'] = $dt_vidoe_popup_icon_padding;     
  }
-if($dt_vidoe_popup_icon_margin!= ''){
+if(isset($dt_vidoe_popup_icon_margin) && $dt_vidoe_popup_icon_margin != ''){
     $video_css[$unique_class.' .show-video-pupup']['margin'] = $dt_vidoe_popup_icon_margin;     
  }
 
- if($dt_pop_up_icon_hv_background_color!= ''){
+ if(isset($dt_pop_up_icon_hv_background_color) && $dt_pop_up_icon_hv_background_color != ''){
     $video_css[$unique_class.' .show-video-pupup:hover']['background'] = $dt_pop_up_icon_hv_background_color;     
  }
- if($dt_vidoe_popup_video_icon_font_size!= ''){
+// style 2 hover 
+ if(isset($dt_pop_up_icon_hv_background_color) && $dt_pop_up_icon_hv_background_color != ''){
+    $video_css[$unique_class.' .corporate_video_icon .icon:hover']['background'] = $dt_pop_up_icon_hv_background_color;     
+ }
+ if(isset($dt_pop_up_icon_hv_background_color) && $dt_pop_up_icon_hv_background_color != ''){
+    $video_css[$unique_class.' .corporate_video_icon .icon:hover']['border-color'] = $dt_pop_up_icon_hv_background_color;     
+ }
+
+ if(isset($dt_vidoe_popup_video_icon_font_size) && $dt_vidoe_popup_video_icon_font_size!= ''){
     $video_css[$unique_class.' .show-video-pupup i']['font-size'] = $dt_vidoe_popup_video_icon_font_size;     
  }
 
@@ -85,13 +114,13 @@ if($dt_vidoe_popup_icon_margin!= ''){
 
  $resposive_tab = [];
 
- if($dt_vidoe_popup_icon_tab_margin!= ''){
+ if(isset($dt_vidoe_popup_icon_tab_margin) && $dt_vidoe_popup_icon_tab_margin != ''){
     $resposive_tab[$unique_class.' .show-video-pupup']['margin'] = $dt_vidoe_popup_icon_tab_margin;     
  }
 
 $resposive_mobile  = [];
 
-if($dt_vidoe_popup_icon_mobile_margin!= ''){
+if(isset($dt_vidoe_popup_icon_mobile_margin) && $dt_vidoe_popup_icon_mobile_margin != ''){
     $resposive_mobile[$unique_class.' .show-video-pupup']['margin'] = $dt_vidoe_popup_icon_mobile_margin;     
  }
 

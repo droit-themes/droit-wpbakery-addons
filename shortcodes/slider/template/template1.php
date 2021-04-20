@@ -16,7 +16,7 @@ wp_enqueue_script( 'dt_slider_js' );
     </div>
     <div class="hero_img">
         <div class="resturent_img_slider dt-architecture">
-            <?php if(!empty($slider_items) ) { 
+            <?php if(!empty($slider_items) && is_array($slider_items)) { 
                 foreach($slider_items as $key=>$items) {  ?>
                 <div class="item <?php echo esc_attr( 'item-number-'.($key+1) ); ?>">
                     <?php echo wp_get_attachment_image( $items['dt_slider_img'], 'full' );  ?>

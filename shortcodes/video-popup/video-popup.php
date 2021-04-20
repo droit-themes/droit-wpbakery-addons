@@ -25,6 +25,27 @@ class dt_video_popup {
             "icon" => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
             "params" => array_merge(array(
+              array(
+                'type' => 'dropdown',
+                'heading' => __( 'Video Style',  "droit-wbpakery-addons" ),
+                'param_name' => 'dt_video_button_style',
+                'default' => '1',
+                'value' => array(
+                  esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
+                  esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
+                ),
+              ),
+                array(
+                    "type" => "textfield",
+                    "holder" => "div",
+                    "class" => "dt-title-font",
+                    "heading" => esc_html__("Button Text", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_vidoe_popup_button_text",
+                    'dependency' => array(
+                                    'element' => 'dt_video_button_style',
+                                    'value' => '2',
+                                      ),
+                    ),
                 array(
                     "type" => "textfield",
                     "holder" => "div",
