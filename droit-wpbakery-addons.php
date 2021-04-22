@@ -204,6 +204,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'card',
 				'event', 
 				'slider', 
+				'timeline',
 				'one-page-heading',
 				'one-page-section'
 			]);

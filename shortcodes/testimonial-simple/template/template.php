@@ -1,8 +1,12 @@
 <?php 
 
 $wrapper_uniquue_cls = wp_unique_id('dt-simple-testimonial-simple-');
-$wrapper_class_arr[] = vc_shortcode_custom_css_class($dt_testimonial_s_wrapper_setting);
-$wrapper_class_arr[] = $dt_testimonial_simple_element_class;
+if(isset($dt_testimonial_s_wrapper_setting) && $dt_testimonial_s_wrapper_setting != '') {
+    $wrapper_class_arr[] = vc_shortcode_custom_css_class($dt_testimonial_s_wrapper_setting);
+}
+if(isset($dt_testimonial_simple_element_class) && $dt_testimonial_simple_element_class !='') {
+    $wrapper_class_arr[] = $dt_testimonial_simple_element_class;
+}
 $wrapper_class_arr[] = $wrapper_uniquue_cls;
 $wrapper_class_arr[] = 'education_clients_info';
 $wrapper_class = join(' ', $wrapper_class_arr);
@@ -14,7 +18,7 @@ $wrapper_class = join(' ', $wrapper_class_arr);
         <?php echo dt_extention_wp_kses($dt_testimonial_s_comments); ?>
     </div>
     <div class="education_clients_profile">
-    <?php if($dt_testimonial_s_autheor_img != '') { ?>
+    <?php if(isset($dt_testimonial_s_autheor_img) && $dt_testimonial_s_autheor_img != '') { ?>
 
         <div class="profile_img">
            <?php  echo  dt_get_attachment_image($dt_testimonial_s_autheor_img, ['120', '120']); ?>
@@ -32,7 +36,7 @@ $wrapper_class = join(' ', $wrapper_class_arr);
 wp_enqueue_style('dt_extend_style');
 $tsl = [];
 
-if($dt_testimonial_s_icon_color != ''){
+if(isset($dt_testimonial_s_icon_color) && $dt_testimonial_s_icon_color != ''){
 
     $tsl[$wrapper_uniquue_cls.'.education_clients_info .education_clients_content:before']['color'] = $dt_testimonial_s_icon_color;   
 }

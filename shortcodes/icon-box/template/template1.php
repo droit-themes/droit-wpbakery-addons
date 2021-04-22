@@ -21,17 +21,45 @@ if($icon_type != 'image') {
 
 }
 
+//  animation
+$animation_delay = '';
+$animation_duration = '';
+
+if(isset($dt_image_frame_animation_delay)) {
+    $animation_delay = $dt_image_frame_animation_delay;
+}
+if(isset($dt_image_frame_animation_duration)) {
+    $animation_duration = $dt_image_frame_animation_duration;
+}
+
+//  link before after 
+
+$icon_box_link = '';
+
+
+if(isset($dt_icon_box_link) && $dt_icon_box_link != '') {
+  $icon_box_link = $dt_icon_box_link;
+}
+$title = '';
+if(isset($dt_icon_box_title)) {
+    $title = $dt_icon_box_title;
+}
+
+$descripton = '';
+if(isset($dt_icon_box_description)) {
+    $descripton = $dt_icon_box_description;
+}
 
 ?>
-<div class="<?php echo esc_attr( $wrapper_class ); ?>" <?php echo esc_attr( get_animation_attr($dt_image_frame_animation_delay, $dt_image_frame_animation_duration)); ?>>
+<div class="<?php echo esc_attr( $wrapper_class ); ?>" <?php echo esc_attr( get_animation_attr($animation_delay, $animation_duration)); ?>>
     <div class="app_icon">
        <?php echo dt_return($icon_html); ?>
     </div>
-    <?php echo dt_return(dt_link_before_after($dt_icon_box_link, 'before')); ?>
-        <h3><?php echo dt_extention_wp_kses( $dt_icon_box_title ); ?></h3>
-    <?php echo dt_return(dt_link_before_after($dt_icon_box_link, 'after')); ?>
+    <?php echo dt_return(dt_link_before_after($icon_box_link, 'before')); ?>
+        <h3><?php echo dt_extention_wp_kses( $title ); ?></h3>
+    <?php echo dt_return(dt_link_before_after($icon_box_link, 'after')); ?>
       <div class="description"> 
-      <?php echo   dt_extention_wp_kses($dt_icon_box_description); ?>
+      <?php echo   dt_extention_wp_kses($descripton); ?>
      </div>
 </div>
 
