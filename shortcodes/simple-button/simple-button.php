@@ -26,6 +26,16 @@ class dt_simple_button {
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
             "params" => array(
                 array(
+                    'type' => 'dropdown',
+                    'heading' => __( 'Icon Box Style',  "droit-wbpakery-addons" ),
+                    'param_name' => 'dt_simple_btn_style',
+                    'default' => '1',
+                    'value' => array(
+                      esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
+                      esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
+                    ),
+                  ),
+                array(
                     'type' => 'textfield',
                     'heading' => esc_html__( 'Button text', 'droit-wbpakery-addons' ),
                     'param_name' => 'dt_simple_button',
@@ -42,6 +52,7 @@ class dt_simple_button {
                     'heading' => esc_html__( 'Custom Class', 'droit-wbpakery-addons' ),
                     'param_name' => 'dt_simple_button_class',
                 ),
+                
             )
         ) );
     }
@@ -53,9 +64,17 @@ class dt_simple_button {
 
       extract( shortcode_atts( array(
         'dt_simple_button' => 'Button text',
+        'dt_simple_btn_style' => ''
       ), $atts ) );
-     
-      $output = dt_template_part('simple-button', null , $atts);
+
+      $button_style = null; 
+
+      if($dt_simple_btn_style != 1 ) {
+        $button_style = $dt_simple_btn_style;
+      }
+
+
+      $output = dt_template_part('simple-button', $button_style , $atts);
      
       return $output;
       

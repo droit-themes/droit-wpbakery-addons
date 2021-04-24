@@ -186,6 +186,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'image-box',
 				'button',
 				'simple-button',
+				'greadent-button',
 				'carousel',
 				'counter-up',
 				'testimonial',
