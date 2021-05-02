@@ -301,3 +301,16 @@ if(!function_exists('get_animation_attr')) {
 		return $animation_attr;
 	}
 }
+
+vc_add_shortcode_param('dymation', 'dt_dymation_setting');
+
+function dt_dymation_setting($settings, $value) {
+	echo '<pre>';
+	print_r($value);
+	echo '</pre>';
+	return '<div class="my_param_block"><input name="joybangla" value="ji"/>'
+	.'<input name="' . esc_attr( $settings['param_name'] ) . '" class="wpb_vc_param_value wpb-textinput ' .
+	esc_attr( $settings['param_name'] ) . ' ' .
+	esc_attr( $settings['type'] ) . '_field" type="text" value="' . esc_attr( $value ) . '" />' .
+	'</div>'; // This is html markup that will be outputted in content elements edit form
+}
