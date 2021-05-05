@@ -164,7 +164,7 @@ class dt_pricing {
                         "heading" => esc_html__("Title", 'droit-wbpakery-addons'),
                         "param_name" => "dt_pricing_title_2",
 
-                      ),
+                      ), 
 
                       array(
                         "type" => "textarea",
