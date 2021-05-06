@@ -22,39 +22,99 @@ class dt_team {
             "description" => __("Droit Team spacial button for your section", 'droit-wbpakery-addons'),
             "base" => "dt_team",
             "controls" => "full",
-            "icon" => plugins_url('assets/asterisk_yellow.png', __FILE__), // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
+            "icon" => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
-            "params" => array(
-      
+            "params" => array_merge(array(
                 array(
-                    'type' => 'param_group',
-                    'value' => '',
-                    "heading" => __("Droit Testimonial", 'droit-wbpakery-addons'),
-                    'param_name' => 'droit_team_content',
-                    // Note params is mapped inside param-group:
-                    'params' => array(
-                        array(
-                            "type" => "attach_image",
-                            "holder" => "div",
-                            "heading" => __("Image", 'droit-wbpakery-addons'),
-                            "param_name" => "dt_ttm_img",
-                        ),
-                        array(
-                            "type" => "textfield",
-                            "holder" => "div",
-                            "class" => "dt-title-font",
-                            "heading" => __("Image Top Bottom Position", 'droit-wbpakery-addons'),
-                            "param_name" => "dt_team_image_top_pos",
-                          ),
-                          array(
-                            "type" => "textfield",
-                            "holder" => "div",
-                            "class" => "dt-title-font",
-                            "heading" => __("Image Let Right Position", 'droit-wbpakery-addons'),
-                            "param_name" => "dt_team_image_left_pos",
-                          ),
+                  'type' => 'dropdown',
+                  'heading' => __( 'Team Style',  "droit-wbpakery-addons" ),
+                  'param_name' => 'dt_team_style',
+                  'default' => 'yes',
+                  'value' => array(
+                    esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
+                    esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
+                    esc_html__( 'Style 3',  "droit-wbpakery-addons"  ) => '3',
+                    esc_html__( 'Style 4',  "droit-wbpakery-addons"  ) => '4',
+                  ),
+                ),
+                array(
+                  'type' => 'textfield',
+                  'heading' => esc_html__( 'Team Title ', 'droit-wbpakery-addons' ),
+                  'param_name' => 'dt_team_title',
+                  'value'      => 'Team'
+              ),
+                
+                array(
+                  'type' => 'param_group',
+                  'value' => '',
+                  "heading" => __("Droit Team", 'droit-wbpakery-addons'),
+                  'param_name' => 'droit_team_content',
+                  // Note params is mapped inside param-group:
+                  'params' => array(
+                      array(
+                        "type" => "attach_image",
+                        "holder" => "div",
+                        "heading" => __("Image", 'droit-wbpakery-addons'),
+                        "param_name" => "dt_ttm_img",
+                    ),
+                    array(
+                      "type" => "textfield",
+                      "holder" => "div",
+                      "heading" => __("Name", 'droit-wbpakery-addons'),
+                      "param_name" => "dt_ttm_name",
+                    ),
+                    array(
+                      "type" => "textfield",
+                      "holder" => "div",
+                      "heading" => __("Designation", 'droit-wbpakery-addons'),
+                      "param_name" => "dt_ttm_designation",
+                    ),
+                    array(
+                      "type" => "textfield",
+                      "holder" => "div",
+                      "heading" => __("Company", 'droit-wbpakery-addons'),
+                      "param_name" => "dt_ttm_company",
+                    ),
+                    array(
+                      "type" => "textfield",
+                      "holder" => "div",
+                      "heading" => __("Comments", 'droit-wbpakery-addons'),
+                      "param_name" => "dt_ttm_comments",
+                    ),
+                    array(
+                      "type" => "textfield",
+                      "holder" => "div",
+                      "heading" => __("Facebook URL", 'droit-wbpakery-addons'),
+                      "param_name" => "dt_ttm_fb_url",
+                    ),
+                    array(
+                      "type" => "textfield",
+                      "holder" => "div",
+                      "heading" => __("Twitter URL", 'droit-wbpakery-addons'),
+                      "param_name" => "dt_ttm_fb_twitter",
+                    ),
+                    array(
+                      "type" => "textfield",
+                      "holder" => "div",
+                      "heading" => __("Dribble URL", 'droit-wbpakery-addons'),
+                      "param_name" => "dt_ttm_fb_dribble",
+                    ),
+                    array(
+                        "type" => "textfield",
+                        "holder" => "div",
+                        "class" => "dt-title-font",
+                        "heading" => __("Image Top Bottom Position", 'droit-wbpakery-addons'),
+                        "param_name" => "dt_team_image_top_pos",
+                      ),
+                      array(
+                        "type" => "textfield",
+                        "holder" => "div",
+                        "class" => "dt-title-font",
+                        "heading" => __("Image Let Right Position", 'droit-wbpakery-addons'),
+                        "param_name" => "dt_team_image_left_pos",
+                      ),
                 )),
-            ),
+            ), vc_typography_selections('Title', 'title'), vc_typography_selections('Review', 'review'), vc_typography_selections('Author Name', 'authoer'), vc_typography_selections('Designation', 'designation')),
         ) );
     }
     
@@ -73,7 +133,7 @@ class dt_team {
       return $output;
       
     }
-
+    
     /*
     Load plugin css and javascript files which you may need on front end of your site
     */
