@@ -1,4 +1,5 @@
 <?php 
+$dt_testimonials_style = vc_param_group_parse_atts($dt_testimonials_style);
 
 $wrapper_uniquue_cls = wp_unique_id('dt-simple-testimonial-simple-');
 if(isset($dt_testimonial_s_wrapper_setting) && $dt_testimonial_s_wrapper_setting != '') {
@@ -12,7 +13,13 @@ $wrapper_class_arr[] = 'education_clients_info';
 $wrapper_class = join(' ', $wrapper_class_arr);
 
 ?>
-
+<?php if($dt_testimonials_style =='2'){ ?>
+<div class="about_testimonail_content">
+    <h2><?php echo dt_extention_wp_kses($dt_testimonial_s_comments); ?></h2>
+    <div class="name"><?php echo dt_extention_wp_kses($dt_testimonial_s_autheor_name); ?></div>
+    <div class="position"><?php echo dt_extention_wp_kses($dt_testimonial_s_autheor_designation); ?></div>
+</div>
+<?php }else{ ?>
 <div class="<?php echo esc_attr( $wrapper_class ); ?>">
     <div class="education_clients_content">
         <?php echo dt_extention_wp_kses($dt_testimonial_s_comments); ?>
@@ -31,6 +38,7 @@ $wrapper_class = join(' ', $wrapper_class_arr);
     </div>
 </div>
 
+ <?php } ?>
 <?php 
 
 wp_enqueue_style('dt_extend_style');

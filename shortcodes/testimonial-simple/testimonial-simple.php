@@ -26,6 +26,17 @@ class dt_testimonial_simple {
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
             "params" => array(
                 array(
+                    'type' => 'dropdown',
+                    'heading' => __( 'Testimonials Style',  "droit-wbpakery-addons" ),
+                    'param_name' => 'dt_testimonials_style',
+                    'default' => '1',
+                    'value' => array(
+                      esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
+                      esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
+                      esc_html__( 'Style 3',  "droit-wbpakery-addons"  ) => '3',
+                    ),
+                ),
+                array(
                     'type' => 'attach_image',
                     'heading' => esc_html__( 'Author Image ', 'droit-wbpakery-addons' ),
                     'param_name' => 'dt_testimonial_s_autheor_img',
