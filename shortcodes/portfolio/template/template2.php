@@ -1,5 +1,7 @@
 <?php 
-
+$dt_portfolio_title     = vc_param_group_parse_atts($dt_portfolio_title);
+$dt_portfolio_sub_title = vc_param_group_parse_atts($dt_portfolio_sub_title);
+$dt_portfolio_button    = vc_param_group_parse_atts($dt_portfolio_button);
 $args = array(
     'numberposts'      => 3,
     'orderby'          => ($dt_select_protflow_orderby != '') ? $dt_select_protflow_orderby : 'date',
@@ -19,31 +21,60 @@ if($dt_select_catagory != '' && $dt_category_dispaly == 'yes') {
 $posts = get_posts($args);
 
 ?>
-
-
-<div class="arch_work_area">
-    <div class="container">
-    <?php $i = 1;  foreach($posts as $key=>$post){ ?>
-        <div class="row flex-row-reverse arch_work_item">
-            <div class="col-lg-8">
-                <div class="arch_work_img">
-                    <div class="image_mask wow slideInLeft" data-wow-duration="1.8s">
+ <section class="portfolio_area_three">
+            <ul class="list-unstyled about_dot left">
+                <li data-parallax='{"x": 0, "y": 100}'></li>
+                <li data-parallax='{"x": 0, "y": 40}'></li>
+                <li data-parallax='{"x": 10, "y": -40}'></li>
+            </ul>
+            <div class="container">
+                <div class="row agency_portfolio_gallery" id="work_gallery">
+                    <div class="col-md-6">
+                        <div class="portfolio_banner_title">
+                            <?php if(!empty( $dt_portfolio_title )): ?>
+                            <h2><?php echo dt_extention_wp_kses($dt_portfolio_title); ?></h2>
+                            <?php endif; ?>
+                            <?php if(!empty( $dt_portfolio_sub_title )): ?>
+                            <p>
+                                <?php echo dt_extention_wp_kses($dt_portfolio_sub_title); ?>
+                            </p>
+                            <?php endif; ?>
+                            <?php if(!empty( $dt_portfolio_button )): ?>
+                            <a href="#" class="agency_learn_btn h_text_btn" data-text="Work with us"><?php echo dt_extention_wp_kses($dt_portfolio_button); ?> <i
+                                    class="ti-arrow-right"></i>
+                            </a>
+                            <?php endif; ?>
+                        </div>
                     </div>
-                    <?php echo get_the_post_thumbnail($post->ID, 'full'); ?>
+                    <?php  $i = 1;  foreach($posts as $key=>$post){ ?>
+                    <div class="col-md-6">
+                        <div class="agency_portfolio_item">
+                            <a href="<?php echo esc_url(get_the_permalink($post->ID)); ?>" class="p_img">
+                                <?php  echo get_the_post_thumbnail($post->ID, 'full'); ?>
+                                <div class="portfolio_overlay"></div>
+                                <div class="content">
+                                    <div class="brand_category">
+                                    <?php 
+                                        foreach($terms as $term) {
+                                            echo '<span>'.$term->name.'</span>';
+                                        }
+                                    ?>
+                                    </div>
+                                    
+                                    <h5><?php echo esc_attr( get_the_title($post->ID) ); ?></h5>
+                                    <i class="ti-arrow-right arrow"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <?php  
+                    $i++;
+                    } 
+                    ?>
+                   
+                </div>
+                <div class="load_btn_center">
+                    <a href="#" class="load_btn"><img src="assets/img/portfolio-two/loading.png" alt=""></a>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="arch_work_content wow fadeInLeft" data-wow-delay="0.<?php echo esc_attr( $i); ?>s">
-                    <div class="number"><?php echo esc_html($i); ?></div>
-                    <div class="image_name"><?php echo esc_attr( get_the_title($post->ID) ); ?></div>
-                    <div class="location">London, UK</div>
-                    <a href="<?php echo esc_url(get_the_permalink($post->ID)); ?>" class="agency_learn_btn arch_learn_btn" data-text="Discover More">
-                        Discover More
-                        <i class="icon-arrow-right-2"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    <?php $i++; } ?>    
-    </div>
-</div>
+        </section>

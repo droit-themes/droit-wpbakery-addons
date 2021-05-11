@@ -27,13 +27,36 @@ class dt_portfolio {
             "params" => array_merge(array(
               array(
                 'type' => 'dropdown',
-                'heading' => __( 'Sub title tag',  "droit-wbpakery-addons" ),
+                'heading' => __( 'Portfolio Style',  "droit-wbpakery-addons" ),
                 'param_name' => 'dt_portfolio_style',
                 'default' => '1',
                 'value' => array(
-                  esc_html__( 'Style1',  "droit-wbpakery-addons"  ) => '1',
-                  esc_html__( 'Style2',  "droit-wbpakery-addons"  ) => '2',
+                  esc_html__( 'Style 01',  "droit-wbpakery-addons"  ) => '1',
+                  esc_html__( 'Style 02 (Agency boxed)',  "droit-wbpakery-addons"  ) => '2',
+                  esc_html__( 'Style 03 (Minimal boxed)',  "droit-wbpakery-addons"  ) => '3',
+                  esc_html__( 'Style 04 (Classic boxed)',  "droit-wbpakery-addons"  ) => '4',
                 ),
+              ),
+              array(
+                "type" => "textfield",
+                "holder" => "div",
+                "heading" => __("Title", 'droit-wbpakery-addons'),
+                "param_name" => "dt_portfolio_title",
+                'default' => __("Our Work", 'droit-wbpakery-addons'),
+              ),
+              array(
+                "type" => "textfield",
+                "holder" => "div",
+                "heading" => __("Sub Title", 'droit-wbpakery-addons'),
+                "param_name" => "dt_portfolio_sub_title",
+                'default' => __("Risus commodo viverra maecenas<br> accumsan lacus ven dacises.", 'droit-wbpakery-addons'),
+              ),
+              array(
+                "type" => "textfield",
+                "holder" => "div",
+                "heading" => __("Button Title", 'droit-wbpakery-addons'),
+                "param_name" => "dt_portfolio_button",
+                'default' => __("Work with us", 'droit-wbpakery-addons'),
               ),
               array(
                 "type" => "checkbox",
@@ -123,15 +146,12 @@ class dt_portfolio {
         'dt_select_protflow_orderby' => '',
       ), $atts ) );
      
-      $portfolio_style = '1';
+    
+      $portfolio_style = vc_param_group_parse_atts($dt_portfolio_style);
 
       if(!empty($atts['dt_portfolio_style'])) {
         $portfolio_style = $atts['dt_portfolio_style'];
       }
-
-      echo "<pre>";
-      print_r($atts);
-      echo "</pre>";
 
       $output = dt_template_part('portfolio', $portfolio_style , $atts);
      
