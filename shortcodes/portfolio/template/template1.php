@@ -1,7 +1,7 @@
 <?php
 
 $args = array(
-    'numberposts'      => 3,
+    'numberposts'      => => ($dt_portfolio_show_post != '') ? $dt_portfolio_show_post : '5',
     'orderby'          => ($dt_select_protflow_orderby != '') ? $dt_select_protflow_orderby : 'date',
     'order'            => ($dt_select_protflow_orderby != '') ? $dt_select_protflow_orderby : 'DESC',
     'post_type'        => 'portfolio',

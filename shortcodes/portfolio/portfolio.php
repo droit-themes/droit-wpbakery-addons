@@ -35,6 +35,8 @@ class dt_portfolio {
                   esc_html__( 'Style 02 (Agency boxed)',  "droit-wbpakery-addons"  ) => '2',
                   esc_html__( 'Style 03 (Minimal boxed)',  "droit-wbpakery-addons"  ) => '3',
                   esc_html__( 'Style 04 (Classic boxed)',  "droit-wbpakery-addons"  ) => '4',
+                  esc_html__( 'Style 05 (Creative boxed)',  "droit-wbpakery-addons"  ) => '5',
+                  esc_html__( 'Style 06 (Classic Fullwidth)',  "droit-wbpakery-addons"  ) => '6',
                 ),
               ),
               array(
@@ -106,6 +108,13 @@ class dt_portfolio {
                    esc_html__( 'Relevance',  "droit-wbpakery-addons" ) => 'relevance',
                    esc_html__( 'Menu order',  "droit-wbpakery-addons" ) => 'menu_order',
                 ),
+              ),
+              array(
+                "type" => "textfield",
+                "holder" => "div",
+                "heading" => __("Number Of Posts", 'droit-wbpakery-addons'),
+                "param_name" => "dt_portfolio_show_post",
+                'default' => __("5", 'droit-wbpakery-addons'),
               ),
 
             ), vc_typography_selections('Title', 'title')),

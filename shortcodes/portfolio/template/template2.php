@@ -3,7 +3,7 @@ $dt_portfolio_title     = vc_param_group_parse_atts($dt_portfolio_title);
 $dt_portfolio_sub_title = vc_param_group_parse_atts($dt_portfolio_sub_title);
 $dt_portfolio_button    = vc_param_group_parse_atts($dt_portfolio_button);
 $args = array(
-    'numberposts'      => 3,
+    'numberposts'      => ($dt_portfolio_show_post != '') ? $dt_portfolio_show_post : '5',
     'orderby'          => ($dt_select_protflow_orderby != '') ? $dt_select_protflow_orderby : 'date',
     'order'            => ($dt_select_protflow_orderby != '') ? $dt_select_protflow_orderby : 'DESC',
     'post_type'        => 'portfolio',
