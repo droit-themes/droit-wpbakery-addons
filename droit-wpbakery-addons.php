@@ -207,7 +207,8 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'slider', 
 				'timeline',
 				'one-page-heading',
-				'one-page-section'
+				'one-page-section',
+				'social-link'
 			]);
 			return $list;
 		}
