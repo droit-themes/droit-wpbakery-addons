@@ -195,6 +195,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'client-logo',
 				'team',
 				'post',
+				'products',
 				'image-frame',
 				'pricing',
 				'hero',
