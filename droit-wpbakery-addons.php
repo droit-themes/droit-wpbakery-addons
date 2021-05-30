@@ -208,7 +208,8 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'timeline',
 				'one-page-heading',
 				'one-page-section',
-				'social-link'
+				'social-link',
+				'nav-menu'
 			]);
 			return $list;
 		}
