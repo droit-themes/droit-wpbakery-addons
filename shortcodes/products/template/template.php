@@ -29,10 +29,8 @@ if(isset($dt_select_product_catagory) && $dt_select_product_catagory != '' && $d
 
 }
 
-$produt = new WP_Query($args);
-echo "<pre>";
-print_r($produt);
-echo "</pre>";
+$produts = new WP_Query($args);
+
 
 // if(isset($dt_ignor_stcky) && $dt_ignor_stcky != 'yes') {
 
@@ -54,40 +52,87 @@ echo "</pre>";
 // }
 
 
-
+ if($produts->have_posts() ) {
 ?>
     <div class="form-row product-list-<?php echo esc_attr( get_the_ID() ); ?>">
-    
+     <?php while($produts->have_posts()) : $produts->the_post();  
+      
+      global $product;
+
+     ?>
         <div class="col-lg-3 col-md-4 col-sm-6">
             <div class="shop_product_item">
                 <div class="shop_product_img">
-                    <a href="#" class="img_hover">
-                        <img src="assets/img/home-shop/shop_pr_1.jpg" alt="">
-                        <div class="offer_badge">-30%</div>
+                    <a href="<?php echo esc_url( the_permalink(  )); ?>" class="img_hover">
+                        <?php woocommerce_template_loop_product_thumbnail(); 
+                        
+                        dt_sale_percentage_loop();
+                        ?>
+                        
                     </a>
                     <div class="product_nav_action">
-                        <a class="product_nav_action_item dl_tooltip_top" aria-label="Cart" href="#" target="_blank" rel="nofollow">
-                            <i class="ti-shopping-cart"></i>
-                        </a>
-                        <a class="product_nav_action_item dl_tooltip_top" aria-label="Compare" href="#" target="_blank" rel="nofollow">
+                       
+                       <!-- <a href="?add-to-cart=3668" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="3668" data-product_sku="woo-belt" aria-label="Add “Belt” to your cart" rel="nofollow">Add to cart</a> -->
+                        <?php 
+                        
+                        if( $product->has_child() ) {
+                           ?>
+                            <a class="product_nav_action_item dl_tooltip_top button product_type_variable add_to_cart_button" aria-label="Cart" href="<?php echo esc_url(the_permalink()); ?>" data-product_id="<?php echo esc_attr( get_the_ID() ) ?>" rel="nofollow">
+                                 <i class="ti-shopping-cart"></i>
+                            </a>
+                           <?php   } else {
+                            ?>
+                             <a class="product_nav_action_item dl_tooltip_top button product_type_simple add_to_cart_button ajax_add_to_cart" aria-label="Cart" href="?add-to-cart=<?php echo esc_attr( get_the_ID() ) ?>" data-product_id="<?php echo esc_attr( get_the_ID() ) ?>">
+                                 <i class="ti-shopping-cart"></i>
+                             </a>
+        
+                            <?php 
+                           } ?>
+                      
+                       
+                        <!-- <a class="product_nav_action_item dl_tooltip_top" aria-label="Compare" href="#" target="_blank" rel="nofollow">
                             <i class="ti-loop"></i>
-                        </a>
-                        <a class="product_nav_action_item dl_tooltip_top" data-toggle="modal" data-target=".product_compair_modal" aria-label="Quickview" href="#" target="_blank" rel="nofollow">
-                            <i class="ti-eye"></i>
-                        </a>
+                        </a> -->
+                        
+                        <?php 
+                        
+                            if(shortcode_exists('yith_compare_button')) {
+
+                            echo do_shortcode('[yith_compare_button]');
+                            }
+                            
+                            if(shortcode_exists('yith_quick_view')) {
+
+                            echo do_shortcode('[yith_quick_view product_id='.get_the_ID().' type="button" label="<i class="ti-eye"></i>"]');
+                            }
+                        ?>
+        
                     </div>
                 </div>
                 <div class="content">
-                    <a href="#" class="pr_name">Frama</a>
-                    <a href="#">
-                        <h3>Sintra Dinning Table</h3>
-                    </a>
+
+                     <?php $terms = get_terms( array( 'taxonomy' => 'product_cat' ) ); 
+                     
+                      foreach ($terms as $key=> $category) { ?>
+
+                      <a href="<?php echo esc_url(get_term_link($category->term_id, 'product_cat')); ?>" class="pr_name"><?php echo esc_html($category->name) ?> </a> 
+                      
+                      <?php break; } 
+                      
+                      the_title('<h3> <a href="'.esc_url(get_the_permalink()).'">', ' </a><h3>'); ?>
+                   
                     <div class="product-prices">
-                        <del class="oldPrice">$80.00</del>
-                        <span class="price">$23.00</span>
+                      <?php woocommerce_template_loop_price(); ?>
                     </div>
                 </div>
             </div>
         </div>
+     <?php endwhile; 
+      
+       wp_reset_postdata(); 
+    } else{
+         echo esc_html__( 'Sorry, no posts matched your criteria',  'droit-wpbakery-addons');
+    }
+     ?>    
     </div>
 </div>

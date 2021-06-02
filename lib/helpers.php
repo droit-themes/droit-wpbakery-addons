@@ -314,3 +314,27 @@ function dt_dymation_setting($settings, $value) {
 	esc_attr( $settings['type'] ) . '_field" type="text" value="' . esc_attr( $value ) . '" />' .
 	'</div>'; // This is html markup that will be outputted in content elements edit form
 }
+
+//  get woocommerce sale 
+
+function dt_sale_percentage_loop() {
+    global $product;
+    $max_percentage = 0;
+    $percentage = 0;
+    if ( ! $product->is_on_sale() ) return;
+    if ( $product->is_type( 'simple' ) ) {
+        $max_percentage = ( ( $product->get_regular_price() - $product->get_sale_price() ) / $product->get_regular_price() ) * 100;
+    }
+    elseif ( $product->is_type( 'variable' ) ) {
+        foreach ( $product->get_children() as $child_id ) {
+            $variation = wc_get_product( $child_id );
+            $price = $variation->get_regular_price();
+            $sale = $variation->get_sale_price();
+            if ( $price != 0 && ! empty( $sale ) ) $percentage = ( $price - $sale ) / $price * 100;
+            if ( $percentage > $max_percentage ) {
+                $max_percentage = $percentage;
+            }
+        }
+    }
+    if ( $max_percentage > 0 ) echo "<div class='offer_badge sale-perc'>-" . round($max_percentage) . "%</div>";
+}

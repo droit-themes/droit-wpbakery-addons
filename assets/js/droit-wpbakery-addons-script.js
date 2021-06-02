@@ -2,8 +2,21 @@
 jQuery(function($){
    "use strict";
 
-   //  one page section setting 
+ //  WooCommerce Quick view 
 
+ let quickView = $('.button.yith-wcqv-button');
+ let compaireButton = $('.compare.button');
+ if(compaireButton.length > 0 ) {
+	compaireButton.html('<i class="ti-loop"></i>'); 
+	compaireButton.addClass('product_nav_action_item dl_tooltip_top');
+	compaireButton.removeClass('button');
+ }
+	if(quickView.length > 0 ) {
+		quickView.html('<i class="ti-eye"></i>');
+		quickView.addClass('product_nav_action_item dl_tooltip_top');
+	}
+
+   //  one page section setting 
    let onePageSection = $('.page-template-onepage #wavescroll .section');
    
    if(onePageSection.length > 0 ){
