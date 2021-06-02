@@ -33,6 +33,7 @@ class dt_slider {
                 'value' => array(
                   esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
                   esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
+                  esc_html__( 'Style 3',  "droit-wbpakery-addons"  ) => '3',
                 ),
               ),
               array(
@@ -104,7 +105,7 @@ class dt_slider {
                   ),
                     array(
                       "type" => "textfield",
-                      "heading" => __("Button 2 Text ", 'droit-wbpakery-addons'),
+                      "heading" => esc_html__("Button 2 Text ", 'droit-wbpakery-addons'),
                       "param_name" => "dt_slider_button_2_style_2",
                     ),
                     array(
@@ -115,6 +116,46 @@ class dt_slider {
                       'group' => esc_html__( 'Button', 'droit-wbpakery-addons' ),
                   ),
             )),
+            array(
+              'type' => 'param_group',
+              'value' => '',
+              "heading" => esc_html__("Droit Slider", 'droit-wbpakery-addons'),
+              'param_name' => 'droit_slider_content_3',
+              'dependency' => array(
+                'element' => 'dt_slider_style',
+                'value' => '3',
+              ),
+              // Note params is mapped inside param-group:
+              'params' => array(
+                  array(
+                      "type" => "attach_image",
+                      "holder" => "div",
+                      "heading" => esc_html__("Background Image", 'droit-wbpakery-addons'),
+                      "param_name" => "dt_slider_img_3",
+                  ),
+                  array(
+                    "type" => "textarea",
+                    "heading" => __("Subtitle ", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_slider_sub_title_style_3",
+                  ),
+                  array(
+                    "type" => "textarea",
+                    "heading" => __("Title ", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_slider_title_style_3",
+                  ),
+                  array(
+                    "type" => "textfield",
+                    "heading" => esc_html__("Button Text ", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_slider_button_style_3",
+                  ),
+                  array(
+                    'type' => 'vc_link',
+                    'heading' => esc_html__( 'Link', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_slider_button_link_3',
+                    'description' => esc_html__( 'Add link to button.', 'droit-wbpakery-addons' ),
+                    'group' => esc_html__( 'Button', 'droit-wbpakery-addons' ),
+                ),
+          )),
             )
         ) );
     }
@@ -126,6 +167,7 @@ class dt_slider {
 
       extract( shortcode_atts( array(
         'dt_slider_title' => '',
+        'dt_slider_style' => '1'
       ), $atts ) );
      
 
