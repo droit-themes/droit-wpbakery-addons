@@ -34,9 +34,9 @@ if(isset($dt_icon_box_link) != '') {
   <?php echo dt_return($icon_html); ?>
     <div class="media-body">
      <?php echo dt_return($link_before); ?>
-            <?php if(isset($dt_icon_box_title)){ ?>
-              <h4><?php echo dt_extention_wp_kses( $dt_icon_box_title ); ?></h4>
-            <?php } ?>
+         <?php if(isset($dt_icon_box_title)){ ?>
+           <h4><?php echo dt_extention_wp_kses( $dt_icon_box_title ); ?></h4>
+         <?php } ?>
      <?php echo dt_return($link_after); ?>
      <?php if(isset($dt_icon_box_description)) { ?>
         <p><?php echo dt_extention_wp_kses($dt_icon_box_description); ?></p>

@@ -35,6 +35,7 @@ class dt_testimonial {
                     esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
                     esc_html__( 'Style 3',  "droit-wbpakery-addons"  ) => '3',
                     esc_html__( 'Style 4',  "droit-wbpakery-addons"  ) => '4',
+                    esc_html__( 'Style 5',  "droit-wbpakery-addons"  ) => '5',
                   ),
                 ),
                 array(
@@ -73,6 +74,19 @@ class dt_testimonial {
                           "holder" => "div",
                           "heading" => __("Comemnt", 'droit-wbpakery-addons'),
                           "param_name" => "dt_ttm_auther_comment",
+                        ),
+                        array(
+                          'type' => 'dropdown',
+                          'heading' => esc_html__( 'Star Rating',  "droit-wbpakery-addons" ),
+                          'param_name' => 'dt_testimonial_client_wraiign',
+                          'default' => '5',
+                          'value' => array(
+                            esc_html__( '1',  "droit-wbpakery-addons"  ) => '1',
+                            esc_html__( '2',  "droit-wbpakery-addons"  ) => '2',
+                            esc_html__( '3',  "droit-wbpakery-addons"  ) => '3',
+                            esc_html__( '4',  "droit-wbpakery-addons"  ) => '4',
+                            esc_html__( '5',  "droit-wbpakery-addons"  ) => '5',
+                          ),
                         ),
                 )),
             ), vc_typography_selections('Title', 'title'), vc_typography_selections('Review', 'review'), vc_typography_selections('Author Name', 'authoer'), vc_typography_selections('Designation', 'designation')),
