@@ -69,7 +69,20 @@ class dt_icon_box {
                     'description' => esc_html__( 'Font Color.', 'droit-wbpakery-addons' ),
                     'edit_field_class' => 'vc_col-sm-6',
                     'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
-                            'description' => esc_html__( 'Icon Background Color', 'droit-wbpakery-addons' ),
+                     'description' => esc_html__( 'Icon Background Color', 'droit-wbpakery-addons' ),
+                  ),
+                  array(
+                    "type" => "textfield",
+                    "holder" => "div",
+                    "heading" => esc_html__("Icon Margin", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_list_icon_margin",
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                    'edit_field_class' => 'vc_col-sm-6',
+                    'dependency' => array(
+                      'element' => 'dt_icon_box_style',
+                      'value' => '3',
+                    ),
+
                   ),
                   array(
                     "type" => "textarea",
