@@ -40,8 +40,7 @@ $get_wrapper_class = join(' ', $wrapper_class);
  
  $video_url = 'https://www.youtube.com/embed/'. $video_id;
 
- if($dt_video_button_style == 2){
-     
+ if(isset($dt_video_button_style) && $dt_video_button_style == 2){
  ?>
 
 <div class="corporate_video_icon">
@@ -50,7 +49,22 @@ $get_wrapper_class = join(' ', $wrapper_class);
     </a>
     <p><?php echo esc_html($dt_vidoe_popup_button_text); ?></p>
 </div>
-<?php }else { ?>
+<?php }elseif(isset($dt_video_button_style) && $dt_video_button_style == 3){
+    echo "<pre>";
+    print_r($dt_video_pupop_bg_image);
+    echo "</pre>";
+    ?>
+   
+    <div class="shop_video">
+       <?php echo wp_get_attachment_image( $dt_video_pupop_bg_image, 'fulll'); ?>
+        <div class="travel_video">
+            <a href="https://www.youtube.com/watch?v=-w4LA-P0lfk"
+                class="travel_video_icon popup-youtube show-video-pupup"><i class="icon-play"></i></a>
+            <span>Watch the film</span>
+        </div>
+       </div>
+    <?php 
+}else { ?>
 <a href="" class="show-video-pupup" data-video ="<?php echo esc_url( $video_url); ?>">
   <i class="<?php echo esc_attr(  $icon ); ?>"></i>
 </a>

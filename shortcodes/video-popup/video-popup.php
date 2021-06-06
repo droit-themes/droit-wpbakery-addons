@@ -33,8 +33,19 @@ class dt_video_popup {
                 'value' => array(
                   esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
                   esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
+                  esc_html__( 'Style 3',  "droit-wbpakery-addons"  ) => '3',
                 ),
               ),
+              array(
+                "type" => "attach_image",
+                "holder" => "div",
+                "heading" => esc_html__("Background Image", 'droit-wbpakery-addons'),
+                "param_name" => "dt_video_pupop_bg_image",
+                'dependency' => array(
+                  'element' => 'dt_video_button_style',
+                  'value' => '3',
+                  ),
+             ),
                 array(
                     "type" => "textfield",
                     "holder" => "div",
@@ -42,8 +53,8 @@ class dt_video_popup {
                     "heading" => esc_html__("Button Text", 'droit-wbpakery-addons'),
                     "param_name" => "dt_vidoe_popup_button_text",
                     'dependency' => array(
-                                    'element' => 'dt_video_button_style',
-                                    'value' => '2',
+                                      'element' => 'dt_video_button_style',
+                                      'value' => '2',
                                       ),
                     ),
                 array(
