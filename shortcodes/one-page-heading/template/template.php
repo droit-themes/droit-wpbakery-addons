@@ -7,6 +7,7 @@ $wrapper_class = join(' ', $wrapper_css_class);
 
 //  link 
 $url_attrs = vc_build_link($dt_one_page_button_link);
+$link_attr = '';
 
 if(!empty($url_attrs)){
     foreach ($url_attrs as $key => $attr){
@@ -30,7 +31,6 @@ if(!empty($url_attrs)){
     }
 
 }
-
 
 ?>
 
