@@ -46,12 +46,22 @@ if($icon_type != 'image') {
 
 ?>
 
+<form class="mailchimp form-row justify-content-center home_subscribe_inner" data-url="<?php echo esc_url($action_link); ?>">
+   
+    <div class="col-xl-3 col-md-4 wow fadeInDown animated" data-wow-delay=".3s" >
+        <input type="text" class="form-control" placeholder="<?php echo esc_attr( $name_placeholder ); ?>" name="name" required>
+    </div>
+   
+    <div class="col-xl-3 col-md-4 wow fadeInDown animated" data-wow-delay=".3s" >
+        <input type="email" class="form-control" placeholder="<?php echo esc_attr( $email ); ?>" name="email" required>
+    </div>
 
-<form class="mailchimp input-group rest_newsletter rave-subscribe" method="post" data-url="<?php echo esc_url($action_link); ?>" >
-    <input type="text" class="form-control memail" placeholder="<?php echo esc_attr( $email ); ?>">
-    <button type="submit" class="restaurent_btn hover_style1"><?php echo esc_html( $button_label ); ?>
-    <?php echo dt_return($button_icon_html); ?>
-    </button>
+    <div class="col-xl-2 col-md-3 wow fadeInDown animated" data-wow-delay=".7s">
+        <button type="submit" class="home_btn_hover hover_style1"><?php echo esc_html( $button_label ); ?>
+            <?php echo dt_return($button_icon_html); ?>
+        </button>
+    </div>
 </form>
+
 <p class="mchimp-errmessage text-center mt-3" style="display: none;"></p>
 <p class="mchimp-sucmessage text-center mt-3" style="display: none;"></p>

@@ -24,29 +24,60 @@ class dt_subscribe {
             "controls" => "full",
             "icon" => plugins_url('assets/asterisk_yellow.png', __FILE__), // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
-            "params" => array(
+            "params" => array_merge(array(
            
                 array(
                     'type' => 'dropdown',
                     'heading' => esc_html__( 'Select Style',  "droit-wbpakery-addons" ),
                     'param_name' => 'dt_subscribe_form_style',
-                    'default' => '1',
+                    'default' => '4',
                     'value' => array(
                       esc_html__( 'Style 1',  "droit-wbpakery-addons" ) => '1',
                       esc_html__( 'Style 2',  "droit-wbpakery-addons" )  => '2',
                       esc_html__( 'Style 3',  "droit-wbpakery-addons" )  => '3',
+                      esc_html__( 'Style 4',  "droit-wbpakery-addons" )  => '4',
                     ),
+                    'edit_field_class' => 'vc_col-sm-6',
                   ),
               
               array(
                 "type" => "textfield",
-                "holder" => "div",
-                "heading" => __("Action URL", 'droit-wbpakery-addons'),
+                'edit_field_class' => 'vc_col-sm-6',
+                "heading" => esc_html__("Action URL", 'droit-wbpakery-addons'),
                 "param_name" => "dt_subscribe_form_action_url",
                 "description" => __('Enter here your MailChimp action URL. <a href="https://goo.gl/k5a2tA" target="_blank"> How to </a>', 'droit-wbpakery-addons'),
               ),
-             
-            )
+
+              array(
+                "type" => "textfield",
+                "heading" => esc_html__("Placeholder Name", 'droit-wbpakery-addons'),
+                "param_name" => "dt_subscribe_placeholder_name",
+                'edit_field_class' => 'vc_col-sm-6',
+                'value' => esc_html__('Full name*', 'droit-wbpakery-addons'),
+                'dependency' => array(
+                  'element' => 'dt_subscribe_form_style',
+                  'value_not_equal_to' => array('1', '2'),
+                ),
+              ),
+
+              array(
+                "type" => "textfield",
+                "heading" => esc_html__("Placeholder Email", 'droit-wbpakery-addons'),
+                "param_name" => "dt_subscribe_placeholder_email",
+                'edit_field_class' => 'vc_col-sm-6',
+                'value' => esc_html__('Email Address*', 'droit-wbpakery-addons'),
+              ),
+
+              array(
+                "type" => "textfield",
+                "heading" => esc_html__("Button Label", 'droit-wbpakery-addons'),
+                "param_name" => "dt_subscribe_button_lable",
+                'edit_field_class' => 'vc_col-sm-6',
+                'value' => esc_html__('Give me Fun', 'droit-wbpakery-addons'),
+
+              ),
+
+            ), vc_iconfont_selections('subscribe'))
         ) );
     }
     
@@ -57,8 +88,12 @@ class dt_subscribe {
 
       extract( shortcode_atts( array(
         'dt_subscribe_form_style' => 1,
+        'dt_subscribe_form_action_url' => '',
+        'dt_subscribe_placeholder_name' => 'Full name*',
+        'dt_subscribe_placeholder_email' => 'Email Address*',
+        'dt_subscribe_button_lable' => 'Give me Fun',
       ), $atts ) );
-    
+
       $output = dt_template_part('subscribe', $dt_subscribe_form_style , $atts);
      
       return $output;

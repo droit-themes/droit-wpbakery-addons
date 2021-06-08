@@ -31,6 +31,7 @@ jQuery(function($){
 			}
 		},
 	});
+	
 	$('#moveDown').click(function () {
 		$.fn.fullpage.moveSectionDown();
 	});
