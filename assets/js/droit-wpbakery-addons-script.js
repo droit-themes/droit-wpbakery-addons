@@ -4,6 +4,50 @@ jQuery(function($){
 
  //  WooCommerce Quick view 
 
+ if ($('#wavescroll').length > 0) {
+	$('#wavescroll').fullpage({
+		navigation: true,
+		navigationPosition: 'right',
+		autoScrolling: true,
+		scrollBar: false,
+		scrollOverflow: true,
+		animateAnchor: true,
+		css3: true,
+		verticalCentered: true,
+		scrollingSpeed: 1000,
+		afterResponsive: function (isResponsive) {},
+		afterLoad: function (anchorLink, index) {
+			if (index == 8) {
+				$('.full_footer').addClass('content-black');
+			} else {
+				$('.full_footer').removeClass('content-black');
+			}
+			if ($(window).width() < 767) {
+				if (index == 1 || index == 8) {
+					$('.full_footer').css('display', 'block');
+				} else {
+					$('.full_footer').css('display', 'none');
+				}
+			}
+		},
+	});
+	$('#moveDown').click(function () {
+		$.fn.fullpage.moveSectionDown();
+	});
+
+	$('#fp-nav ul').empty();
+	var $dataName = document.querySelectorAll('[data-name]');
+	var datatitle = '';
+	[...$dataName].forEach((title) =>
+		$('#fp-nav ul').append(
+			"<li><a href='#'><span>" +
+				title.getAttribute('data-name') +
+				'</span></a></li>'
+		)
+	);
+	$('#fp-nav ul li a').first().addClass('active');
+}
+
  let quickView = $('.button.yith-wcqv-button');
  let compaireButton = $('.compare.button');
  if(compaireButton.length > 0 ) {

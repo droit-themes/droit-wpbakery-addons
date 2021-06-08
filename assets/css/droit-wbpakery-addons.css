@@ -81,3 +81,7 @@
 .no-padding{
     padding: 0 !important;
 }
+
+.fp-section.fp-table, .fp-slide.fp-table{
+    margin-left: 0 !important;
+  }
