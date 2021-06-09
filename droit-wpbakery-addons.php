@@ -56,7 +56,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			if ( ( is_multisite() && is_network_admin() ) || ! is_multisite() ) {
 				add_action( 'admin_init', array( $this, 'droit_display_admin_notice' ) );
 			}
-
+         if($this->droit_is_wpbakery_installed()){
 			$attributes = array(
 				array(
 					'type' => 'checkbox',
@@ -128,13 +128,14 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
     
 			  );
 			  vc_add_params( 'vc_section', $attributes ); // Note: 'vc_message' was used as a base for "Message box" element
-			  
+			
             //  Overwriting VC default tempalte 
 			$dir = DROIT_WPBAKERY_ADDONS_ABS_PATH. '/vc_droit_templates_dir';
 			vc_set_shortcodes_templates_dir( $dir );
 			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/helpers.php');
 			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/controls.php');
 			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/droit-icon.php');
+		 }
 		}
 		
 		//  load droit wpbakery css and js
