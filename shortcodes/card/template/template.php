@@ -1,7 +1,6 @@
 <?php
 
 
-
 $icon_selector = '';
 
 if(isset($icon_type)){

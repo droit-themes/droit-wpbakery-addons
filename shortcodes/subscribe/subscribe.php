@@ -36,6 +36,7 @@ class dt_subscribe {
                       esc_html__( 'Style 2',  "droit-wbpakery-addons" )  => '2',
                       esc_html__( 'Style 3',  "droit-wbpakery-addons" )  => '3',
                       esc_html__( 'Style 4',  "droit-wbpakery-addons" )  => '4',
+                      esc_html__( 'Style 5',  "droit-wbpakery-addons" )  => '5',
                     ),
                     'edit_field_class' => 'vc_col-sm-6',
                   ),
@@ -56,7 +57,7 @@ class dt_subscribe {
                 'value' => esc_html__('Full name*', 'droit-wbpakery-addons'),
                 'dependency' => array(
                   'element' => 'dt_subscribe_form_style',
-                  'value_not_equal_to' => array('1', '2'),
+                  'value_not_equal_to' => array('1', '2', '5'),
                 ),
               ),
 
@@ -74,6 +75,10 @@ class dt_subscribe {
                 "param_name" => "dt_subscribe_button_lable",
                 'edit_field_class' => 'vc_col-sm-6',
                 'value' => esc_html__('Give me Fun', 'droit-wbpakery-addons'),
+                'dependency' => array(
+                  'element' => 'dt_subscribe_form_style',
+                  'value_not_equal_to' => array('2'),
+                ),
 
               ),
 

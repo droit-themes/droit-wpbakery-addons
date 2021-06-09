@@ -1,19 +1,19 @@
 <?php 
 
-$name_placeholder = 'Full name*';
+$name_placeholder = esc_html__('Full name*', 'droit-wbpakery-addons') ;
 
 if(isset($dt_subscribe_placeholder_name)) {
     $name_placeholder = $dt_subscribe_placeholder_name;
 }
 
-$email = 'Email Address*';
+$email = esc_html__('Email Address*', 'droit-wbpakery-addons');
 
 if(isset($dt_subscribe_placeholder_email)) {
     $email = $dt_subscribe_placeholder_email;
 }
 
 
-$button_label = 'Give me Fun';
+$button_label = esc_html__('Give me Fun', 'droit-wbpakery-addons');
 
 
 if(isset($dt_subscribe_button_lable)) {
@@ -25,7 +25,6 @@ $action_link = '';
 if(isset($dt_subscribe_form_action_url)) {
     $action_link = $dt_subscribe_form_action_url;
 }
-
 
 $button_icon_html = '<i class="ti-arrow-right"></i>';
 
