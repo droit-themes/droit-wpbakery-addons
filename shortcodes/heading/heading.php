@@ -1,7 +1,7 @@
 <?php 
 namespace shortcodes\dt_heading;
 
-class dt_heading {
+class dt_heading extends \WPBakeryShortCode{
     
     function __construct() {
         // We safely integrate with VC with this hook
@@ -356,27 +356,16 @@ class dt_heading {
         'dt_sub_title_color'=> '',
         'google_fonts_heading' => ''
       ), $atts ) );
+
+
+
+
      
       $output = dt_template_part('heading', null , $atts);
-      $font_style = explode('|', $google_fonts_heading);
-      $font_inline = explode(':', $font_style[0]);
-      $font_inline2 = explode('%', $font_inline[1]);
-      echo "<pre>";
-      print_r($font_inline2);
-      echo "</pre>";
+ 
       return $output;
       
     }
-    protected function getFontsData( $fontsString ) {   
- 
-      // Font data Extraction
-      $googleFontsParam = new Vc_Google_Fonts();      
-      $fieldSettings = array();
-      $fontsData = strlen( $fontsString ) > 0 ? $googleFontsParam->_vc_google_fonts_parse_attributes( $fieldSettings, $fontsString ) : '';
-      return $fontsData;
-       
-  }
-  
 
     /*
     Load plugin css and javascript files which you may need on front end of your site
