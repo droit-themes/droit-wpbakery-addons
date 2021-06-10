@@ -125,7 +125,6 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 							'value' => 'yes'
 						  ),	
 					),	
-    
 			  );
 			  vc_add_params( 'vc_section', $attributes ); // Note: 'vc_message' was used as a base for "Message box" element
 			
@@ -234,7 +233,6 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 						$class_name = str_replace('-', '_', 'shortcodes'.$namespace_sep.$name_space.$namespace_sep.$name_space);
 				
-
 						$file_full_path = DROIT_WPBAKERY_ADDONS_SHORTCODES_ABS_PATH.$file_path.$file_name;
 						
 						if(is_readable($file_full_path) && file_exists($file_full_path) ) {
@@ -247,7 +245,6 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 			
 			}
-			
 		}
 
 		/**

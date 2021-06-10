@@ -301,7 +301,19 @@ class dt_heading {
                   __( 'Center',  "droit-wbpakery-addons"  ) => 'center',
                 ),
                 "description" => __( "Text aligment", "droit-wbpakery-addons" )
-              )
+              ),
+              array(
+                'type' => 'google_fonts',
+                'param_name' => 'google_fonts_heading',
+                'el_class' => 'banner_text_intro',
+                'value' => 'font_family:Abril%20Fatface%3Aregular|font_style:400%20regular%3A400%3Anormal',
+                'settings' => array(
+                  'fields' => array(
+                    'font_family_description' => esc_html__( 'Select font family.', 'js_composer' ),
+                    'font_style_description' => esc_html__( 'Select font styling.', 'js_composer' ),
+                  ),
+                ),
+              ),        
               
 
               // array(
@@ -342,13 +354,29 @@ class dt_heading {
         'dt_title' => '',
         'css' => '',
         'dt_sub_title_color'=> '',
+        'google_fonts_heading' => ''
       ), $atts ) );
      
       $output = dt_template_part('heading', null , $atts);
-     
+      $font_style = explode('|', $google_fonts_heading);
+      $font_inline = explode(':', $font_style[0]);
+      $font_inline2 = explode('%', $font_inline[1]);
+      echo "<pre>";
+      print_r($font_inline2);
+      echo "</pre>";
       return $output;
       
     }
+    protected function getFontsData( $fontsString ) {   
+ 
+      // Font data Extraction
+      $googleFontsParam = new Vc_Google_Fonts();      
+      $fieldSettings = array();
+      $fontsData = strlen( $fontsString ) > 0 ? $googleFontsParam->_vc_google_fonts_parse_attributes( $fieldSettings, $fontsString ) : '';
+      return $fontsData;
+       
+  }
+  
 
     /*
     Load plugin css and javascript files which you may need on front end of your site

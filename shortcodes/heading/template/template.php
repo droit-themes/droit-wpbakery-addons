@@ -41,6 +41,7 @@ if($dt_heading_description_tag != '') {
      $description_tag = $dt_heading_description_tag;
 }
 
+
 ?>
 
 <div class="<?php echo esc_attr($wrapper_class); ?>">
