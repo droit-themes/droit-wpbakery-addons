@@ -11,7 +11,7 @@ if(!function_exists('vc_typography_selections')) {
 				'param_name' => 'dt_font_size_'.$id,
 				'edit_field_class' => 'vc_col-sm-3',
 				'group' => esc_html__( 'Typography', 'droit-wbpakery-addons' ),
-        'description' => esc_html__( 'Font Size', 'droit-wbpakery-addons' ),
+                'description' => esc_html__( 'Font Size', 'droit-wbpakery-addons' ),
 			),
 			array(
 				'type' => 'textfield',
@@ -34,7 +34,6 @@ if(!function_exists('vc_typography_selections')) {
 				'type' => 'colorpicker',
 				'heading' => esc_html__( 'Color', 'droit-wbpakery-addons' ),
 				'param_name' => 'dt_font_color_'.$id,
-				'description' => esc_html__( 'Font Color.', 'droit-wbpakery-addons' ),
 				'edit_field_class' => 'vc_col-sm-3',
 				'group' => esc_html__( 'Typography', 'droit-wbpakery-addons' ),
                 'description' => esc_html__( 'Font color', 'droit-wbpakery-addons' ),

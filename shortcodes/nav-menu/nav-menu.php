@@ -8,7 +8,7 @@ class dt_nav_menu {
         add_action( 'init', array( $this, 'dt_nav_menu' ) );
  
         // Use this when creating a shortcode addon
-        add_shortcode( 'dt_nav_menu', array( $this, 'dt_nav_menu_rander' ) );
+        add_shortcode( 'dt_nav_menu', array( $this, 'dt_nav_menu_render' ) );
 
         // Register CSS and JS
         add_action( 'wp_enqueue_scripts', array( $this, 'dt_nav_menu_loadCssAndJs' ) );
@@ -25,146 +25,206 @@ class dt_nav_menu {
             "icon" => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
             "params" => array_merge(array(
-              array(
-                'type' => 'dropdown',
-                'heading' => __( 'Portfolio Style',  "droit-wbpakery-addons" ),
-                'param_name' => 'dt_nav_menu_style',
-                'default' => '1',
-                'value' => array(
-                  esc_html__( 'Style 01',  "droit-wbpakery-addons"  ) => '1',
-                  esc_html__( 'Style 02 (Agency boxed)',  "droit-wbpakery-addons"  ) => '2',
-                  esc_html__( 'Style 03 (Minimal boxed)',  "droit-wbpakery-addons"  ) => '3',
-                  esc_html__( 'Style 04 (Classic boxed)',  "droit-wbpakery-addons"  ) => '4',
-                  esc_html__( 'Style 05 (Creative boxed)',  "droit-wbpakery-addons"  ) => '5',
-                  esc_html__( 'Style 06 (Classic Fullwidth)',  "droit-wbpakery-addons"  ) => '6',
+                array(
+                    'type' => 'dropdown',
+                    'heading' => __( 'Select Menu',  "droit-wbpakery-addons" ),
+                    'param_name' => 'dt_nav_menu_style',
+                    'default' => '',
+                    'value' => $this->get_nav_menus(),
                 ),
-              ),
-              array(
-                "type" => "textfield",
-                "holder" => "div",
-                "heading" => __("Title", 'droit-wbpakery-addons'),
-                "param_name" => "dt_nav_menu_title",
-                'default' => __("Our Work", 'droit-wbpakery-addons'),
-              ),
-              array(
-                "type" => "textfield",
-                "holder" => "div",
-                "heading" => __("Sub Title", 'droit-wbpakery-addons'),
-                "param_name" => "dt_nav_menu_sub_title",
-                'default' => __("Risus commodo viverra maecenas<br> accumsan lacus ven dacises.", 'droit-wbpakery-addons'),
-              ),
-              array(
-                "type" => "textfield",
-                "holder" => "div",
-                "heading" => __("Button Title", 'droit-wbpakery-addons'),
-                "param_name" => "dt_nav_menu_button",
-                'default' => __("Work with us", 'droit-wbpakery-addons'),
-              ),
-              array(
-                "type" => "checkbox",
-                "heading" => __( "Select Category", "droit-wbpakery-addons" ),
-                "param_name" => "dt_category_dispaly",
-                "value" => array(esc_html__('Yes', 'droit-wbpakery-addons') => 'yes'),
-              ),   
-              array(
-                'type' => 'dropdown',
-                'heading' => __( 'Select Category',  "droit-wbpakery-addons" ),
-                'param_name' => 'dt_select_catagory',
-                'default' => '',
-                'value' => $this->getCategories(),
-                'dependency'    => array(
-                  'element'   => 'dt_category_dispaly',
-                  'value'     => 'yes'
-                  )              
-              ),
 
-              array(
-                'type' => 'dropdown',
-                'heading' => __( 'Order',  "droit-wbpakery-addons" ),
-                'param_name' => 'dt_select_protflow_order',
-                'default' => 'DESC',
-                'value' => array(
-                  esc_html__( 'ASC',  "droit-wbpakery-addons" ) => 'ASC',
-                  esc_html__( 'DESC',  "droit-wbpakery-addons" )  => 'DESC',
+                array(
+                    'type' => 'dropdown',
+                    'heading' => __( 'Menu Alignment',  "droit-wbpakery-addons" ),
+                    'param_name' => 'dt_menu_alignment',
+                    'default' => '',
+                    'value' => array(
+                        __( 'Left', 'droit-wbpakery-addons' )   => 'start',
+                        __( 'Center', 'droit-wbpakery-addons' ) => 'center',
+                        __( 'Right', 'droit-wbpakery-addons' )  => 'end',
+                    ),
                 ),
-              ),
-              array(
-                'type' => 'dropdown',
-                'heading' => __( 'Order By',  "droit-wbpakery-addons" ),
-                'param_name' => 'dt_select_protflow_orderby',
-                'default' => 'none',
-                'value' => array(
-                   esc_html__( 'None',  "droit-wbpakery-addons" ) => 'none',
-                   esc_html__( 'ID',  "droit-wbpakery-addons" ) =>  'ID',
-                   esc_html__( 'Author',  "droit-wbpakery-addons" ) => 'author',
-                   esc_html__( 'Title',  "droit-wbpakery-addons" ) => 'title',
-                   esc_html__( 'Name',  "droit-wbpakery-addons" ) => 'name',
-                   esc_html__( 'Type',  "droit-wbpakery-addons" ) => 'type',
-                   esc_html__( 'Date',  "droit-wbpakery-addons" ) => 'date',
-                   esc_html__( 'Modified',  "droit-wbpakery-addons" )=> 'modified',
-                   esc_html__( 'Parent',  "droit-wbpakery-addons" )=>  'parent',
-                   esc_html__( 'Rand',  "droit-wbpakery-addons" )  => 'rand',
-                   esc_html__( 'Comment count',  "droit-wbpakery-addons" ) => 'comment_count',
-                   esc_html__( 'Relevance',  "droit-wbpakery-addons" ) => 'relevance',
-                   esc_html__( 'Menu order',  "droit-wbpakery-addons" ) => 'menu_order',
-                ),
-              ),
-              array(
-                "type" => "textfield",
-                "holder" => "div",
-                "heading" => __("Number Of Posts", 'droit-wbpakery-addons'),
-                "param_name" => "dt_nav_menu_show_post",
-                'default' => __("5", 'droit-wbpakery-addons'),
-              ),
 
-            ), vc_typography_selections('Title', 'title')),
+                array(
+                    'type' => 'dropdown',
+                    'heading' => __( 'Menu Style',  "droit-wbpakery-addons" ),
+                    'param_name' => 'dt_menu_style',
+                    'default' => 'menu_horizontal',
+                    'value' => array(
+                        __( 'Vertical Menu', 'droit-wbpakery-addons' )   => 'menu_vertical',
+                        __( 'Horizontal Menu', 'droit-wbpakery-addons' ) => 'menu_horizontal',
+                    ),
+                ),
+                 array(
+                     "type" => "colorpicker",
+                     "holder" => "div",
+                     "class" => "",
+                     "heading" => esc_html__("Menu Color", 'droit-wbpakery-addons'),
+                     "param_name" => "dt_menu_color",
+                     "value" => '',
+                     "description" => esc_html__("Choose Menu color", 'droit-wbpakery-addons'),
+                     'group' => esc_html__( 'Style', 'droit-wbpakery-addons' ),
+                 ),
+                array(
+                     "type" => "colorpicker",
+                     "holder" => "div",
+                     "class" => "",
+                     "heading" => esc_html__("Menu Hover Color", 'droit-wbpakery-addons'),
+                     "param_name" => "dt_menu_hover_color",
+                     "value" => '',
+                     "description" => esc_html__("Choose Menu Hover color", 'droit-wbpakery-addons'),
+                     'group' => esc_html__( 'Style', 'droit-wbpakery-addons' ),
+                 ),
+                array(
+                     "type" => "colorpicker",
+                     "holder" => "div",
+                     "class" => "",
+                     "heading" => esc_html__("Sticky Menu Color", 'droit-wbpakery-addons'),
+                     "param_name" => "dt_st_menu_color",
+                     "value" => '',
+                     "description" => esc_html__("Choose Sticky Menu color", 'droit-wbpakery-addons'),
+                     'group' => esc_html__( 'Style', 'droit-wbpakery-addons' ),
+                 ),
+                array(
+                     "type" => "colorpicker",
+                     "holder" => "div",
+                     "class" => "",
+                     "heading" => esc_html__("Sticky Menu Hover Color", 'droit-wbpakery-addons'),
+                     "param_name" => "dt_st_menu_hover_color",
+                     "value" => '',
+                     "description" => esc_html__("Choose Sticky Menu Hover color", 'droit-wbpakery-addons'),
+                     'group' => esc_html__( 'Style', 'droit-wbpakery-addons' ),
+                 ),
+                array(
+                    "type"     => "textfield",
+                    "holder"   => "div",
+                    "class"    => "",
+                    "heading"  => esc_html__("Menu Item Margin", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_menu_item_margin",
+                    "value"    => '',
+                    "description" => esc_html__("Menu item margin support 4 value (top right bottom left)", 'droit-wbpakery-addons'),
+                    "group"    => esc_html__( 'Style', 'droit-wbpakery-addons' )
+                ),
+                array(
+                    "type"     => "textfield",
+                    "holder"   => "div",
+                    "class"    => "",
+                    "heading"  => esc_html__("Menu Item Padding", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_menu_item_padding",
+                    "value"    => '',
+                    "description" => esc_html__("Menu item padding support 4 value (top right bottom left)", 'droit-wbpakery-addons'),
+                    "group"    => esc_html__( 'Style', 'droit-wbpakery-addons' )
+                ),
+
+                // Sub Menu style ============================
+                array(
+                    "type" => "colorpicker",
+                    "holder" => "div",
+                    "class" => "",
+                    "heading" => esc_html__("Submenu Color", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_submenu_color",
+                    "value" => '',
+                    "description" => esc_html__("Choose Submenu color", 'droit-wbpakery-addons'),
+                    'group' => esc_html__( 'Submenu Style', 'droit-wbpakery-addons' ),
+                ),
+                array(
+                    "type" => "colorpicker",
+                    "holder" => "div",
+                    "class" => "",
+                    "heading" => esc_html__("Submenu Background Color", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_submenu_bg_color",
+                    "value" => '',
+                    "description" => esc_html__("Choose Submenu Background color", 'droit-wbpakery-addons'),
+                    'group' => esc_html__( 'Submenu Style', 'droit-wbpakery-addons' ),
+                ),
+                array(
+                    "type" => "colorpicker",
+                    "holder" => "div",
+                    "class" => "",
+                    "heading" => esc_html__("Submenu Hover Color", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_submenu_hover_color",
+                    "value" => '',
+                    "description" => esc_html__("Choose Submenu Hover color", 'droit-wbpakery-addons'),
+                    'group' => esc_html__( 'Submenu Style', 'droit-wbpakery-addons' ),
+                ),
+                array(
+                    "type" => "colorpicker",
+                    "holder" => "div",
+                    "class" => "",
+                    "heading" => esc_html__("Submenu Hover Background Color", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_submenu_hover_bg_color",
+                    "value" => '',
+                    "description" => esc_html__("Choose Submenu Hover Background color", 'droit-wbpakery-addons'),
+                    'group' => esc_html__( 'Submenu Style', 'droit-wbpakery-addons' ),
+                ),
+                array(
+                    "type"     => "textfield",
+                    "holder"   => "div",
+                    "class"    => "",
+                    "heading"  => esc_html__("Submenu Item Margin", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_submenu_item_margin",
+                    "value"    => '',
+                    "description" => esc_html__("Submenu item margin support 4 value (top right bottom left)", 'droit-wbpakery-addons'),
+                    "group"    => esc_html__( 'Submenu Style', 'droit-wbpakery-addons' )
+                ),
+                array(
+                    "type"     => "textfield",
+                    "holder"   => "div",
+                    "class"    => "",
+                    "heading"  => esc_html__("Submenu Item Padding", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_submenu_item_padding",
+                    "value"    => '',
+                    "description" => esc_html__("Menu item padding support 4 value (top right bottom left)", 'droit-wbpakery-addons'),
+                    "group"    => esc_html__( 'Submenu Style', 'droit-wbpakery-addons' )
+                ),
+
+
+            ), vc_typography_selections('Menu Item', 'menu_color')),
         ) );
     }
     
-    public function getCategories() {
-      $terms = get_terms( array(
-        'taxonomy'    => 'portfolio_cat',
-        'hide_empty'  => false,
-    ) );
+    public function get_nav_menus() {
+        $nav_menus = wp_get_nav_menus();
+        $navMenu = [];
+        if (is_array($nav_menus) && '' != $nav_menus) {
 
+            foreach ( $nav_menus as $nav_menu) {
 
-    $cat_list = [];
-    if(is_array($terms) && '' != $terms) :
-    foreach($terms as $post) {
+                $navMenu[$nav_menu->term_id] = $nav_menu->name;
 
-      //  remove Uncategorized from the list 
-
-        if($post->name == 'Uncategorized') {
-
-          continue;
+            }
+            return array_flip($navMenu);
         }
-
-        $cat_list[$post->term_id]  = $post->name;
-    
-    }
-   endif;
-    return array_flip($cat_list);
+        return ['0' => __('Create Nav Menu', 'droit-wbpakery-addons' ) ];
     }
 
     /*
-     Header randaraing 
-    */
-    public function dt_nav_menu_rander( $atts, $content = null ) {
+     *  Menu Render
+     */
+    public function dt_nav_menu_render( $atts, $content = null ) {
 
-      extract( shortcode_atts( array(
-        'dt_select_protflow_orderby' => '',
-      ), $atts ) );
-     
-    
-      $portfolio_style = vc_param_group_parse_atts($dt_nav_menu_style);
+        extract( shortcode_atts( array(
+            'dt_nav_menu_style'         => '',
+            'dt_menu_alignment'         => '',
+            'dt_menu_style'             => '',
+            'dt_menu_color'             => '',
+            'dt_menu_hover_color'       => '',
+            'dt_st_menu_color'          => '',
+            'dt_st_menu_hover_color'    => '',
+            'dt_menu_item_margin'       => '',
+            'dt_menu_item_padding'      => '',
+            'dt_submenu_color'          => '',
+            'dt_submenu_bg_color'       => '',
+            'dt_submenu_hover_color'    => '',
+            'dt_submenu_hover_bg_color' => '',
+            'dt_submenu_item_margin'    => '',
+            'dt_submenu_item_padding'   => '',
 
-      if(!empty($atts['dt_nav_menu_style'])) {
-        $portfolio_style = $atts['dt_nav_menu_style'];
-      }
+        ), $atts ) );
 
-      $output = dt_template_part('portfolio', $portfolio_style , $atts);
-     
-      return $output;
+
+        $output = dt_template_part('nav-menu', null , $atts);
+        return $output;
       
     }
 
@@ -173,7 +233,6 @@ class dt_nav_menu {
     */
     public function dt_nav_menu_loadCssAndJs() {
       wp_register_style( 'dt_extend_style', plugins_url('assets/droit-wbpakery-addons.css', __FILE__) );
-      wp_enqueue_script('slick');
       wp_enqueue_script('droit-wpbakery-addons-script');
     }
 }
