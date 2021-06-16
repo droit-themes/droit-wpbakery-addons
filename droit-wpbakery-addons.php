@@ -180,6 +180,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 
 		public function widget_list () {
 			$list = apply_filters('dt_extention_widgets_list', [
+				'logo',
 				'heading',
 				'scroll-to-section',
 				'gallery',

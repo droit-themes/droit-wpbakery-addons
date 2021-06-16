@@ -1,6 +1,7 @@
 <?php
 $nav_menu       = isset( $dt_nav_menu_style ) ? $dt_nav_menu_style : '';
 $nav_align      = isset( $dt_menu_alignment ) ? $dt_menu_alignment : 'start';
+$nav_vh         = isset( $dt_menu_style ) ? $dt_menu_style : '';
 $dt_menu_margin = isset( $dt_menu_item_margin ) ? $dt_menu_item_margin : '0';
 $dt_menu_padding= isset( $dt_menu_item_padding ) ? $dt_menu_item_padding : '0';
 
@@ -16,11 +17,11 @@ if( !empty( $nav_menu ) ) { ?>
                 data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span></span><span></span><span></span><span></span><span></span><span></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse justify-content-<?php echo esc_attr( $nav_align )?>" id="navbarSupportedContent">
             <?php
             wp_nav_menu(array(
                 'menu'      => $nav_menu,
-                'menu_class'=> 'navbar-nav menu rave-custom-menu justify-content-' . $nav_align,
+                'menu_class'=> 'navbar-nav menu rave-custom-menu',
                 'container' => false,
                 'walker'    => class_exists('Rave_Nav_Walker') ? new Rave_Nav_Walker() : '',
                 'depth'     => 3
@@ -59,12 +60,13 @@ if( !empty( $dt_st_menu_hover_color ) ){
         }
     ";
 }
-if( !empty( $dt_menu_style ) ){
-    $menu_class = $dt_menu_style == 'menu_horizontal' ? 'initial' : 'column';
+
+if( isset( $nav_vh ) ){
+    $menu_class = $nav_vh == 'menu_horizontal' ? 'initial' : 'column';
     $nav_menu_inline_style .= "
     @media (min-width: 992px){
         .navbar-nav.menu.rave-custom-menu {
-            flex-direction : $menu_class
+            flex-direction : $menu_class;
         }
     }
     ";

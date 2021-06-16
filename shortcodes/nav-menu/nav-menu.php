@@ -206,7 +206,7 @@ class dt_nav_menu {
         extract( shortcode_atts( array(
             'dt_nav_menu_style'         => '',
             'dt_menu_alignment'         => '',
-            'dt_menu_style'             => '',
+            'dt_menu_style'             => 'menu_horizontal',
             'dt_menu_color'             => '',
             'dt_menu_hover_color'       => '',
             'dt_st_menu_color'          => '',

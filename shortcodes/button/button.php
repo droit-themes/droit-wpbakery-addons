@@ -37,6 +37,17 @@ class dt_button {
                     'description' => esc_html__( 'Add link to button.', 'droit-wbpakery-addons' ),
                 ),
                 array(
+                    'type' => 'dropdown',
+                    'heading' => __( 'Button Alignment',  "droit-wbpakery-addons" ),
+                    'param_name' => 'dt_button_alignment',
+                    'default' => '',
+                    'value' => array(
+                        __( 'Left', 'droit-wbpakery-addons' )   => 'start',
+                        __( 'Center', 'droit-wbpakery-addons' ) => 'center',
+                        __( 'Right', 'droit-wbpakery-addons' )  => 'end',
+                    ),
+                ),
+                array(
                     "type" => "checkbox",
                     "heading" => __( "Show Top Border", "droit-wbpakery-addons" ),
                     "param_name" => "dt_show_border_dispaly_yes",

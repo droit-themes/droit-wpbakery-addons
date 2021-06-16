@@ -371,7 +371,7 @@ class dt_heading extends \WPBakeryShortCode{
     Load plugin css and javascript files which you may need on front end of your site
     */
     public function dt_heading_loadCssAndJs() {
-      wp_register_style( 'dt_extend_style', plugins_url('assets/sdroit-wbpakery-addons.css', __FILE__) );
+      wp_register_style( 'dt_extend_style', plugins_url('assets/css/droit-wbpakery-addons.css', __FILE__) );
 
       // If you need any javascript files on front end, here is how you can load them.
       //wp_enqueue_script( 'droit-wbpakery-addons_js', plugins_url('assets/droit-wbpakery-addons.js', __FILE__), array('jquery') );
