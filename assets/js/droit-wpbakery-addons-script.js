@@ -17,11 +17,15 @@ jQuery(function($){
 		scrollingSpeed: 1000,
 		afterResponsive: function (isResponsive) {},
 		afterLoad: function (anchorLink, index) {
-			if (index == 8) {
+
+			let totalSection = $('#wavescroll section').length;
+			
+			if (index == totalSection) {
 				$('.full_footer').addClass('content-black');
 			} else {
 				$('.full_footer').removeClass('content-black');
 			}
+
 			if ($(window).width() < 767) {
 				if (index == 1 || index == 8) {
 					$('.full_footer').css('display', 'block');
@@ -79,20 +83,6 @@ jQuery(function($){
 
 	});
    }
-
-
-   $('.canvus_menu_btn,.nav_button,.shopping_cart').on('click', function (e) {
-	e.preventDefault();
-	$('body').removeClass('menu-is-closed').addClass('menu-is-opened');
-
-	if ($('.nav_button,.shopping_cart').hasClass('active')) {
-		$('.nav_button,.shopping_cart').removeClass('active');
-		$('body').removeClass('menu-is-opened');
-	} else {
-		$('.nav_button,.shopping_cart').addClass('active');
-		$('body').addClass('menu-is-opened');
-	}
-});
 
 $('.close, .body_capture').on('click', function () {
 	$('body').removeClass('menu-is-opened').addClass('menu-is-closed');
@@ -171,18 +161,7 @@ menu_dropdown();
    	/*===============================================
                Parallax Init
         ================================================*/
-    	// if (
-		// 	$(
-		// 		'#apps_craft_animation,#craft_animation,.stratup_banner_area,.banner_area'
-		// 	).length > 0
-		// ) {
-		// 	$(
-		// 		'#apps_craft_animation,#craft_animation,.stratup_banner_area,.banner_area'
-		// 	).parallax({
-		// 		scalarX: 10.0,
-		// 		scalarY: 10.0,
-		// 	});
-		// }
+
 		if ($('.home_features_slider').length) {
 			$('.home_features_slider').slick({
 				slidesToShow: 4,

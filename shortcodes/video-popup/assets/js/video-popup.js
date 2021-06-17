@@ -6,6 +6,7 @@ jQuery(function($) {
 
    let popUpButton =   $('.show-video-pupup');
    let popUpButton2 =   $('.show-video-popup-2');
+   let popUpbutton3 = $('.svp-3');
    let popUpClose = $('.close-vidoe-modal');
   
    popUpButton.on('click', function(){
@@ -20,7 +21,7 @@ jQuery(function($) {
 
    });
    popUpButton2.on('click', function(){
-           console.log('click');
+
         let videoLink = $(this).data('video');
         $(this).parents('.corporate_video_icon').siblings('.vidoe-pop-up-wrapper').fadeIn('slow');
         $(this).parents('.corporate_video_icon').siblings('.vidoe-pop-up-wrapper').find('iframe').attr('src', videoLink);
@@ -29,6 +30,14 @@ jQuery(function($) {
 
         return false;
 
+   });
+
+   //  pup up button 3 
+
+   popUpbutton3.on('click', function(){
+      let videoLink = $(this).attr('href');
+      $(this).parents('.shop_video').siblings('.vidoe-pop-up-wrapper').fadeIn('slow');
+      $(this).parents('.shop_video').siblings('.vidoe-pop-up-wrapper').find('iframe').attr('src', videoLink);
    });
 
    //  close popup when click on close button 

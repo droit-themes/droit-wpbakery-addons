@@ -161,6 +161,34 @@ class dt_heading extends \WPBakeryShortCode{
                 'group' => esc_html__( 'Title Style', 'droit-wbpakery-addons' ),
               ),
               array(
+                'type' => 'dropdown',
+                'heading' => __( 'Custom Font Family?',  "droit-wbpakery-addons" ),
+                'param_name' => 'dt_heading_font_familay',
+                'default' => 'default',
+                'value' => array(
+                  esc_html__( 'yes',  "droit-wbpakery-addons"  ) => 'yes',
+                  esc_html__( 'Default',  "droit-wbpakery-addons"  ) => 'default',
+                ),
+                'group' => esc_html__( 'Title Style', 'droit-wbpakery-addons' ),
+              ),
+              array(
+                'type' => 'google_fonts',
+                'param_name' => 'google_fonts_heading',
+                'el_class' => 'banner_text_intro',
+                'value' => 'font_family:Abril%20Fatface%3Aregular|font_style:400%20regular%3A400%3Anormal',
+                'group' => esc_html__( 'Title Style', 'droit-wbpakery-addons' ),
+                'settings' => array(
+                  'fields' => array(
+                    'font_family_description' => esc_html__( 'Select font family.', 'js_composer' ),
+                    'font_style_description' => esc_html__( 'Select font styling.', 'js_composer' ),
+                  ),
+                ),
+                'dependency' => array(
+                'element' => 'use_theme_fonts',
+                'value_not_equal_to' => 'yes',
+                ),
+              ),  
+              array(
                   "type" => "colorpicker",
                   "holder" => "div",
                   "class" => "",
@@ -301,21 +329,8 @@ class dt_heading extends \WPBakeryShortCode{
                   __( 'Center',  "droit-wbpakery-addons"  ) => 'center',
                 ),
                 "description" => __( "Text aligment", "droit-wbpakery-addons" )
-              ),
-              array(
-                'type' => 'google_fonts',
-                'param_name' => 'google_fonts_heading',
-                'el_class' => 'banner_text_intro',
-                'value' => 'font_family:Abril%20Fatface%3Aregular|font_style:400%20regular%3A400%3Anormal',
-                'settings' => array(
-                  'fields' => array(
-                    'font_family_description' => esc_html__( 'Select font family.', 'js_composer' ),
-                    'font_style_description' => esc_html__( 'Select font styling.', 'js_composer' ),
-                  ),
-                ),
-              ),        
+              ),      
               
-
               // array(
               //   'type' => 'checkbox',
               //   'heading' => esc_html__( 'Use theme default font family?', 'js_composer' ),

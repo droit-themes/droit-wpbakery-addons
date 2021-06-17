@@ -63,10 +63,11 @@ $fontStyles = explode( ':', $fontsData['values']['font_style'] );
 $styles[] = 'font-weight:' . $fontStyles[1];
 $styles[] = 'font-style:' . $fontStyles[2];
 
-
 echo "<pre>";
-print_r($styles);
+print_r(join(';', $styles));
 echo "</pre>";
+
+
 
 $settings = get_option( 'wpb_js_google_fonts_subsets' );
 if ( is_array( $settings ) && ! empty( $settings ) ) {
@@ -80,10 +81,6 @@ if ( isset( $fontsData['values']['font_family'] ) ) {
      wp_enqueue_style( 'vc_google_fonts_' . vc_build_safe_css_class( $fontsData['values']['font_family'] ), '//fonts.googleapis.com/css?family=' . $fontsData['values']['font_family'] . $subsets );
 }
 
-echo "<pre>";
-print_r(vc_build_safe_css_class( $fontsData['values']['font_family'] ), '//fonts.googleapis.com/css?family=' . $fontsData['values']['font_family'] . $subsets);
-echo "</pre>";
-
 ?>
 
 <div class="<?php echo esc_attr($wrapper_class); ?>">
@@ -91,7 +88,7 @@ echo "</pre>";
      <?php if('' !=$dt_subtitle ) :  ?>
 
         <<?php echo dt_return($subheadingtag); ?> class="dt-subtitle brand_name <?php echo esc_attr($subtitle_unique_class.' '.$subtitle_class ); ?>">
-        <?php if($dt_subtitle_tag != '') :  ?>  
+        <?php if(isset($dt_subtitle_tag) && $dt_subtitle_tag != '') :  ?>  
           <span class="b_tag_vc"><?php echo esc_html($dt_subtitle_tag); ?></span>
         <?php endif; ?>  
         <?php echo esc_html($dt_subtitle); ?> 

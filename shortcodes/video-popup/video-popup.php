@@ -54,7 +54,7 @@ class dt_video_popup {
                     "param_name" => "dt_vidoe_popup_button_text",
                     'dependency' => array(
                                       'element' => 'dt_video_button_style',
-                                      'value' => '2',
+                                      'value' => array('2', '3'),
                                       ),
                     ),
                 array(

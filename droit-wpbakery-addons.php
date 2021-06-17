@@ -134,6 +134,11 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/helpers.php');
 			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/controls.php');
 			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/droit-icon.php');
+			
+			if(class_exists('acf_field')){
+				require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/acf-menu-selector/acf-menu-selector.php');
+			}
+
 		 }
 		}
 		
@@ -156,6 +161,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			 wp_enqueue_style( 'slick' );
 			 wp_enqueue_style( 'slick-theme' );
 			 wp_enqueue_style( 'odometer' );
+			 wp_enqueue_style( 'fullpage' );
 			 wp_enqueue_style( 'droit-wbpakery-addons' );
 
 			 //  counter up
@@ -209,6 +215,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'timeline',
 				'one-page-heading',
 				'one-page-section',
+				'one-page-footer',
 				'social-link',
 				'nav-menu',
 				'subscribe'
