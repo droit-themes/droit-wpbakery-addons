@@ -189,7 +189,7 @@ if(!function_exists('dt_return')) {
 
 if(!function_exists('dt_link_before_after')) {
 
-	function dt_link_before_after( $id = array(), $before_after, $class="",  $data_text=[]) {
+	function dt_link_before_after( $id = array(), $before_after="", $class="",  $data_text=[]) {
 		/**
 		 * Get link data
 		 * generate before after link with link attr 

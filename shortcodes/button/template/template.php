@@ -6,7 +6,8 @@ if(isset($dt_button_link)) {
 $button_wapper_uniqueue_class = wp_unique_id('doit-button-wrapper-');
 $button_wrapper_class[]=  $button_wapper_uniqueue_class;
 $button_wrapper_class[]= (isset($dt_show_border_dispaly_yes) && $dt_show_border_dispaly_yes == 'yes') ?  'discover_button' : '';
-$button_wrapper_class[]= $dt_btn_class;
+$button_wrapper_class[]= isset( $dt_btn_class ) ? $dt_btn_class : '';
+$button_wrapper_class[]= isset( $dt_button_alignment ) ? 'd-flex justify-content-'.$dt_button_alignment : 'd-flex justify-content-start';
 
 $button_wrapper_class = join(' ', $button_wrapper_class);
 $link_beofre = '';
@@ -24,7 +25,7 @@ if(!empty($url_attrs)){
 
         }
     }
-    $link_beofre = '<a '.esc_attr( $link_attr ).' class="'.esc_attr( $button_wrapper_class ).'">';  
+    $link_beofre = '<a '.esc_attr( $link_attr ).' class="'.esc_attr( $button_wrapper_class ).'">';
     $link_after = '</a>';
  }
 $button_unique_class =  wp_unique_id('doit-button-');
@@ -35,7 +36,7 @@ $button_class[] = 'agency_learn_btn h_text_btn';
 $button_class = join(' ', $button_class);
 
 $button_uniqueue_class_icon =  wp_unique_id('doit-button-icon-');
-$button_icon_class[] = ($dt_btn_icon_selector != '') ? $dt_btn_icon_selector : 'ti-arrow-right';
+$button_icon_class[] = !empty( $dt_btn_icon_selector ) ? $dt_btn_icon_selector : 'ti-arrow-right';
 $button_icon_class[] = $button_uniqueue_class_icon;
 
 $button_icon_class = join(' ', $button_icon_class);
