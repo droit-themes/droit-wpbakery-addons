@@ -184,8 +184,8 @@ class dt_heading extends \WPBakeryShortCode{
                   ),
                 ),
                 'dependency' => array(
-                'element' => 'use_theme_fonts',
-                'value_not_equal_to' => 'yes',
+                'element' => 'dt_heading_font_familay',
+                'value' => 'yes',
                 ),
               ),  
               array(
