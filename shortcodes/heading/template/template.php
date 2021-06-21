@@ -51,34 +51,10 @@ $description_tag = 'p';
 if( isset($dt_heading_description_tag) && $dt_heading_description_tag != '') {
      $description_tag = $dt_heading_description_tag;
 }
-$googleFontsParam = new \Vc_Google_Fonts();
-$fieldSettings = array();
 
-$fontsData = strlen( $google_fonts_heading  ) > 0 ? $googleFontsParam->_vc_google_fonts_parse_attributes( $fieldSettings, $google_fonts_heading  ) : '';
-
-
-$fontFamily = explode( ':', $fontsData['values']['font_family'] );
-$styles[] = 'font-family:' . $fontFamily[0];
-$fontStyles = explode( ':', $fontsData['values']['font_style'] );
-$styles[] = 'font-weight:' . $fontStyles[1];
-$styles[] = 'font-style:' . $fontStyles[2];
-
-echo "<pre>";
-print_r(join(';', $styles));
-echo "</pre>";
-
-
-
-$settings = get_option( 'wpb_js_google_fonts_subsets' );
-if ( is_array( $settings ) && ! empty( $settings ) ) {
-     $subsets = '&subset=' . implode( ',', $settings );
-} else {
-     $subsets = '';
-}
-
-
-if ( isset( $fontsData['values']['font_family'] ) ) {
-     wp_enqueue_style( 'vc_google_fonts_' . vc_build_safe_css_class( $fontsData['values']['font_family'] ), '//fonts.googleapis.com/css?family=' . $fontsData['values']['font_family'] . $subsets );
+$heading_font_style = '';
+if(isset($google_fonts_heading) && !empty($google_fonts_heading)) {
+     $heading_font_style = dt_google_font_style($google_fonts_heading);   
 }
 
 ?>
@@ -141,6 +117,10 @@ if(isset($dt_subtitle_font_weight) && $dt_subtitle_font_weight != ''){
 }
 
    //  title 
+//  title font family 
+
+
+
 if(isset($dt_title_color) && $dt_title_color != ''){
 
      $template_css[$title_unique_class]['color'] = $dt_title_color;     
@@ -187,6 +167,10 @@ if(isset($dt_title_description_line_height) && $dt_title_description_line_height
 }
 
 $custom_css =  droit_css( $template_css );
+
+if('' != $heading_font_style) {
+     $custom_css .= '.'.$title_unique_class.'{'.$heading_font_style.'}';
+}
 
  wp_add_inline_style( 'dt_extend_style', $custom_css );
 

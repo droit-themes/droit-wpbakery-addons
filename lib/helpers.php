@@ -338,3 +338,38 @@ function dt_sale_percentage_loop() {
     }
     if ( $max_percentage > 0 ) echo "<div class='offer_badge sale-perc'>-" . round($max_percentage) . "%</div>";
 }
+
+
+if(!function_exists('dt_google_font_style')) {
+
+	function dt_google_font_style( $google_fonts) {
+
+	$googleFontsParam = new \Vc_Google_Fonts();
+	$fieldSettings = array();
+	
+	$fontsData = strlen( $google_fonts  ) > 0 ? $googleFontsParam->_vc_google_fonts_parse_attributes( $fieldSettings, $google_fonts  ) : '';
+	
+	
+	$fontFamily = explode( ':', $fontsData['values']['font_family'] );
+	$styles[] = 'font-family:' . $fontFamily[0];
+	$fontStyles = explode( ':', $fontsData['values']['font_style'] );
+	$styles[] = 'font-weight:' . $fontStyles[1];
+	$styles[] = 'font-style:' . $fontStyles[2];
+
+	$settings = get_option( 'wpb_js_google_fonts_subsets' );
+	if ( is_array( $settings ) && ! empty( $settings ) ) {
+		$subsets = '&subset=' . implode( ',', $settings );
+	} else {
+		$subsets = '';
+	}
+
+
+	if ( isset( $fontsData['values']['font_family'] ) ) {
+		wp_enqueue_style( 'vc_google_fonts_' . vc_build_safe_css_class( $fontsData['values']['font_family'] ), '//fonts.googleapis.com/css?family=' . $fontsData['values']['font_family'] . $subsets );
+	}
+	
+	return join(';', $styles);
+
+	}
+
+}
