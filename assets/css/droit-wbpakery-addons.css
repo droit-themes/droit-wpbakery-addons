@@ -85,3 +85,6 @@
 .fp-section.fp-table, .fp-slide.fp-table{
     margin-left: 0 !important;
   }
+ .height-inherent{
+     height: inherit !important;
+ } 
