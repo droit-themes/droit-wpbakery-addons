@@ -133,6 +133,17 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 					'description' => esc_html__( "If you want to enable this section for one page scroll", "droit-wbpakery-addons" )
 					),
 					array(
+						"type" => "textfield",
+						"holder" => "div",
+						"heading" => __("Data Title", 'droit-wbpakery-addons'),
+						"param_name" => "dt_onepage_paralax_nav_data",
+						'description' => esc_html__( "If you want to display Section Navigation on left site", "droit-wbpakery-addons" ),
+						'dependency' => array(
+							'element' => 'dt_one_page_section',
+							'value' => 'yes'
+						  ),
+					  ),
+					array(
 						'type' => 'checkbox',
 						'heading' => "Display this section on load?",
 						'param_name' => 'dt_one_page_active_section',
@@ -186,6 +197,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 	
 			wp_enqueue_script('viewport', DROIT_WPBAKERY_VENDORS_URL.'/odometer/viewport.jquery.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_enqueue_script('odometer', DROIT_WPBAKERY_VENDORS_URL.'/odometer/odometer.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_enqueue_script('scroll-overflow', DROIT_WPBAKERY_VENDORS_URL.'/fullpage/scroll-overflow.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_enqueue_script('fullpage', DROIT_WPBAKERY_VENDORS_URL.'/fullpage/fullpage.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_enqueue_script('parallax', DROIT_WPBAKERY_JS_URL.'/parallax.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_enqueue_script('parallaxie', DROIT_WPBAKERY_JS_URL.'/parallaxie.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');

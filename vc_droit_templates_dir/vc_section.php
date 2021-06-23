@@ -174,8 +174,12 @@ if ( ! $parallax && $has_video_bg ) {
 }
 $css_class = preg_replace( '/\s+/', ' ', apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, implode( ' ', array_filter( array_unique( $css_classes ) ) ), $this->settings['base'], $atts ) );
 $wrapper_attributes[] = 'class="' . esc_attr( trim( $css_class ) ) . '"';
+$data_name_nav = '';
+if($dt_one_page_section == 'yes' && $dt_onepage_paralax_nav_data != '') {
+	$data_name_nav = 'data-name="'.$dt_onepage_paralax_nav_data.'"';
+}
 
-$output .= '<section ' . implode( ' ', $wrapper_attributes ) . '>';
+$output .= '<section ' . implode( ' ', $wrapper_attributes ) .$data_name_nav. '>';
 $output .= $overly_html;
 $output .= $dont_content;
 $output .= $pulse_content;

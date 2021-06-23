@@ -8,10 +8,6 @@ class dt_acf_field_menu_chooser extends acf_field {
 	*
 	*  This function will setup the field type data
 	*
-	*  @type	function
-	*  @date	5/03/2014
-	*  @since	5.0.0
-	*
 	*  @param	n/a
 	*  @return	n/a
 	*/
