@@ -34,6 +34,7 @@ class dt_video_popup {
                   esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
                   esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
                   esc_html__( 'Style 3',  "droit-wbpakery-addons"  ) => '3',
+                  esc_html__( 'Style 4',  "droit-wbpakery-addons"  ) => '4',
                 ),
               ),
               array(
@@ -151,12 +152,20 @@ class dt_video_popup {
 
       extract( shortcode_atts( array(
         'dt_cunter_up_title' => 'Discover more about Rave',
-        'dt_cunter_up_number' => '30295',
+        'dt_video_button_style' => '1',
       ), $atts ) );
      
+         echo "<pre>";
+         print_r($dt_video_button_style);
+         echo "</pre>";
 
+         $template_style = null;
 
-      $output = dt_template_part('video-popup', null , $atts);
+         if($dt_video_button_style != '1') {
+          $template_style = $dt_video_button_style;
+         }
+
+      $output = dt_template_part('video-popup', $template_style , $atts);
      
 
       return $output;
