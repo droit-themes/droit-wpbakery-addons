@@ -53,7 +53,7 @@ if(isset($icon_type) && $icon_type != '' && 'image' == $icon_type) {
 ?>
 
 <a <?php echo esc_attr($link_attr); ?> class="<?php echo esc_attr( $wrapper_class ); ?>">
- <?php echo esc_html($button_text).dt_return($icon_html); ?> 
+  <?php echo esc_html($button_text).dt_return($icon_html); ?> 
  </a>
 
  <?php 
@@ -76,6 +76,7 @@ if(isset($dt_font_weight__simple)){
 if(isset($dt_font_color__simple)){
     $icon_box_css[$wrapper_unique_class]['color'] = $dt_font_color__simple;       
 }
+
 // button hover color 
 if(isset($dt_simple_button_hover_color)){
     $icon_box_css[$wrapper_unique_class.':hover']['color'] = $dt_simple_button_hover_color;       

@@ -10,14 +10,14 @@ $wrapper_class[] = 'pop-up-content';
 
 $get_wrapper_class = join(' ', $wrapper_class);
 
- $video_link = $dt_vidoe_popup_video_link;
- $video_id = '';
+$video_link = $dt_vidoe_popup_video_link;
+$video_id = '';
 
- if(isset($video_link) && !empty($video_link)) {
+if(isset($video_link) && !empty($video_link)) {
 
-  $video_id_explode = explode('/', $video_link);
+$video_id_explode = explode('/', $video_link);
 
-  if(is_array($video_id_explode)) {
+if(is_array($video_id_explode)) {
     $video_id = end($video_id_explode);
   }
 
@@ -44,7 +44,7 @@ $get_wrapper_class = join(' ', $wrapper_class);
  ?>
 
 <div class="corporate_video_icon">
-    <a href="" class="icon popup-youtube show-video-popup-2" data-video ="<?php echo esc_url( $video_url); ?>">
+    <a href="" class="icon popup-youtubes how-video-popup-2" data-video ="<?php echo esc_url( $video_url); ?>">
         <i class="icon-play"></i>
     </a>
     <?php if(isset($dt_vidoe_popup_button_text)){ ?>

@@ -34,12 +34,19 @@ extract( $atts );
 wp_enqueue_script( 'wpb_composer_front_js' );
 
 $el_class = $this->getExtraClass( $el_class ) . $this->getCSSAnimation( $css_animation );
+if($dt_one_page_section == 'yes') {
+	$css_classes = array(
+		$el_class,
+		vc_shortcode_custom_css_class( $css ),
+	);
+}else{
+	$css_classes = array(
+		'vc_section',
+		$el_class,
+		vc_shortcode_custom_css_class( $css ),
+	);
+}
 
-$css_classes = array(
-	'vc_section',
-	$el_class,
-	vc_shortcode_custom_css_class( $css ),
-);
 
 if ( 'yes' === $disable_element ) {
 	if ( vc_is_page_editable() ) {
@@ -115,6 +122,11 @@ if($pulse_effect){
 	$css_classes[] = 'banner_area';
 	$pulse_content = '<ul class="list-unstyled banner_dot_two"> <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul><ul class="list-unstyled banner_dot"> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li> <li></li></ul>';
 }
+$overly_html = '';
+if(isset($dt_enable_background_overly) && $dt_enable_background_overly == 'yes' && isset($dt_section_overly_color) && !empty($dt_section_overly_color)) {
+	$css_classes[] = 'background-overly-enable';
+	$overly_html = '<div style="background-color:'.esc_attr( $dt_section_overly_color ).';position:absolute;top: ; left:0; right:0;bottom:0;z-index:0"></div>';
+}
 
 $dt_section_unique_class = wp_unique_id( 'vc-section-' );
 
@@ -164,6 +176,7 @@ $css_class = preg_replace( '/\s+/', ' ', apply_filters( VC_SHORTCODE_CUSTOM_CSS_
 $wrapper_attributes[] = 'class="' . esc_attr( trim( $css_class ) ) . '"';
 
 $output .= '<section ' . implode( ' ', $wrapper_attributes ) . '>';
+$output .= $overly_html;
 $output .= $dont_content;
 $output .= $pulse_content;
 $output .= wpb_js_remove_wpautop( $content );

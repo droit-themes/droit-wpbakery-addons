@@ -60,6 +60,24 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			$attributes = array(
 				array(
 					'type' => 'checkbox',
+					'heading' => "Enable Background Overly?",
+					'param_name' => 'dt_enable_background_overly',
+					'value' => array( 'Background Overly' => 'yes' ),
+					),
+					array(
+						"type" => "colorpicker",
+						"class" => "",
+						"heading" => esc_html__( "Overly Color", "droit-wbpakery-addons" ),
+						"param_name" => "dt_section_overly_color",
+						"value" => '', //Default Red color
+						'edit_field_class' => 'vc_col-sm-12',
+						'dependency' => array(
+						'element' => 'dt_enable_background_overly',
+						'value' => 'yes'
+						),
+					),
+				array(
+					'type' => 'checkbox',
 					'heading' => "Enable Dot Shap",
 					'param_name' => 'dt_enable_dot_shap',
 					'value' => array( 'Dot Shap' => 'Yes' ),

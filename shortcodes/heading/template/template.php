@@ -61,7 +61,7 @@ if(isset($google_fonts_heading) && !empty($google_fonts_heading)) {
 
 <div class="<?php echo esc_attr($wrapper_class); ?>">
 
-     <?php if('' !=$dt_subtitle ) :  ?>
+     <?php if('' !=$dt_subtitle && isset($dt_subtitle)) :  ?>
 
         <<?php echo dt_return($subheadingtag); ?> class="dt-subtitle brand_name <?php echo esc_attr($subtitle_unique_class.' '.$subtitle_class ); ?>">
         <?php if(isset($dt_subtitle_tag) && $dt_subtitle_tag != '') :  ?>  
@@ -71,11 +71,11 @@ if(isset($google_fonts_heading) && !empty($google_fonts_heading)) {
        </<?php echo dt_return($subheadingtag); ?>>
       <?php endif; ?>
 
-     <?php if('' !=$dt_title ) :  ?>
+     <?php if('' !=$dt_title && isset($dt_title)) :  ?>
      <<?php echo dt_return($heading_tag); ?> class="dt-ttile title <?php echo esc_attr( $title_unique_class ); ?>"><?php echo dt_extention_wp_kses($dt_title); ?></<?php echo dt_return($heading_tag); ?>>
       <?php endif; ?>
 
-     <?php if('' !=$dt_title_description ) :  ?>
+     <?php if(isset($dt_title_description) &&'' !=$dt_title_description ) :  ?>
      <<?php echo dt_return($description_tag); ?> class="dt-title-description subtitle <?php echo esc_attr( $title_desc_unique_class ); ?>"><?php echo dt_extention_wp_kses($dt_title_description); ?></<?php echo dt_return($description_tag); ?>>
       <?php endif; ?>
 
