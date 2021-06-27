@@ -1,8 +1,14 @@
 <?php 
 if(!function_exists('dt_full_page_scroll')){
     function dt_full_page_scroll( $atts, $content = null ) {
+        extract(shortcode_atts(array(
+			'dt_single_page_scroll_footer_copyright_text' => '© 2021 Rave',
+            'droit_slider_content' => [],
+            'icon_type' => '',
+		), $atts));
         ob_start();
         ?>
+        <div class="vartical_parallax_banner fullscreen_slider">
         <div class="vartical_parallax_banner fullscreen_slider">
             <div class="swiper-container main-slider vartical_parallax_banner" id="vartical_parallax_banner">
                 <div class="swiper-wrapper">
@@ -18,6 +24,30 @@ if(!function_exists('dt_full_page_scroll')){
                 </div>
             </div>
         </div>
+        <div class="footer_content">
+                <p class="text"><?php echo dt_extention_wp_kses($dt_single_page_scroll_footer_copyright_text); ?></p>
+                <div class="swiper-pagination"></div>
+                <ul class="footer_social_icon list-unstyled">
+                    <?php $lists = vc_param_group_parse_atts($droit_slider_content);
+                    foreach($lists as $item) {
+
+                         $icon_id = '';
+                         if(isset($item['icon_type'])) {
+                            $icon_id = 'icon_picker_'.$item['icon_type'];
+                         }
+                        ?>
+                    <li>
+                        <a href="<?php echo esc_url($item['dt_single_page_scroll_footer_social_link']); ?>">
+                            <i class="<?php echo esc_attr( $item[$icon_id] ); ?>"></i>
+                            <i class="<?php echo esc_attr( $item[$icon_id] ); ?>"></i>
+                        </a>
+                    </li>
+                        <?php 
+                    }
+                    ?>
+                </ul>
+            </div>
+          </div> 
         <?php 
            wp_enqueue_style( 'swiper' );
            wp_enqueue_style( 'mCustomScrollbar' );
@@ -45,6 +75,7 @@ if(!function_exists('single_dt_full_page_scroll')) {
 			'dt_single_page_scroll_button_url' => '',
 			'dt_single_page_scroll_effect_image' => '',
 			'dt_single_page_scroll_image' => '',
+            'dt_single_page_scroll_child_num'=> ''
 		), $atts));
         
         ob_start(); ?>
@@ -74,7 +105,10 @@ if(!function_exists('single_dt_full_page_scroll')) {
                             </span>
                         </div>
                         <div class="slider_title">
-                            <div class="number" data-splitting>01</div>
+
+                            <?php if( $dt_single_page_scroll_child_num != ''): ?>
+                              <div class="number" data-splitting><?php echo esc_html( $dt_single_page_scroll_child_num ); ?></div>
+                            <?php endif; ?>
                             <h2 data-splitting><?php echo dt_return($dt_single_page_scroll_title); ?></h2>
                         </div>
                         <div class="d-flex justify-content-between">
@@ -100,23 +134,49 @@ if(!function_exists('single_dt_full_page_scroll')) {
 
 // Mapping 
 vc_map( array(
-    "name" => __("Carousel Content", "droit-wbpakery-addons"),
+    "name" => esc_html__("FullPage  Content", "droit-wbpakery-addons"),
     "base" => "dt_full_page_scroll",
-    "as_parent" => array('only' => 'single_dt_full_page_scroll', ''),
+    "as_parent" => array('only' => 'single_dt_full_page_scroll'),
     "content_element" => true,
     "show_settings_on_create" => false,
     "is_container" => true,
     "js_view" => 'VcColumnView',
     "category" =>array('Droit', 'Content'),
+    "params" => array(
+        array(
+            "type" => "textfield",
+            "heading" => esc_html__("Copyright Text", "droit-wbpakery-addons"),
+            "param_name" => "dt_single_page_scroll_footer_copyright_text"
+        ),
+        array(
+            'type' => 'param_group',
+            'value' => '',
+            "heading" => __("Droit Slider", 'droit-wbpakery-addons'),
+            'param_name' => 'droit_slider_content',
+            // Note params is mapped inside param-group:
+            'params' => array_merge(array(
+                array(
+                    "type" => "textfield",
+                    "heading" => esc_html__("Social Link", "droit-wbpakery-addons"),
+                    "param_name" => "dt_single_page_scroll_footer_social_link"
+                ),
+            ),vc_iconfont_selections()
+        )),
+    ),
 ) );
 
 vc_map( array(
-    "name" => __("Single Carousel Content", "droit-wbpakery-addons"),
+    "name" => __("Single Full Page Content", "droit-wbpakery-addons"),
     "base" => "single_dt_full_page_scroll",
     "content_element" => true,
     "as_child" => array('only' => 'dt_full_page_scroll'),
     "show_settings_on_create" => true,
     "params" => array(
+        array(
+            "type" => "textfield",
+            "heading" => esc_html__("Counter Number", "droit-wbpakery-addons"),
+            "param_name" => "dt_single_page_scroll_child_num"
+        ), 
         array(
             "type" => "colorpicker",
             "heading" => esc_html__("Background Color", "droit-wbpakery-addons"),

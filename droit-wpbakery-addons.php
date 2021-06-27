@@ -259,7 +259,6 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'one-page-heading',
 				'one-page-section',
 				'one-page-footer',
-				'fullscreen-slider',
 				'social-link',
 				'nav-menu',
 				'subscribe'

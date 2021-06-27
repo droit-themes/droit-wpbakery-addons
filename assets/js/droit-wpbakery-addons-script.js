@@ -3,6 +3,13 @@ jQuery(function($){
    "use strict";
 
  //  WooCommerce Quick view 
+ function splitting() {
+	var split = $('[data-splitting]');
+	split.each(function () {
+		Splitting();
+	});
+}
+splitting();
 
  if ($('#wavescroll').length > 0) {
 	$('#wavescroll').fullpage({
