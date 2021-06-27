@@ -163,6 +163,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/helpers.php');
 			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/controls.php');
 			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/droit-icon.php');
+			require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/module/fullPageScrolling.php');
 			
 			if(class_exists('acf_field')){
 				require_once( DROIT_WPBAKERY_ADDONS_ABS_PATH. '/lib/acf-menu-selector/acf-menu-selector.php');
@@ -180,6 +181,8 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			 wp_register_style( 'dt-vc-main', DROIT_WPBAKERY_CSS_URL.'/main.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'slick', DROIT_WPBAKERY_VENDORS_URL.'/slick/slick.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'slick-theme', DROIT_WPBAKERY_VENDORS_URL.'/slick/slick-theme.css', '', DROIT_WPBAKERY_ADDONS );
+			 wp_register_style( 'swiper', DROIT_WPBAKERY_VENDORS_URL.'/swiper/swiper.min.css', '', DROIT_WPBAKERY_ADDONS );
+			 wp_register_style( 'mCustomScrollbar', DROIT_WPBAKERY_VENDORS_URL.'/mcustomscrollbar/jquery.mCustomScrollbar.min.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'fullpage', DROIT_WPBAKERY_VENDORS_URL.'/fullpage/fullpage.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'odometer', DROIT_WPBAKERY_VENDORS_URL.'/odometer/odometer.css', '', DROIT_WPBAKERY_ADDONS );
 			 wp_register_style( 'animate', DROIT_WPBAKERY_CSS_URL.'/animate.css', '', DROIT_WPBAKERY_ADDONS );
@@ -204,6 +207,15 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			wp_enqueue_script('parallax-scroll', DROIT_WPBAKERY_JS_URL.'/jquery.parallax-scroll.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			
 			wp_register_script('slick', DROIT_WPBAKERY_VENDORS_URL.'/slick/slick.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_register_script('swiper', DROIT_WPBAKERY_VENDORS_URL.'/swiper/swiper.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_register_script('TweenMax', DROIT_WPBAKERY_VENDORS_URL.'/image-hover/TweenMax.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_register_script('splitting', DROIT_WPBAKERY_VENDORS_URL.'/splitting/splitting.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_register_script('three', DROIT_WPBAKERY_VENDORS_URL.'/image-hover/three.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_register_script('hover', DROIT_WPBAKERY_VENDORS_URL.'/image-hover/hover.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_register_script('mcustomscrollbar', DROIT_WPBAKERY_VENDORS_URL.'/mcustomscrollbar/jquery.mCustomScrollbar.concat.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_register_script('imagesloaded', DROIT_WPBAKERY_VENDORS_URL.'/isotope/imagesloaded.pkgd.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_register_script('isotope-pkgd', DROIT_WPBAKERY_VENDORS_URL.'/isotope/isotope.pkgd.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_register_script('fullpage-activation', DROIT_WPBAKERY_JS_URL.'/fullpage-activation.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_register_script('ajax-chimp', DROIT_WPBAKERY_JS_URL.'/ajax-chimp.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_register_script('droit-wpbakery-addons-script', DROIT_WPBAKERY_JS_URL.'/droit-wpbakery-addons-script.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_register_script('wow', DROIT_WPBAKERY_JS_URL.'/wow.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
@@ -247,6 +259,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'one-page-heading',
 				'one-page-section',
 				'one-page-footer',
+				'fullscreen-slider',
 				'social-link',
 				'nav-menu',
 				'subscribe'

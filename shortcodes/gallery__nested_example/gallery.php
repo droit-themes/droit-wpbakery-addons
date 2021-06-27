@@ -17,47 +17,40 @@ class dt_gallery {
  
     public function dt_gallery() {
       
-        vc_map( array(
-            "name" => __("Droit Gallery", 'droit-wbpakery-addons'),
-            "description" => __("Droi droit spacial heading for your section", 'droit-wbpakery-addons'),
-            "base" => "gallery",
-            "as_parent" => array('only' => 'gallery_innter'),
-            "class" => "",
-            "controls" => "full",
-            "is_container" => false,
-            "icon" => plugins_url('assets/asterisk_yellow.png', __FILE__), // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
-            'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
-            "params" => array(
-               
-              array(
-                  "type" => "vc_link",
-                  "holder" => "div",
-                  "class" => "",
-                  "heading" => __("Title Description", 'droit-wbpakery-addons'),
-                  "param_name" => "dt_img_link",
-                  "description" => __("Enter your description.", 'droit-wbpakery-addons')
-              ),
-              vc_map_add_css_animation(true),
-            ),
-            "js_view" => 'VcColumnView'
-        ) );
-
-        vc_map( array(
-            "name" => __("Gallery Image", "my-text-domain"),
-            "base" => "gallery_innter",
-            "content_element" => false,
-            "as_child" => array('only' => 'gallery'), // Use only|except attributes to limit parent (separate multiple values with comma)
-            "params" => array(
-            // add params same as with any other content element
-                array(
-                    "type" => "attach_image",
-                    "holder" => "div",
-                    "heading" => __("Image", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_gallery_img",
-                ),
-            )
-          ) );
-
+      vc_map( array(
+        "name" => __("Your Gallery", "my-text-domain"),
+        "base" => "gallery",
+        "as_parent" => array('only' => 'single_img'), // Use only|except attributes to limit child shortcodes (separate multiple values with comma)
+        "content_element" => true,
+        "show_settings_on_create" => false,
+        "is_container" => true,
+        "params" => array(
+        // add params same as with any other content element
+        array(
+        "type" => "textfield",
+        "heading" => __("Extra class name", "my-text-domain"),
+        "param_name" => "el_class",
+        "description" => __("If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "my-text-domain")
+        )
+        ),
+        "js_view" => 'VcColumnView'
+      ) );
+      vc_map( array(
+        "name" => __("Gallery Image", "my-text-domain"),
+        "base" => "gallery_innter",
+        "content_element" => true,
+        "as_child" => array('only' => 'your_gallery'), // Use only|except attributes to limit parent (separate multiple values with comma)
+        "params" => array(
+        // add params same as with any other content element
+        array(
+        "type" => "textfield",
+        "heading" => __("Extra class name", "my-text-domain"),
+        "param_name" => "el_class",
+        "description" => __("If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "my-text-domain")
+        )
+        )
+      ) );
+      
           
     }
     

@@ -27,7 +27,7 @@ jQuery(function($){
 			}
 
 			if ($(window).width() < 767) {
-				if (index == 1 || index == 8) {
+				if (index == 1 || index == totalSection) {
 					$('.full_footer').css('display', 'block');
 				} else {
 					$('.full_footer').css('display', 'none');

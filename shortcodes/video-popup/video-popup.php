@@ -55,7 +55,7 @@ class dt_video_popup {
                     "param_name" => "dt_vidoe_popup_button_text",
                     'dependency' => array(
                                       'element' => 'dt_video_button_style',
-                                      'value' => array('2', '3'),
+                                      'value' => array('2', '3', '4'),
                                       ),
                     ),
                 array(
@@ -154,10 +154,6 @@ class dt_video_popup {
         'dt_cunter_up_title' => 'Discover more about Rave',
         'dt_video_button_style' => '1',
       ), $atts ) );
-     
-         echo "<pre>";
-         print_r($dt_video_button_style);
-         echo "</pre>";
 
          $template_style = null;
 

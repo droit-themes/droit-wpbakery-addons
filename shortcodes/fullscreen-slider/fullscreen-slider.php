@@ -1,0 +1,71 @@
+<?php 
+namespace shortcodes\dt_fullscreen_slider;
+
+class dt_fullscreen_slider {
+    
+    function __construct() {
+        // We safely integrate with VC with this hook
+        add_action( 'init', array( $this, 'dt_fullscreen_slider' ) );
+ 
+        // Use this when creating a shortcode addon
+        add_shortcode( 'dt_fullscreen_slider', array( $this, 'dt_fullscreen_slider_rander' ) );
+
+        // Register CSS and JS
+        add_action( 'wp_enqueue_scripts', array( $this, 'dt_fullscreen_slider_loadCssAndJs' ) );
+    }
+ 
+    public function dt_fullscreen_slider() {
+      
+        vc_map( array(
+            "name" => __("Droit Full Screenslider", 'droit-wbpakery-addons'),
+            "description" => __("Droit Counter Up spacial button for your section", 'droit-wbpakery-addons'),
+            "base" => "dt_fullscreen_slider",
+            "class" => "",
+            "controls" => "full",
+            "icon" => plugins_url('assets/asterisk_yellow.png', __FILE__), // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
+            'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
+            "params" => array_merge(array(
+      
+                array(
+                    'type' => 'textfield',
+                    'heading' => esc_html__( 'Title ', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_cunter_up_title',
+                ),
+                array(
+                    'type' => 'textfield',
+                    'heading' => esc_html__( 'Counter Number', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_cunter_up_number',
+                ),
+                array(
+                    'type' => 'textarea',
+                    'heading' => esc_html__( 'Suffix', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_cunter_up_suffix',
+                ),
+            ), vc_typography_selections('Title', 'title'), vc_typography_selections('Counter Number', 'number')),
+        ) );
+    }
+    
+    /*
+     Header randaraing 
+    */
+    public function dt_fullscreen_slider_rander( $atts, $content = null ) {
+
+      extract( shortcode_atts( array(
+        'dt_cunter_up_title' => 'Discover more about Rave',
+        'dt_cunter_up_number' => '30295',
+      ), $atts ) );
+     
+      $output = dt_template_part('counter-up', null , $atts);
+     
+      return $output;
+      
+    }
+
+    /*
+    Load plugin css and javascript files which you may need on front end of your site
+    */
+    public function dt_fullscreen_slider_loadCssAndJs() {
+      wp_register_style( 'dt_extend_style', plugins_url('assets/droit-wbpakery-addons.css', __FILE__) );
+    }
+}
+// Finally initialize code

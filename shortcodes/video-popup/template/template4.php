@@ -33,17 +33,21 @@ if(is_array($video_id_explode)) {
     $icon = $$icon_id;
  }
  $video_url = 'https://www.youtube.com/embed/'. $video_id;
+ 
+ $button_text = 'Watch the Film';
+ if(isset($dt_vidoe_popup_button_text)) {
+    $button_text = $dt_vidoe_popup_button_text;
+ }
+
 ?>
-<div class="parallax_banner_content parallax_banner_content_three">
-                              
-                     
-    <a href="https://www.youtube.com/watch?v=L43FYUkfeoQ" class="video_btn popup-youtube svp-3">
+<div class="parallax_banner_content parallax_banner_content_three svp-4-parrent d-inline p-0">
+                                   
+    <a href="<?php echo esc_url($video_url); ?>" class="video_btn popup-youtube svp-4">
         <div class="icon">
-            <i class="icon-play"></i>
+            <i class="<?php echo esc_attr( $icon ); ?>"></i>
         </div>
-        Watch the Film
+        <?php echo esc_html($button_text); ?>
     </a>
-                          
 </div>
 
 <div class="vidoe-pop-up-wrapper pop-up">
