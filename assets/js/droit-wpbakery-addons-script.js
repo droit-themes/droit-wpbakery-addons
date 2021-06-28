@@ -9,7 +9,11 @@ jQuery(function($){
 		Splitting();
 	});
 }
-splitting();
+
+if($('[data-splitting]').length) {
+	splitting();
+}
+
 
  if ($('#wavescroll').length > 0) {
 	$('#wavescroll').fullpage({

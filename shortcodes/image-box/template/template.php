@@ -1,6 +1,10 @@
 <?php  
 
-$url_attrs = array_filter(vc_build_link($dt_img_link));
+$url_attrs = [];
+if(isset($dt_img_link) && !empty($dt_img_link)) {
+    $url_attrs = array_filter(vc_build_link($link_arr));
+}
+
 $link_beofre = '';
 $link_after = '';
 $link_attr = '';

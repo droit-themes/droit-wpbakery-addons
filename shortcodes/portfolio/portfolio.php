@@ -153,10 +153,13 @@ class dt_portfolio {
 
       extract( shortcode_atts( array(
         'dt_select_protflow_orderby' => '',
+        'dt_portfolio_style' => '',
       ), $atts ) );
      
-    
-      $portfolio_style = vc_param_group_parse_atts($dt_portfolio_style);
+      $portfolio_style = '';
+      if(isset($dt_portfolio_style)) {
+        $portfolio_style = vc_param_group_parse_atts($dt_portfolio_style);
+      }
 
       if(!empty($atts['dt_portfolio_style'])) {
         $portfolio_style = $atts['dt_portfolio_style'];

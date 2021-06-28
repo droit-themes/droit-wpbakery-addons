@@ -221,6 +221,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			wp_register_script('wow', DROIT_WPBAKERY_JS_URL.'/wow.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_enqueue_script('wow');
 			wp_enqueue_script('slick');
+			wp_enqueue_script('splitting');
 			wp_enqueue_script('droit-wpbakery-addons-script');
 		}
 

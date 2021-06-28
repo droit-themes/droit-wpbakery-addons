@@ -27,8 +27,11 @@ $wrapper_class = join('', $wrapper_class);
         <?php if(!empty($carousel_data)): 
             
              foreach($carousel_data as $data){
-                
-                 $url_attrs = $data['dt_carosuel_link'];
+                $url_attrs = '';
+
+                if(isset($data['dt_carosuel_link'])) {
+                    $url_attrs = $data['dt_carosuel_link'];
+                }
                  
             ?>
             <div class="item">

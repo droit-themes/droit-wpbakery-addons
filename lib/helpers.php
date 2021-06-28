@@ -198,7 +198,9 @@ if(!function_exists('dt_link_before_after')) {
 		 * @param 3, 
 		 */
 
-       
+       if(empty($id)){
+		   return;
+	   }
         $link_attr_custom = '';
 
 		if(!empty($data_text)) {

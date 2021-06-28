@@ -61,7 +61,7 @@ if(isset($google_fonts_heading) && !empty($google_fonts_heading)) {
 
 <div class="<?php echo esc_attr($wrapper_class); ?>">
 
-     <?php if('' !=$dt_subtitle && isset($dt_subtitle)) :  ?>
+     <?php if(isset($dt_subtitle) && '' !=$dt_subtitle) :  ?>
 
         <<?php echo dt_return($subheadingtag); ?> class="dt-subtitle brand_name <?php echo esc_attr($subtitle_unique_class.' '.$subtitle_class ); ?>">
         <?php if(isset($dt_subtitle_tag) && $dt_subtitle_tag != '') :  ?>  

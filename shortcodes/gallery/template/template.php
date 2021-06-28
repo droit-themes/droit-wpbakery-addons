@@ -7,11 +7,17 @@
     <?php
     $i = 1;
      foreach($gallery_items as $item) {
+         
         $data_duration = '';
             if($i    != 1) {
             $data_duration = 'data-wow-delay=0.'.$i.'s';
             } 
-        $url_attrs = array_filter(vc_build_link($item['dt_gallery_link']));
+        $url_attrs = [];   
+
+        if(isset($item['dt_gallery_link'])) {
+           $url_attrs = array_filter(vc_build_link($item['dt_gallery_link']));
+        }
+
         $link_beofre = '';
         $link_after = '';
         $link_attr = '';

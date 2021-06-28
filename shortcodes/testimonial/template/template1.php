@@ -41,7 +41,9 @@ $designation_class = join(' ', $designation_class);
       <?php }} ?>  
         
     </div>
+<?php if(isset($dt_cunter_up_title)) : ?>    
 <h6 class="<?php echo esc_attr( $title_class ); ?>"><?php echo  esc_html($dt_cunter_up_title); ?></h6>
+<?php endif; ?>
 <div class="h_testimonial_slider">
 <?php if('' != $group_data){  
      
@@ -72,82 +74,82 @@ wp_enqueue_style('dt_extend_style');
 $template_css = [];
 
 //  Title 
-if($dt_font_size_title!= ''){
+if(isset($dt_font_size_title) && $dt_font_size_title!= ''){
    $template_css[$title_unique_class]['font-size'] = $dt_font_size_title;     
 }
 
 // title line height 
-if($dt_line_height_title!= ''){
+if(isset($dt_line_height_title) && $dt_line_height_title!= ''){
    $template_css[$title_unique_class]['line-height'] = $dt_line_height_title;     
 
 }
 // title font-weight
-if($dt_font_weight_title!= ''){
+if(isset($dt_font_weight_title) && $dt_font_weight_title!= ''){
    $template_css[$title_unique_class]['font-weight'] = $dt_font_weight_title ;     
 }
 
-if($dt_font_color_title!= ''){
+if(isset($dt_font_color_title) && $dt_font_color_title!= ''){
 $template_css[$title_unique_class]['color'] = $dt_font_color_title ;     
 }
 
 //  review 
 
-if($dt_font_size_review!= ''){
+if(isset($dt_font_size_review) && $dt_font_size_review!= ''){
     $template_css[$review_class]['font-size'] = $dt_font_size_review;     
  }
  
  // title line height 
- if($dt_line_height_review!= ''){
+ if(isset($dt_line_height_review) && $dt_line_height_review!= ''){
     $template_css[$review_class]['line-height'] = $dt_line_height_review;     
  
  }
  // title font-weight
- if($dt_font_weight_review!= ''){
+ if(isset($dt_font_weight_review) && $dt_font_weight_review!= ''){
     $template_css[$review_class]['font-weight'] = $dt_font_weight_review ;     
  }
  
- if($dt_font_color_review!= ''){
+ if(isset($dt_font_color_review) && $dt_font_color_review!= ''){
  $template_css[$review_class]['color'] = $dt_font_color_review ;     
  }
  
 //  Authoer 
 
-if($dt_font_size_authoer!= ''){
+if(isset($dt_font_size_authoer) && $dt_font_size_authoer!= ''){
     $template_css[$author_class]['font-size'] = $dt_font_size_authoer;     
  }
  
  // title line height 
- if($dt_line_height_authoer!= ''){
+ if(isset($dt_line_height_authoer) && $dt_line_height_authoer!= ''){
     $template_css[$author_class]['line-height'] = $dt_line_height_authoer;     
  
  }
  // title font-weight
- if($dt_font_weight_authoer!= ''){
+ if(isset($dt_font_weight_authoer) && $dt_font_weight_authoer!= ''){
     $template_css[$author_class]['font-weight'] = $dt_font_weight_authoer;     
  }
  
- if($dt_font_color_authoer!= ''){
+ if(isset($dt_font_color_authoer) && $dt_font_color_authoer!= ''){
  $template_css[$author_class]['color'] = $dt_font_color_authoer;     
  }
 
 //  designation 
 
-if($dt_font_size_designation!= ''){
+if(isset($dt_font_size_designation) && $dt_font_size_designation!= ''){
     $template_css[$designation_unique_class]['font-size'] = $dt_font_size_designation;     
  }
  
  // title line height 
- if($dt_line_height_designation!= ''){
+ if(isset($dt_line_height_designation) && $dt_line_height_designation!= ''){
     $template_css[$designation_unique_class]['line-height'] = $dt_line_height_designation;     
  
  }
  // title font-weight
- if($dt_font_weight_designation!= ''){
+ if(isset($dt_font_weight_designation) && $dt_font_weight_designation!= ''){
     $template_css[$designation_unique_class]['font-weight'] = $dt_font_weight_designation ;     
  }
  
- if($dt_font_color_designation!= ''){
- $template_css[$designation_unique_class]['color'] = $dt_font_color_designation ;     
+ if(isset($dt_font_color_designation) && $dt_font_color_designation!= ''){
+   $template_css[$designation_unique_class]['color'] = $dt_font_color_designation ;     
  }
  
 $custom_css =  droit_css( $template_css );
