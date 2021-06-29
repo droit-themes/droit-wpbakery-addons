@@ -231,6 +231,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			$list = apply_filters('dt_extention_widgets_list', [
 				'logo',
 				'heading',
+				'banner',
 				'scroll-to-section',
 				'gallery',
 				'image-box',

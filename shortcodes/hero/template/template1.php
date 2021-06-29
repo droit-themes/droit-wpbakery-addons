@@ -131,7 +131,7 @@ wp_enqueue_style('dt_extend_style');
 $template_css = [];
 
 // Wrapper backtround 
-if($dt_backgroud_color != ''){
+if(isset($dt_backgroud_color) && $dt_backgroud_color != ''){
 
      $template_css[$wrapper_uniqe_class]['background-color'] = $dt_backgroud_color;     
 }
@@ -141,28 +141,28 @@ if($dt_backgroud_color != ''){
  * @package fontsize font weight, line height, color
  */
 //  Image postion 
-if($dt_hero_img_pos != ''){
+if(isset($dt_hero_img_pos) && $dt_hero_img_pos != ''){
 
      $template_css[$img_class_uniq]['margin-top'] = $dt_hero_img_pos;     
 }
 
-if($dt_font_size_hero_subtitle != ''){
+if(isset($dt_font_size_hero_subtitle) && $dt_font_size_hero_subtitle != ''){
 
      $template_css[$subtitle_class_uniq]['font-size'] = $dt_font_size_hero_subtitle;     
 }
 // line height
-if($dt_line_height_hero_subtitle != ''){
+if(isset($dt_line_height_hero_subtitle) && $dt_line_height_hero_subtitle != ''){
 
      $template_css[$subtitle_class_uniq]['line-height'] = $dt_line_height_hero_subtitle;     
 }
 // font-weight 
-if($dt_font_weight_hero_subtitle != ''){
+if(isset($dt_font_weight_hero_subtitle) != ''){
 
      $template_css[$subtitle_class_uniq]['font-weight'] = $dt_font_weight_hero_subtitle;     
 }
 
 // color 
-if($dt_font_color_hero_subtitle != ''){
+if(isset($dt_font_color_hero_subtitle) && $dt_font_color_hero_subtitle != ''){
 
      $template_css[$subtitle_class_uniq]['color'] = $dt_font_color_hero_subtitle;     
 }
@@ -172,23 +172,23 @@ if($dt_font_color_hero_subtitle != ''){
  * @package fontsize font weight, line height, color
  */
 
-if($dt_font_size_hero_title != ''){
+if(isset($dt_font_size_hero_title) && $dt_font_size_hero_title != ''){
 
   $template_css[$title_class_uniq]['font-size'] = $dt_font_size_hero_title;     
 }
 // line height
-if($dt_line_height_hero_title != ''){
+if(isset($dt_line_height_hero_title) && $dt_line_height_hero_title != ''){
 
   $template_css[$title_class_uniq]['line-height'] = $dt_line_height_hero_title;     
 }
 // font-weight 
-if($dt_font_weight_hero_title != ''){
+if(isset($dt_font_weight_hero_title) && $dt_font_weight_hero_title != ''){
 
   $template_css[$title_class_uniq]['font-weight'] = $dt_font_weight_hero_title;     
 }
 
 // color 
-if($dt_font_color_hero_title != ''){
+if(isset($dt_font_color_hero_title)  && $dt_font_color_hero_title != ''){
 
   $template_css[$title_class_uniq]['color'] = $dt_font_color_hero_title;     
 }
@@ -198,23 +198,23 @@ if($dt_font_color_hero_title != ''){
  * @package fontsize font weight, line height, color
  */
 
-if($dt_font_size_hero_description != ''){
+if(isset($dt_font_size_hero_description) && $dt_font_size_hero_description != ''){
 
   $template_css[$description_class_uniq]['font-size'] = $dt_font_size_hero_description;     
 }
 // line height
-if($dt_line_height_hero_description != ''){
+if(isset($dt_line_height_hero_description) && $dt_line_height_hero_description != ''){
 
   $template_css[$description_class_uniq]['line-height'] = $dt_line_height_hero_description;     
 }
 // font-weight 
-if($dt_font_weight_hero_description != ''){
+if(isset($dt_font_weight_hero_description) && $dt_font_weight_hero_description != ''){
 
   $template_css[$description_class_uniq]['font-weight'] = $dt_font_weight_hero_description;     
 }
 
 // color 
-if($dt_font_color_hero_description != ''){
+if(isset($dt_font_color_hero_description) && $dt_font_color_hero_description != ''){
 
   $template_css[$description_class_uniq]['color'] = $dt_font_color_hero_description;     
 }
@@ -227,69 +227,69 @@ if($dt_font_color_hero_description != ''){
  * icon 
  */
 
-if($dt_btn_left_margin_hero != ''){
+if(isset($dt_btn_left_margin_hero) && $dt_btn_left_margin_hero != ''){
 
   $template_css[$btn_class_unique.' '.'i']['margin-left'] = $dt_btn_left_margin_hero;     
 }
 
-if($dt_btn_right_margin_hero != ''){
+if(isset($dt_btn_right_margin_hero) && $dt_btn_right_margin_hero != ''){
 
   $template_css[$btn_class_unique.' '.'i']['margin-right'] = $dt_btn_right_margin_hero;     
 }
 
 // font 
 
-if($dt_btn_font_size_hero != ''){
+if(isset($dt_btn_font_size_hero) && $dt_btn_font_size_hero != ''){
 
   $template_css[$btn_class_unique]['font-size'] = $dt_btn_font_size_hero;     
 
 }
 
-if($dt_btn_font_line_height_hero != ''){
+if(isset($dt_btn_font_line_height_hero) && $dt_btn_font_line_height_hero != ''){
 
   $template_css[$btn_class_unique]['line-height'] = $dt_btn_font_line_height_hero;     
 
 }
 
-if($dt_btn_font_weight_hero != ''){
+if(isset($dt_btn_font_weight_hero) && $dt_btn_font_weight_hero != ''){
 
   $template_css[$btn_class_unique]['font-weight'] = $dt_btn_font_weight_hero;     
 
 }
 
-if($dt_btn_border_width_hero != ''){
+if(isset($dt_btn_border_width_hero) && $dt_btn_border_width_hero != ''){
 
   $template_css[$btn_class_unique]['border'] = $dt_btn_border_width_hero.' '.'solid'.' '.$dt_button_border_color_hero;     
 
 }
 
-if($dt_button_border_color_hover_hero != '' && $dt_btn_border_width_hero){
+if(isset($dt_button_border_color_hover_hero) && $dt_button_border_color_hover_hero != '' && isset($dt_btn_border_width_hero)){
 
   $template_css[$btn_class_unique.':hover']['border'] = $dt_btn_border_width_hero.' '.'solid'.' '.$dt_button_border_color_hover_hero;     
 
 }
-if($dt_button_color_hero != ''){
+if(isset($dt_button_color_hero) && $dt_button_color_hero != ''){
 
   $template_css[$btn_class_unique]['color'] = $dt_button_color_hero;     
 
 }
-if($dt_button_hover_color_hero != ''){
+if(isset($dt_button_hover_color_hero) && $dt_button_hover_color_hero != ''){
 
   $template_css[$btn_class_unique.':hover']['color'] = $dt_button_hover_color_hero;     
 
 }
 
-if($dt_button_bg_color_hero != ''){
+if(isset($dt_button_bg_color_hero) && $dt_button_bg_color_hero != ''){
+
+  $template_css[$btn_class_unique]['background-color'] = $dt_button_bg_color_hero;     
+}
+
+if(isset($dt_button_bg_color_hero) && $dt_button_bg_color_hero != ''){
 
   $template_css[$btn_class_unique]['background-color'] = $dt_button_bg_color_hero;     
 
 }
-if($dt_button_bg_color_hero != ''){
-
-  $template_css[$btn_class_unique]['background-color'] = $dt_button_bg_color_hero;     
-
-}
-if($dt_button_bg_hover_color_hero != ''){
+if(isset($dt_button_bg_hover_color_hero) && $dt_button_bg_hover_color_hero != ''){
 
   $template_css[$btn_class_unique.':hover']['background-color'] = $dt_button_bg_hover_color_hero;     
 
