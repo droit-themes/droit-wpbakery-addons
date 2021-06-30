@@ -79,7 +79,14 @@ class dt_video_popup {
                     "heading" => esc_html__("Video icon margin", 'droit-wbpakery-addons'),
                     "param_name" => "dt_vidoe_popup_icon_margin",
                   ),
-
+                  array(
+                    "type" => "textfield",
+                    "holder" => "div",
+                    "class" => "dt-title-font",
+                    "heading" => esc_html__("Wrapper Class", 'droit-wbpakery-addons'),
+                    "param_name" => "dt_vidoe_popup_video_wrapper_class",
+                    "group" => esc_html__( 'Css class', 'droit-wbpakery-addons' ),
+                  ),
                   array(
                     "type" => "textfield",
                     "holder" => "div",
@@ -153,6 +160,7 @@ class dt_video_popup {
       extract( shortcode_atts( array(
         'dt_cunter_up_title' => 'Discover more about Rave',
         'dt_video_button_style' => '1',
+        'dt_vidoe_popup_video_wrapper_class'=> '',
       ), $atts ) );
 
          $template_style = null;

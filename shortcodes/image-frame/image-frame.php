@@ -158,6 +158,11 @@ class dt_image_frame {
                     'description'      =>     esc_html__("Eg: 100", 'droit-wbpakery-addons'),            
                   ),
                 )),
+                array(
+                  "type" => "textfield",
+                  "heading" => esc_html__("Wrapper Css Class", 'droit-wbpakery-addons'),
+                  "param_name" => "dt_image_frame_custom_class",                             
+                ),
             )
         ) );
     }
@@ -173,6 +178,7 @@ class dt_image_frame {
         'dt_title' => '',
         'dt_title_description' => '',
         'dt_img_link'=> '',
+        'dt_image_frame_custom_class' => '',
       ), $atts ) );
      
 

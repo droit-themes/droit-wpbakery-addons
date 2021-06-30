@@ -252,6 +252,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'hero',
 				'service',
 				'icon-box',
+				'infobox',
 				'iconlist',
 				'video-popup',
 				'card',

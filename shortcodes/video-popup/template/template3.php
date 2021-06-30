@@ -33,8 +33,17 @@ if(is_array($video_id_explode)) {
     $icon = $$icon_id;
  }
  $video_url = 'https://www.youtube.com/embed/'. $video_id;
+
+ $wrapper_class[] = 'shop_video';
+ $wrapper_class[] = wp_unique_id( 'shop-video-icon-' );
+ if(isset($dt_vidoe_popup_video_wrapper_class)) {
+    $wrapper_class[] = $dt_vidoe_popup_video_wrapper_class;
+ }
+
+ $wrapper_class_generate = join(' ', $wrapper_class);
+
 ?>
-<div class="shop_video">
+<div class="<?php echo esc_attr( $wrapper_class_generate ); ?>">
        <?php echo wp_get_attachment_image( $dt_video_pupop_bg_image, 'fulll'); ?>
         <div class="travel_video">
             <a href="<?php echo esc_url( $video_url); ?>"

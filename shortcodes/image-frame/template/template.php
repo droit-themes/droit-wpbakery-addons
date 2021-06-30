@@ -9,14 +9,21 @@ $image_class []=  'z-index-9';
 $image_class =  join(' ', $image_class);
 
 $style = '';
-if($dt_image_frame_border_radious != '') {
+if(isset($dt_image_frame_border_radious) && $dt_image_frame_border_radious != '') {
    $style = 'border-radius:'.$dt_image_frame_border_radious;
 }
 
+$wrapper_class_list[] = 'dashboard_img about_member_item';
+if(isset($dt_image_frame_custom_class)) {
+   $wrapper_class_list[] = $dt_image_frame_custom_class;
+}
+$wrapper_class_list[] = wp_unique_id( 'dashboard-img-' );
+
+$wrapper_class = join(' ', $wrapper_class_list);
 
 ?>
 
-<div class="dashboard_img about_member_item ">
+<div class="<?php echo esc_attr( $wrapper_class ); ?>">
     <?php echo wp_get_attachment_image( $dt_image_frame_img_main, 'full', null, array('class'=>$image_class, 'style' => $style ) ); ?>
     <?php  if($frame_image) : 
     
@@ -24,7 +31,7 @@ if($dt_image_frame_border_radious != '') {
 
             $parallex = '';
 
-            if($image['dt_enable_parallex']) {
+            if(isset($image['dt_enable_parallex'])) {
 
                $paralexX = $image['dt_image_frame_parallex_x'];
                $paralxY = $image['dt_image_frame_parallex_y'];
@@ -45,15 +52,15 @@ if($dt_image_frame_border_radious != '') {
             $dt_image_frame_animation_delay = '';
             $dt_image_frame_animation_duration = ''; 
 
-            if($image['dt_image_frame_animation_name'] != '') {
+            if(isset($image['dt_image_frame_animation_name']) && $image['dt_image_frame_animation_name'] != '') {
                 $image_class = ' '.$image['dt_image_frame_animation_name'].' wow';
             }
             
-            if($image['dt_image_frame_animation_delay'] != '') {
+            if(isset($image['dt_image_frame_animation_delay']) && $image['dt_image_frame_animation_delay'] != '') {
                $dt_image_frame_animation_delay = $image['dt_image_frame_animation_delay'];
             }
 
-            if($image['dt_image_frame_animation_duration'] != '') {
+            if(isset($image['dt_image_frame_animation_duration']) && $image['dt_image_frame_animation_duration'] != '') {
                $dt_image_frame_animation_duration = $image['dt_image_frame_animation_duration '];
             }
 
@@ -65,7 +72,7 @@ if($dt_image_frame_border_radious != '') {
 
              $style = '';
 
-             if($image['dt_image_frame_top'] != '' || $image['dt_image_frame_left'] != '' || $image['dt_image_frame_z_index']) {
+             if((isset($image['dt_image_frame_top']) && $image['dt_image_frame_top'] != '') || (isset($image['dt_image_frame_left']) && $image['dt_image_frame_left'] != '') || isset($image['dt_image_frame_z_index'])) {
                
                if($image['dt_image_frame_top'] != '') {
                 $style = 'top:'.$image['dt_image_frame_top'].';';

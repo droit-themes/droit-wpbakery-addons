@@ -39,8 +39,16 @@ if(is_array($video_id_explode)) {
     $button_text = $dt_vidoe_popup_button_text;
  }
 
+ $wrapper_class[] = 'parallax_banner_content parallax_banner_content_three svp-4-parrent d-inline p-0';
+ $wrapper_class[] = wp_unique_id( 'shop-video-icon-' );
+ if(isset($dt_vidoe_popup_video_wrapper_class)) {
+    $wrapper_class[] = $dt_vidoe_popup_video_wrapper_class;
+ }
+
+ $wrapper_class_generate = join(' ', $wrapper_class);
+
 ?>
-<div class="parallax_banner_content parallax_banner_content_three svp-4-parrent d-inline p-0">
+<div class="<?php echo esc_attr( $wrapper_class_generate ); ?>">
                                    
     <a href="<?php echo esc_url($video_url); ?>" class="video_btn popup-youtube svp-4">
         <div class="icon">

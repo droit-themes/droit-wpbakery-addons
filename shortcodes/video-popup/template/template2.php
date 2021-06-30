@@ -33,8 +33,18 @@ if(is_array($video_id_explode)) {
     $icon = $$icon_id;
  }
  $video_url = 'https://www.youtube.com/embed/'. $video_id;
+ 
+ 
+ $wrapper_class[] = 'corporate_video_icon';
+ $wrapper_class[] = wp_unique_id( 'corporate-video-icon-' );
+ if(isset($dt_vidoe_popup_video_wrapper_class)) {
+    $wrapper_class[] = $dt_vidoe_popup_video_wrapper_class;
+ }
+
+ $wrapper_class_generate = join(' ', $wrapper_class);
+
 ?>
-<div class="corporate_video_icon">
+<div class="<?php echo esc_attr( $wrapper_class_generate ); ?>">
     <a href="javascript(javascript:void(0))" class="icon popup-youtubes show-video-popup-2" data-video ="<?php echo esc_url( $video_url); ?>">
         <i class="icon-play"></i>
     </a>

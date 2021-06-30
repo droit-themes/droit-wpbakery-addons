@@ -8,6 +8,10 @@ $unique_class = wp_unique_id( 'video-popup-' );
 $wrapper_class[] = $unique_class;
 $wrapper_class[] = 'pop-up-content';
 
+if(isset($dt_vidoe_popup_video_wrapper_class)) {
+   $wrapper_class[] = $dt_vidoe_popup_video_wrapper_class;
+}
+
 $get_wrapper_class = join(' ', $wrapper_class);
 
 $video_link = $dt_vidoe_popup_video_link;
