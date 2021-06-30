@@ -1,0 +1,43 @@
+.rave_custom_header.vc_section[data-vc-full-width]{
+    overflow: inherit;
+}
+.admin-bar .droithead.site{
+    margin-top: 0;
+}
+@media ( max-width: 991px ) {
+    .rave_custom_header > .vc_row{
+        flex-wrap: nowrap !important;
+    }
+    .rave-row-reverse{
+        flex-direction: row-reverse !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .navbar button.navbar-toggler {
+        position: absolute;
+        right: 30px;
+        top: 8px;
+    }
+    .rave_custom_header .vc_column_container {
+        position: initial;
+    }
+    .rave_custom_header .navbar-collapse {
+        position: absolute;
+        top: 85px;
+        width: 100%;
+        left: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin: 0;
+    }
+}
+@media ( max-width: 782px ) {
+    .admin-bar .sticky_nav.navbar_fixed {
+        top: 46px !important;
+    }
+}
+@media ( max-width: 600px ) {
+    .admin-bar .sticky_nav.navbar_fixed {
+        top: 0 !important;
+    }
+}
