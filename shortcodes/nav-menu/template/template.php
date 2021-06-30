@@ -37,6 +37,9 @@ if( !empty( $dt_menu_color ) ){
         .navbar-nav.menu.rave-custom-menu.menu.rave-custom-menu > li > a{
             color: $dt_menu_color
         }
+        .rave_custom_header .navbar-toggler span{
+            background: $dt_menu_color
+        }
     ";
 }
 if( !empty( $dt_menu_hover_color ) ){
@@ -50,6 +53,9 @@ if( !empty( $dt_st_menu_color ) ){
     $nav_menu_inline_style .= "
         .navbar-nav.menu.rave-custom-menu > li > a{
             color: $dt_st_menu_color
+        }
+        .rave_custom_header.navbar_fixed .navbar-toggler span{
+            background: $dt_st_menu_color
         }
     ";
 }
