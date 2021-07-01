@@ -232,8 +232,8 @@ class dt_nav_menu {
     Load plugin css and javascript files which you may need on front end of your site
     */
     public function dt_nav_menu_loadCssAndJs() {
-      wp_register_style( 'dt_extend_style', plugins_url('assets/droit-wbpakery-addons.css', __FILE__) );
-      wp_enqueue_script('droit-wpbakery-addons-script');
+        wp_enqueue_style( 'dt-nav-menu-css', plugins_url('assets/css/nav-menu.css', __FILE__) );
+
     }
 }
 // Finally initialize code
