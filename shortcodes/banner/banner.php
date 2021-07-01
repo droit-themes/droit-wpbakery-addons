@@ -95,6 +95,11 @@ class dt_banner {
                     "param_name" => "dt_banner_bg_pattern_image",
                     'edit_field_class' => 'vc_col-sm-6',
                 ),
+                array(
+                    'type' => 'textfield',
+                    'heading' => esc_html__( 'Wrapper Custom Class', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_banner_wrapper_custom_class',
+                ),
             )
         ) );
     }
@@ -115,6 +120,7 @@ class dt_banner {
        'dt_banner_sub_title' => '',
        'dt_banner_subtitle_font_size' => '',
        'dt_banner_bg_pattern_image' => '',
+       'dt_banner_wrapper_custom_class' => '',
     ), $atts ) );
      
       $output = dt_template_part('banner', null , $atts);
