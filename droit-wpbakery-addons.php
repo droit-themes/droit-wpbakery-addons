@@ -264,6 +264,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'one-page-footer',
 				'social-link',
 				'nav-menu',
+				'faq',
 				'subscribe'
 			]);
 			return $list;
