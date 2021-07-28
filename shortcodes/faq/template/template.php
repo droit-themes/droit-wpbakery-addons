@@ -6,7 +6,7 @@ $dt_faq_style = vc_param_group_parse_atts($dt_faq_style);
 if($faqs != '') {
 ?>
 <?php if($dt_faq_style =='1'){ ?> 
-    sfsdfsfdsdf
+   
 
 <?php }elseif($dt_faq_style =='2'){ ?>
     
@@ -19,63 +19,33 @@ if($faqs != '') {
                         <h2><?php echo dt_extention_wp_kses($dt_faq_title); ?></h2>
                         <?php endif; ?>
                         <div class="accordion" id="accordionExample">
-                        <?php foreach($faqs as $key => $faq){  ?>
+                        <?php 
+                        $i=1;
+                         foreach($faqs as $key => $faq){ 
+                          $show = $faq['dt_faq_default'];  
+                        ?>
                             <div class="card">
-                                <div class="card-header" id="faqOne">
+                                <div class="card-header" id="<?php echo $i; ?>">
                                     <h2 class="mb-0">
-                                        <button class="btn btn-link btn-block" type="button" data-toggle="collapse"
+                                        <button class="btn btn-link btn-block <?php if($show =='yes'){  }else{  echo 'collapsed'; } ?>" type="button" data-toggle="collapse"
                                             data-target="#collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
-                                            How do I install Rave Theme?
+                                            <?php echo dt_extention_wp_kses($faq['dt_faq_title']);  ?>
                                         </button>
                                     </h2>
                                 </div>
 
-                                <div id="collapseOne" class="collapse show" aria-labelledby="faqOne"
+                                <div id="collapseOne" class="collapse <?php if($show =='yes'){ echo 'show'; }else{ } ?>" aria-labelledby="<?php echo $i; ?>"
                                     data-parent="#accordionExample">
                                     <div class="card-body">
-                                        Rave is a creative, professional multi-purpose website template with
-                                        pixel-perfect designed to make awesome website for any business.
+                                    <?php echo dt_extention_wp_kses($faq['dt_faq_comments']); ?>
                                     </div>
                                 </div>
                             </div>
-                            <?php } ?>
-                            <div class="card">
-                                <div class="card-header" id="faqTwo">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link btn-block collapsed" type="button"
-                                            data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
-                                            aria-controls="collapseTwo">
-                                            What does Rave Theme do?
-                                        </button>
-                                    </h2>
-                                </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="faqTwo"
-                                    data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        Rave is a creative, professional multi-purpose website template with
-                                        pixel-perfect designed to make awesome website for any business.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="faqThree">
-                                    <h2 class="mb-0">
-                                        <button class="btn btn-link btn-block collapsed" type="button"
-                                            data-toggle="collapse" data-target="#collapseThree"
-                                            aria-expanded="false" aria-controls="collapseThree">
-                                            Where can I disscus Tips and Techniques?
-                                        </button>
-                                    </h2>
-                                </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="faqThree"
-                                    data-parent="#accordionExample">
-                                    <div class="card-body">
-                                        Rave is a creative, professional multi-purpose website template with
-                                        pixel-perfect designed to make awesome website for any business.
-                                    </div>
-                                </div>
-                            </div>
+                            <?php 
+                           $i++;
+                            } ?>
+                            
                         </div>
                     </div>
                 </div>
@@ -83,7 +53,35 @@ if($faqs != '') {
         </div>
     </section>
 
+<?php }elseif($dt_faq_style =='3'){ ?>
 
-<?php }else{ } ?>
+<section class="faq_banner_area text-center about_action_area">
+    <div class="pattern_bg parallaxie">
+    </div>
+    <ul class="list-unstyled dot">
+        <li data-parallax='{"x": 0, "y": 100}'></li>
+        <li data-parallax='{"x": 0, "y": 40}'></li>
+        <li data-parallax='{"x": 10, "y": -40}'></li>
+        <li data-parallax='{"x": 0, "y": -40}'></li>
+        <li data-parallax='{"x": -40, "y": 0}'></li>
+        <li data-parallax='{"x": -40, "y": 20}'></li>
+    </ul>
+    <div class="container">
+        <?php if(!empty($dt_faq_title)): ?>
+            <div class="section_title">
+                <h2><?php echo dt_extention_wp_kses($dt_faq_title); ?></h2>
+            </div>
+        <?php endif; ?>
+        <form action="#" class="faq_search">
+            <input type="text" class="form-control" placeholder="Enter your keyword here">
+            <button class="btn"><i class="icon-search"></i></button>
+        </form>
+        <?php if(!empty($dt_faq_sub_title)): ?>
+        <p><?php echo dt_extention_wp_kses($dt_faq_sub_title); ?></p>
+        <?php endif; ?>
+    </div>
+</section>
+
+<?php } ?>
 
 <?php } ?>              

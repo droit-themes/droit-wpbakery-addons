@@ -29,17 +29,25 @@ class dt_faq {
                   'type' => 'dropdown',
                   'heading' => __( 'faq Style',  "droit-wbpakery-addons" ),
                   'param_name' => 'dt_faq_style',
-                  'default' => 'yes',
+                  'default' => '2',
                   'value' => array(
                     esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
                     esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
+                    esc_html__( 'FAQ Banner',  "droit-wbpakery-addons"  ) => '3',
                   ),
                 ),
+                
                 array(
                   'type' => 'textfield',
-                  'heading' => esc_html__( 'faq Title ', 'droit-wbpakery-addons' ),
+                  'heading' => esc_html__( 'FAQ Title ', 'droit-wbpakery-addons' ),
                   'param_name' => 'dt_faq_title',
                   'value'      => 'faq'
+               ),
+               array(
+                'type' => 'textfield',
+                'heading' => esc_html__( 'FAQ Sub Title ', 'droit-wbpakery-addons' ),
+                'param_name' => 'dt_faq_sub_title',
+                'value'      => 'faq'
               ),
                 
                 array(
