@@ -37,6 +37,7 @@ class dt_subscribe {
                       esc_html__( 'Style 3',  "droit-wbpakery-addons" )  => '3',
                       esc_html__( 'Style 4',  "droit-wbpakery-addons" )  => '4',
                       esc_html__( 'Style 5',  "droit-wbpakery-addons" )  => '5',
+                      esc_html__( 'Style 6',  "droit-wbpakery-addons" )  => '6',
                     ),
                     'edit_field_class' => 'vc_col-sm-6',
                   ),
