@@ -59,7 +59,7 @@ if(isset($dt_icon_box_description)) {
         <h3><?php echo dt_extention_wp_kses( $title ); ?></h3>
     <?php echo dt_return(dt_link_before_after($icon_box_link, 'after')); ?>
       <div class="description"> 
-      <?php echo   dt_extention_wp_kses($descripton); ?>
+      <?php echo dt_extention_wp_kses($descripton); ?>
      </div>
 </div>
 

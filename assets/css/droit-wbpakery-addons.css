@@ -101,3 +101,13 @@
   html {
     scroll-behavior: smooth;
   }
+
+
+/***============== New CSS by Arif ====================**/
+/****======= List Items =====****/
+.about_me_details_item .sevice_list {
+    width: auto;
+}
+.about_me_details_item .awards_list {
+    margin-top: 0;
+}
