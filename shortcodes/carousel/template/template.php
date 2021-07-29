@@ -29,7 +29,7 @@ $wrapper_class = join('', $wrapper_class);
              foreach($carousel_data as $data){
                 $url_attrs = '';
 
-                if(isset($data['dt_carosuel_link'])) {
+                if( isset($data['dt_carosuel_link'])) {
                     $url_attrs = $data['dt_carosuel_link'];
                 }
                  

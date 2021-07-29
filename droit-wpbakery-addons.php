@@ -265,7 +265,8 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'social-link',
 				'nav-menu',
 				'faq',
-				'subscribe'
+				'subscribe',
+				'call_to_action',
 			]);
 			return $list;
 		}
