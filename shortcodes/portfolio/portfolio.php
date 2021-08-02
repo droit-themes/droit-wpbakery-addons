@@ -37,6 +37,8 @@ class dt_portfolio {
                   esc_html__( 'Style 04 (Classic boxed)',  "droit-wbpakery-addons"  ) => '4',
                   esc_html__( 'Style 05 (Creative boxed)',  "droit-wbpakery-addons"  ) => '5',
                   esc_html__( 'Style 06 (Classic Fullwidth)',  "droit-wbpakery-addons"  ) => '6',
+                  esc_html__( 'Style 07 (Masonry Fullwidth)',  "droit-wbpakery-addons"  ) => '7',
+                  esc_html__( 'Style 08 (Metro Fullwidth)',  "droit-wbpakery-addons"  ) => '8',
                 ),
               ),
               array(

@@ -58,8 +58,10 @@ $posts = get_posts($args);
             ?>
             
         </div>
+        <!--
         <div class="load_btn_center">
             <a href="#" class="load_btn"><img src="assets/img/portfolio-two/loading.png" alt=""></a>
         </div>
+        -->
     </div>
 </section>
