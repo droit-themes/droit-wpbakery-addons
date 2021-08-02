@@ -19,8 +19,9 @@ if($dt_select_catagory != '' && $dt_category_dispaly == 'yes') {
 }
 
 $posts = get_posts($args);
-
+echo $dt_portfolio_title;
 ?>
+
  <section class="portfolio_area_three">
             <ul class="list-unstyled about_dot left">
                 <li data-parallax='{"x": 0, "y": 100}'></li>
@@ -71,10 +72,6 @@ $posts = get_posts($args);
                     $i++;
                     } 
                     ?>
-                   
-                </div>
-                <div class="load_btn_center">
-                    <a href="#" class="load_btn"><img src="assets/img/portfolio-two/loading.png" alt=""></a>
                 </div>
             </div>
         </section>

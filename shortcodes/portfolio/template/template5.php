@@ -30,7 +30,6 @@ $posts = get_posts($args);
             else{
                 $cal = "";
             } 
-        
         ?>
         <div class="row align-items-center <?php echo $cal; ?> portfolio_item_five">
             <div class="col-lg-7">
@@ -72,9 +71,10 @@ $posts = get_posts($args);
         $i++;
         } 
         ?>
-        
+        <!--
         <div class="load_btn_center">
             <a href="#" class="load_btn"><img src="assets/img/portfolio-two/loading.png" alt=""></a>
         </div>
+        -->
     </div>
 </section>
