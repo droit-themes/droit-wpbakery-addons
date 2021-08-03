@@ -111,8 +111,8 @@ class dt_iconlist {
                     "heading" => __("Droit list with icon ", 'droit-wbpakery-addons'),
                     'param_name' => 'droit_iconlist',
                     'dependency' => array(
-                          'element' => 'style',
-                          'value_not_equal_to' => [ '2', '3' ],
+                        'element' => 'style',
+                        'value_not_equal_to' => [ '2', '3' ],
                     ),
                     'params' => array_merge(vc_iconfont_selections(), array(
                         array(
@@ -138,7 +138,7 @@ class dt_iconlist {
                         array(
                             "type" => "textfield",
                             "holder" => "div",
-                            "heading" => __("Text ", 'droit-wbpakery-addons'),
+                            "heading" => __("Text", 'droit-wbpakery-addons'),
                             "param_name" => "list_item",
                         ),
                     ))

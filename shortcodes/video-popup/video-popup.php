@@ -18,133 +18,173 @@ class dt_video_popup {
     public function dt_vidoe_popup() {
       
         vc_map( array(
-            "name" => __("Droit Video Popup", 'droit-wbpakery-addons'),
-            "description" => __("Droit Video Popup spacial button for your section", 'droit-wbpakery-addons'),
-            "base" => "dt_vidoe_popup",
-            "controls" => "full",
-            "icon" => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
+            'name' => __('Droit Video Popup', 'droit-wbpakery-addons'),
+            'description' => __('Droit Video Popup spacial button for your section', 'droit-wbpakery-addons'),
+            'base' => 'dt_vidoe_popup',
+            'controls' => 'full',
+            'icon' => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: 'droit-wbpakery-addons_my_class'
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
-            "params" => array_merge(array(
-              array(
-                'type' => 'dropdown',
-                'heading' => __( 'Video Style',  "droit-wbpakery-addons" ),
-                'param_name' => 'dt_video_button_style',
-                'default' => '1',
-                'value' => array(
-                  esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
-                  esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
-                  esc_html__( 'Style 3',  "droit-wbpakery-addons"  ) => '3',
-                  esc_html__( 'Style 4',  "droit-wbpakery-addons"  ) => '4',
-                ),
-              ),
-              array(
-                "type" => "attach_image",
-                "holder" => "div",
-                "heading" => esc_html__("Background Image", 'droit-wbpakery-addons'),
-                "param_name" => "dt_video_pupop_bg_image",
-                'dependency' => array(
-                  'element' => 'dt_video_button_style',
-                  'value' => '3',
-                  ),
-             ),
+            'params' => array_merge(array(
                 array(
-                    "type" => "textfield",
-                    "holder" => "div",
-                    "class" => "dt-title-font",
-                    "heading" => esc_html__("Button Text", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_vidoe_popup_button_text",
-                    'dependency' => array(
-                                      'element' => 'dt_video_button_style',
-                                      'value' => array('2', '3', '4'),
-                                      ),
+                    'type' => 'dropdown',
+                    'heading' => __( 'Video Style',  'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_video_button_style',
+                    'default' => '1',
+                    'value' => array(
+                        esc_html__( 'Style 1',  'droit-wbpakery-addons'  ) => '1',
+                        esc_html__( 'Style 2',  'droit-wbpakery-addons'  ) => '2',
+                        esc_html__( 'Style 3',  'droit-wbpakery-addons'  ) => '3',
+                        esc_html__( 'Style 4',  'droit-wbpakery-addons'  ) => '4',
+                        esc_html__( 'Style 5',  'droit-wbpakery-addons'  ) => '5',
                     ),
+                ),
                 array(
-                    "type" => "textfield",
-                    "holder" => "div",
-                    "class" => "dt-title-font",
-                    "heading" => esc_html__("Video Link here", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_vidoe_popup_video_link",
-                  ),
-                  array(
-                    "type" => "textfield",
-                    "holder" => "div",
-                    "class" => "dt-title-font",
-                    "heading" => esc_html__("Video icon padding", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_vidoe_popup_icon_padding",
-                  ),
-                  array(
-                    "type" => "textfield",
-                    "holder" => "div",
-                    "class" => "dt-title-font",
-                    "heading" => esc_html__("Video icon margin", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_vidoe_popup_icon_margin",
-                  ),
-                  array(
-                    "type" => "textfield",
-                    "holder" => "div",
-                    "class" => "dt-title-font",
-                    "heading" => esc_html__("Wrapper Class", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_vidoe_popup_video_wrapper_class",
-                    "group" => esc_html__( 'Css class', 'droit-wbpakery-addons' ),
-                  ),
-                  array(
-                    "type" => "textfield",
-                    "holder" => "div",
-                    "class" => "dt-title-font",
-                    "heading" => esc_html__("Video icon margin tab", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_vidoe_popup_icon_tab_margin",
-                    "group"      => esc_html__( 'Responsive', 'droit-wbpakery-addons' )
-                  ),
-                  array(
-                    "type" => "textfield",
-                    "holder" => "div",
-                    "class" => "dt-title-font",
-                    "heading" => esc_html__("Video icon margin mobile", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_vidoe_popup_icon_mobile_margin",
-                    "group"      => esc_html__( 'Responsive', 'droit-wbpakery-addons' )
-                  ),
+                    'type' => 'attach_image',
+                    'holder' => 'div',
+                    'heading' => esc_html__('Background Image', 'droit-wbpakery-addons'),
+                    'param_name' => 'dt_video_pupop_bg_image',
+                    'dependency' => array(
+                        'element' => 'dt_video_button_style',
+                        'value' => '3'
+                    ),
+                ),
+
+                //================== Featured Image ======================//
                 array(
-                    "type" => "textfield",
-                    "holder" => "div",
-                    "class" => "dt-title-font",
-                    "heading" => esc_html__("Icon size", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_vidoe_popup_video_icon_font_size",
+                    'type' => 'attach_image',
+                    'heading' => esc_html__('Featured Image', 'droit-wbpakery-addons'),
+                    'param_name' => 'f_image',
+                    'dependency' => array(
+                        'element' => 'dt_video_button_style',
+                        'value' => '5'
+                    ),
+                ),
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__('Shape Image 01', 'droit-wbpakery-addons'),
+                    'param_name' => 'shape_img1',
+                    'dependency' => array(
+                        'element' => 'dt_video_button_style',
+                        'value' => '5'
+                    ),
+                ),
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__('Shape Image 02', 'droit-wbpakery-addons'),
+                    'param_name' => 'shape_img2',
+                    'dependency' => array(
+                        'element' => 'dt_video_button_style',
+                        'value' => '5'
+                    ),
+                ), //End Featured Image
+
+                array(
+                    'type' => 'textfield',
+                    'heading' => esc_html__('Title', 'droit-wbpakery-addons'),
+                    'param_name' => 'dt_title',
+                    'dependency' => array(
+                        'element' => 'dt_video_button_style',
+                        'value' => '5'
+                )),
+                
+                array(
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'class' => 'dt-title-font',
+                    'heading' => esc_html__('Button Text', 'droit-wbpakery-addons'),
+                    'param_name' => 'dt_vidoe_popup_button_text',
+                    'dependency' => array(
+                        'element' => 'dt_video_button_style',
+                        'value' => [ '2', '3', '4', '5' ]
+                )),
+
+                array(
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'class' => 'dt-title-font',
+                    'heading' => esc_html__('Video Link here', 'droit-wbpakery-addons'),
+                    'param_name' => 'dt_vidoe_popup_video_link',
+                ),
+                array(
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'class' => 'dt-title-font',
+                    'heading' => esc_html__('Video icon padding', 'droit-wbpakery-addons'),
+                    'param_name' => 'dt_vidoe_popup_icon_padding',
+                ),
+                array(
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'class' => 'dt-title-font',
+                    'heading' => esc_html__('Video icon margin', 'droit-wbpakery-addons'),
+                    'param_name' => 'dt_vidoe_popup_icon_margin',
+                ),
+                array(
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'class' => 'dt-title-font',
+                    'heading' => esc_html__('Wrapper Class', 'droit-wbpakery-addons'),
+                    'param_name' => 'dt_vidoe_popup_video_wrapper_class',
+                    'group' => esc_html__( 'Css class', 'droit-wbpakery-addons' ),
+                ),
+                array(
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'class' => 'dt-title-font',
+                    'heading' => esc_html__('Video icon margin tab', 'droit-wbpakery-addons'),
+                    'param_name' => 'dt_vidoe_popup_icon_tab_margin',
+                    'group'      => esc_html__( 'Responsive', 'droit-wbpakery-addons' )
+                ),
+                array(
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'class' => 'dt-title-font',
+                    'heading' => esc_html__('Video icon margin mobile', 'droit-wbpakery-addons'),
+                    'param_name' => 'dt_vidoe_popup_icon_mobile_margin',
+                    'group'      => esc_html__( 'Responsive', 'droit-wbpakery-addons' )
+                ),
+                array(
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'class' => 'dt-title-font',
+                    'heading' => esc_html__('Icon size', 'droit-wbpakery-addons'),
+                    'param_name' => 'dt_vidoe_popup_video_icon_font_size',
                     'edit_field_class' => 'vc_col-sm-4',
                     'group' => esc_html__( 'Icon typography', 'droit-wbpakery-addons' ),
-                  ),
-                  array(
-                    "type" => "colorpicker",
-                    "class" => "",
-                    "heading" => __( "Icon  Color", "droit-wbpakery-addons" ),
-                    "param_name" => "dt_pop_up_icon_color",
-                    "value" => '', //Default Red color
+                ),
+                array(
+                    'type' => 'colorpicker',
+                    'class' => '',
+                    'heading' => __( 'Icon  Color', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_pop_up_icon_color',
+                    'value' => '', //Default Red color
                     'group' => esc_html__( 'Icon typography', 'droit-wbpakery-addons' ),
                      'edit_field_class' => 'vc_col-sm-4',
                 ),
-                  array(
-                    "type" => "colorpicker",
-                    "class" => "",
-                    "heading" => __( "Icon  hover color", "droit-wbpakery-addons" ),
-                    "param_name" => "dt_pop_up_icon_hv_color",
-                    "value" => '', //Default Red color
+                array(
+                    'type' => 'colorpicker',
+                    'class' => '',
+                    'heading' => __( 'Icon  hover color', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_pop_up_icon_hv_color',
+                    'value' => '', //Default Red color
                     'group' => esc_html__( 'Icon typography', 'droit-wbpakery-addons' ),
                      'edit_field_class' => 'vc_col-sm-4',
                 ),
-                  array(
-                    "type" => "colorpicker",
-                    "class" => "",
-                    "heading" => __( "Icon backgroud Color", "droit-wbpakery-addons" ),
-                    "param_name" => "dt_pop_up_icon_background_color",
-                    "value" => '', //Default Red color
+                array(
+                    'type' => 'colorpicker',
+                    'class' => '',
+                    'heading' => __( 'Icon backgroud Color', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_pop_up_icon_background_color',
+                    'value' => '', //Default Red color
                     'group' => esc_html__( 'Icon typography', 'droit-wbpakery-addons' ),
                      'edit_field_class' => 'vc_col-sm-4',
                 ),
-                  array(
-                    "type" => "colorpicker",
-                    "class" => "",
-                    "heading" => __( "Icon hover backgroud Color", "droit-wbpakery-addons" ),
-                    "param_name" => "dt_pop_up_icon_hv_background_color",
-                    "value" => '', //Default Red color
+                array(
+                    'type' => 'colorpicker',
+                    'class' => '',
+                    'heading' => __( 'Icon hover backgroud Color', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_pop_up_icon_hv_background_color',
+                    'value' => '', //Default Red color
                     'group' => esc_html__( 'Icon typography', 'droit-wbpakery-addons' ),
                      'edit_field_class' => 'vc_col-sm-4',
                 ),
@@ -158,7 +198,8 @@ class dt_video_popup {
     public function dt_vidoe_popup_rander( $atts, $content = null ) {
 
       extract( shortcode_atts( array(
-        'dt_cunter_up_title' => 'Discover more about Rave',
+        'dt_title' => 'How do we create <br> better products.',
+        'dt_vidoe_popup_button_text' => 'How do we create <br> better products.',
         'dt_video_button_style' => '1',
         'dt_vidoe_popup_video_wrapper_class'=> '',
       ), $atts ) );

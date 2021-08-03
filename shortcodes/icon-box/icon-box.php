@@ -17,39 +17,40 @@ class dt_icon_box {
     public function dt_icon_box() {
       
         vc_map( array(
-            "name" => esc_html__("Droit Icon Box", 'droit-wbpakery-addons'),
-            "description" => esc_html__("Droi Icon Box", 'droit-wbpakery-addons'),
-            "base" => "dt_icon_box",
-            "class" => "",
-            "controls" => "full",
-            "icon" => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
+            'name' => esc_html__('Droit Icon Box', 'droit-wbpakery-addons'),
+            'description' => esc_html__('Droi Icon Box', 'droit-wbpakery-addons'),
+            'base' => 'dt_icon_box',
+            'class' => '',
+            'controls' => 'full',
+            'icon' => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: 'droit-wbpakery-addons_my_class'
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
-            "params" => array_merge(vc_iconfont_selections(),  array(
+            'params' => array_merge(vc_iconfont_selections(),  array(
               array(
                 'type' => 'dropdown',
-                'heading' => __( 'Icon Box Style',  "droit-wbpakery-addons" ),
+                'heading' => __( 'Icon Box Style',  'droit-wbpakery-addons' ),
                 'param_name' => 'dt_icon_box_style',
                 'default' => '1',
                 'value' => array(
-                  esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
-                  esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
-                  esc_html__( 'Style 3',  "droit-wbpakery-addons"  ) => '3',
+                  esc_html__( 'Style 1',  'droit-wbpakery-addons'  ) => '1',
+                  esc_html__( 'Style 2',  'droit-wbpakery-addons'  ) => '2',
+                  esc_html__( 'Style 3',  'droit-wbpakery-addons'  ) => '3',
+                  esc_html__( 'Style 4',  'droit-wbpakery-addons'  ) => '4',
                 ),
               ),
                 array(
-                    "type" => "textfield",
-                    "holder" => "div",
-                    "heading" => esc_html__("Wrapper class ", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_list_icon_wrapper_class",
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'heading' => esc_html__('Wrapper class ', 'droit-wbpakery-addons'),
+                    'param_name' => 'dt_list_icon_wrapper_class',
                     'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
                     'edit_field_class' => 'vc_col-sm-6',
 
                   ),
                   array(
-                    "type" => "textfield",
-                    "holder" => "div",
-                    "heading" => esc_html__("Icon size", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_list_icon_font_size",
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'heading' => esc_html__('Icon size', 'droit-wbpakery-addons'),
+                    'param_name' => 'dt_list_icon_font_size',
                     'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
                     'edit_field_class' => 'vc_col-sm-6',
                   ),
@@ -72,10 +73,10 @@ class dt_icon_box {
                      'description' => esc_html__( 'Icon Background Color', 'droit-wbpakery-addons' ),
                   ),
                   array(
-                    "type" => "textfield",
-                    "holder" => "div",
-                    "heading" => esc_html__("Icon Margin", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_list_icon_margin",
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'heading' => esc_html__('Icon Margin', 'droit-wbpakery-addons'),
+                    'param_name' => 'dt_list_icon_margin',
                     'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
                     'edit_field_class' => 'vc_col-sm-6',
                     'dependency' => array(
@@ -85,17 +86,17 @@ class dt_icon_box {
 
                   ),
                   array(
-                    "type" => "textarea",
-                    "holder" => "div",
-                    "heading" => esc_html__("Title ", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_icon_box_title",
+                    'type' => 'textarea',
+                    'holder' => 'div',
+                    'heading' => esc_html__('Title ', 'droit-wbpakery-addons'),
+                    'param_name' => 'dt_icon_box_title',
 
                   ),
                   array(
-                    "type" => "textarea",
-                    "holder" => "div",
-                    "heading" => esc_html__("Description ", 'droit-wbpakery-addons'),
-                    "param_name" => "dt_icon_box_description",
+                    'type' => 'textarea',
+                    'holder' => 'div',
+                    'heading' => esc_html__('Description ', 'droit-wbpakery-addons'),
+                    'param_name' => 'dt_icon_box_description',
 
                   ),
                   array(
@@ -103,13 +104,17 @@ class dt_icon_box {
                     'heading' => esc_html__( 'URL (Link)', 'droit-wbpakery-addons' ),
                     'param_name' => 'dt_icon_box_link',
                     'description' => esc_html__( 'Add link to button.', 'droit-wbpakery-addons' ),
+                    'dependency' => array(
+                        'element' => 'dt_icon_box_style',
+                        'value' => [ '1', '2', '3' ]
+                    ),
                 ),
                 
                 array(
-                  "type" => "textfield",
-                  "holder" => "div",
-                  "heading" => esc_html__("Link Title ", 'droit-wbpakery-addons'),
-                  "param_name" => "dt_icon_box_link_title",
+                  'type' => 'textfield',
+                  'holder' => 'div',
+                  'heading' => esc_html__('Link Title ', 'droit-wbpakery-addons'),
+                  'param_name' => 'dt_icon_box_link_title',
                   'dependency' => array(
                         'element' => 'dt_icon_box_style',
                         'value' => '2',
@@ -128,6 +133,8 @@ class dt_icon_box {
 
       extract( shortcode_atts( array(
         'dt_list_icon_wrapper_class' => '',
+        'dt_icon_box_title' => '',
+        'dt_icon_box_description' => '',
         'icon_type' => 'droit_icon',
         'dt_icon_box_link' => '#'
       ), $atts, $content ) );

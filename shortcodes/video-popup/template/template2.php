@@ -23,8 +23,7 @@ if(is_array($video_id_explode)) {
 
  }
 
- //  Icon selector 
-
+ //  Icon selector
  $icon = 'fa fa-play';
 
  $icon_id = 'icon_picker_'.$icon_type;

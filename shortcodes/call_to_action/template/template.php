@@ -3,10 +3,6 @@
 $btn = vc_build_link($btn_link);
 $target = !empty($btn['target']) ? $btn['target'] : '_self';
 
-echo '<pre>';
-print_r($btn);
-echo '</pre>';
-
 if ( isset( $contents ) && $contents != '' ) {
     $c2a_content = $contents;
 }
