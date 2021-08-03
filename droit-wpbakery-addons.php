@@ -44,7 +44,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
             include_once "core.php";
 			add_action( 'plugins_loaded', [$this, 'init'] );
 			add_action( 'plugins_loaded', [$this, 'shortcode_init'] );
-			add_action( 'wp_enqueue_scripts', array( $this, 'droit_wpbakery_scripts' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'droit_wpbakery_scripts' ), 99 );
 			add_action( 'vc_frontend_editor_enqueue_js_css', array( $this, 'droit_wpbakery_scripts' ) );
 
 		}
