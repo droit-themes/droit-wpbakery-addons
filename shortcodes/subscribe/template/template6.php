@@ -6,7 +6,7 @@ if(isset($dt_subscribe_placeholder_name)) {
     $name_placeholder = $dt_subscribe_placeholder_name;
 }
 
-$email = esc_html__('Email Address*', 'droit-wbpakery-addons');
+$email = esc_html__('Email Address*', 'droit-wbpakery-addons');  
 
 if(isset($dt_subscribe_placeholder_email)) {
     $email = $dt_subscribe_placeholder_email;

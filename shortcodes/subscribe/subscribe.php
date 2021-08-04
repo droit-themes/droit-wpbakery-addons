@@ -38,6 +38,7 @@ class dt_subscribe {
                       esc_html__( 'Style 4',  "droit-wbpakery-addons" )  => '4',
                       esc_html__( 'Style 5',  "droit-wbpakery-addons" )  => '5',
                       esc_html__( 'Style 6',  "droit-wbpakery-addons" )  => '6',
+                      esc_html__( 'Style 7',  "droit-wbpakery-addons" )  => '7',
                     ),
                     'edit_field_class' => 'vc_col-sm-6',
                   ),
@@ -48,6 +49,30 @@ class dt_subscribe {
                 "heading" => esc_html__("Action URL", 'droit-wbpakery-addons'),
                 "param_name" => "dt_subscribe_form_action_url",
                 "description" => __('Enter here your MailChimp action URL. <a href="https://goo.gl/k5a2tA" target="_blank"> How to </a>', 'droit-wbpakery-addons'),
+              ),
+
+              array(
+                "type" => "textfield",
+                "heading" => esc_html__("Title", 'droit-wbpakery-addons'),
+                "param_name" => "dt_subscribe_title_text",
+                'edit_field_class' => 'vc_col-sm-6',
+                'value' => esc_html__('Subscriber Title', 'droit-wbpakery-addons'),
+                'dependency' => array(
+                  'element' => 'dt_subscribe_form_style',
+                  'value_not_equal_to' => array('1', '2','3','4', '5','6'),
+                ),
+              ),
+
+              array(
+                "type" => "textfield",
+                "heading" => esc_html__("Sub Title", 'droit-wbpakery-addons'),
+                "param_name" => "dt_subscribe_sub_title",
+                'edit_field_class' => 'vc_col-sm-6',
+                'value' => esc_html__('Subscription Sub Title*', 'droit-wbpakery-addons'),
+                'dependency' => array(
+                  'element' => 'dt_subscribe_form_style',
+                  'value_not_equal_to' => array('1', '2','3','4', '5','6'),
+                ),
               ),
 
               array(
