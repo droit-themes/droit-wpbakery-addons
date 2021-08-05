@@ -35,8 +35,10 @@ class dt_call_to_action {
                     'value' => array(
                         esc_html__( 'Style 1',  'droit-wbpakery-addons'  ) => '1',
                         esc_html__( 'Style 2',  'droit-wbpakery-addons'  ) => '2',
+                        esc_html__( 'Style 3',  'droit-wbpakery-addons'  ) => '3',
                     ),
                 ), //End Style
+
 
                 //================= Start Upper Title ========================//
                 array(
@@ -45,9 +47,11 @@ class dt_call_to_action {
                     'param_name' => 'upper_title',
                     'dependency' => array(
                         'element' => 'style',
-                        'value' => '2'
+                        'value' => [ '2', '3' ]
                     )
-                ), //End Title
+                ),
+                //End Upper Title
+
 
                 //================= Start Title ========================//
                 array(
@@ -56,9 +60,10 @@ class dt_call_to_action {
                     'param_name' => 'title',
                     'dependency' => array(
                         'element' => 'style',
-                        'value' => '2'
+                        'value' => [ '2', '3' ]
                     )
                 ), //End Title
+
 
                 //================= Start Content ========================//
                 array(
@@ -67,7 +72,7 @@ class dt_call_to_action {
                     'param_name' => 'contents',
                     'dependency' => array(
                         'element' => 'style',
-                        'value' => '1'
+                        'value' =>  [ '1', '3' ]
                     )
                 ), //End Content
 
@@ -90,11 +95,35 @@ class dt_call_to_action {
                     'param_name' => 'btn_link',
                     'dependency' => array(
                         'element' => 'style',
-                        'value' => [ '1', '2' ]
+                        'value' => [ '1', '2', '3' ]
                     )
                 ), //End Button Style
 
-                //================= Featured Image ====================//
+                //================= Shape Images =================//
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Shape Image 1', 'droit-wbpakery-addons' ),
+                    'param_name' => 'shape1',
+                    'dependency' => array(
+                        'element' => 'style',
+                        'value' => '3'
+                    ),
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                ),
+
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Shape Image 2', 'droit-wbpakery-addons' ),
+                    'param_name' => 'shape2',
+                    'dependency' => array(
+                        'element' => 'style',
+                        'value' => '3'
+                    ),
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                ), //End Shape Image
+
+
+                //================= Background ====================//
                 array(
                     'type' => 'attach_image',
                     'heading' => esc_html__( 'Background Image', 'droit-wbpakery-addons' ),
@@ -104,7 +133,7 @@ class dt_call_to_action {
                         'value' => '2'
                     ),
                     'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
-                ), //End Featured Image
+                ), //End Background Image
 
 
             ), vc_typography_selections('Title', 'title'), vc_typography_selections('Review', 'review'), vc_typography_selections('Author Name', 'authoer'), vc_typography_selections('Designation', 'designation')),
@@ -144,7 +173,6 @@ class dt_call_to_action {
     */
     public function dt_call_to_action_loadCssAndJs() {
         wp_register_style( 'dt_extend_style', plugins_url('assets/droit-wbpakery-addons.css', __FILE__) );
-        wp_enqueue_script('slick');
         wp_enqueue_script('droit-wpbakery-addons-script');
     }
 }

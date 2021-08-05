@@ -26,7 +26,6 @@ wp_enqueue_script( 'dt_video_popup_js' );
                 }
                 ?>
                 <div class="corporate_video_icon">
-
                     <a href="<?php echo esc_url($dt_vidoe_popup_video_link) ?>" class="icon">
                         <i class="icon-play"></i>
                     </a>

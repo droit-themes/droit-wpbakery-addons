@@ -1,6 +1,6 @@
 <?php
 
-$btn = vc_build_link($btn_link);
+$btn = !empty($btn_link) ? vc_build_link($btn_link) : '';
 $target = !empty($btn['target']) ? $btn['target'] : '_self';
 
 if ( isset( $contents ) && $contents != '' ) {

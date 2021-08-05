@@ -22,7 +22,7 @@ $list_items = vc_param_group_parse_atts($droit_list_items2);
                          }
                          if ( !empty($item['title']) ) { ?>
                              <div class="award_title">
-                                 <?php echo esc_html($item['title']) ?>
+                                 <?php echo dt_extention_wp_kses($item['title']) ?>
                                  <?php echo dt_return(dt_link_before_after($item['link'], 'before')); ?>
                                      <?php echo esc_html($item['website_title']) ?>
                                  <?php echo dt_return(dt_link_before_after($item['link'], 'after')); ?>
