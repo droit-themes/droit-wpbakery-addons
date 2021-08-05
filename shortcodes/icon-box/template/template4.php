@@ -1,5 +1,20 @@
 <?php
-$icon_html = '<i class="icon-update"></i>';
+$wrapper_unique_class = wp_unique_id('dt-icon-box-');
+$wrapper_class[] = $wrapper_unique_class;
+$wrapper_class[] = isset($dt_image_frame_animation_name) ? $dt_image_frame_animation_name : '';
+$wrapper_class[] = isset($dt_list_icon_wrapper_class) ? $dt_list_icon_wrapper_class : '';
+$wrapper_class[] = 'app_service_item text-center wow';
+$wrapper_class = join(' ', $wrapper_class);
+
+$icon_html = '';
+
+$icon_id = 'icon_picker_'.$icon_type;
+
+$icon_html = '<i class="'.$icon_id.'"></i>';
+
+echo '<pre>';
+print_r($icon_html);
+echo '</pre>';
 ?>
 
     <div class="about_features_area_two">

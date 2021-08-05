@@ -267,6 +267,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'faq',
 				'subscribe',
 				'call_to_action',
+				'accordion',
 			]);
 			return $list;
 		}

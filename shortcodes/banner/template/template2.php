@@ -12,7 +12,7 @@ $wrapper_unique_class  = wp_unique_id('doit-banner-wrapper-');
                     <?php
                 }
                 if ( !empty($dt_banner_sub_title) ) { ?>
-                    <p><?php echo esc_html($dt_banner_sub_title) ?></p>
+                    <p><?php echo dt_extention_wp_kses($dt_banner_sub_title) ?></p>
                     <?php
                 }
                 ?>
