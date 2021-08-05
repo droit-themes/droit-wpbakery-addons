@@ -38,6 +38,17 @@ class dt_client_logo {
                 ),
               ),
               array(
+                "type" => "textfield",
+                "heading" => __("Element Class", 'droit-wbpakery-addons'),
+                "param_name" => "dt_client_logo_wrapper_class",
+                'dependency' => array(
+                  'element' => 'dt_client_logo_style_list',
+                  'value_not_equal_to' => array('1', '2'),
+                ),
+                'group' => 'Style',
+                'default' => 'justify-content-around'
+              ),
+              array(
                 "type" => "textarea",
                 "holder" => "div",
                 "heading" => __("Title ", 'droit-wbpakery-addons'),
@@ -128,7 +139,8 @@ class dt_client_logo {
       extract( shortcode_atts( array(
         'dt_clinet_logo_section_title' => '',
         'dt_carosuel_title'     => '',
-        'dt_client_logo_style_list' => 1
+        'dt_client_logo_style_list' => 1,
+        'dt_client_logo_wrapper_class' => ''
       ), $atts ) );
     
       $output = dt_template_part('client-logo', $dt_client_logo_style_list , $atts);
