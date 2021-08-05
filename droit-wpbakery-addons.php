@@ -235,7 +235,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 				'scroll-to-section',
 				'gallery',
 				'image-box',
-				'button',
+				'hover-link',
 				'simple-button',
 				'greadent-button',
 				'carousel',
