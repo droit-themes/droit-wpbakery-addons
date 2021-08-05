@@ -72,8 +72,64 @@ if($teams != '') {
         </div>
     </section>
 
+<?php }elseif($dt_team_style =='3'){ ?>
+
+    <section class="leader_team_area">
+        <div class="container">
+            <?php if(!empty($dt_team_title)): ?>
+            <div class="section_title">
+                <h2><?php echo dt_extention_wp_kses($dt_team_title); ?></h2>
+            </div>
+            <?php endif; ?>
+            <div class="row justify-content-center">
+            <?php foreach($teams as $key => $team){  ?>
+                <div class="col-lg-4 col-6">
+                    <div class="leader_team_item">
+                        <a href="#">
+                        <?php echo dt_get_attachment_image($team['dt_ttm_img'], 'full'); ?>
+                        </a>
+                        <div class="content">
+                            <a href="#">
+                                <h4><?php echo dt_extention_wp_kses($team['dt_ttm_name']); ?></h4>
+                            </a>
+                            <div class="position"><?php echo dt_extention_wp_kses($team['dt_ttm_designation']); ?></div>
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+        </div>
+    </section>
+<?php }elseif($dt_team_style =='4'){ ?>
+
+    <section class="skill_team_area">
+        <div class="container">
+            <?php if(!empty($dt_team_title)): ?>
+            <div class="section_title">
+                <h2><?php echo dt_extention_wp_kses($dt_team_title); ?></h2>
+            </div>
+            <?php endif; ?>
+            <div class="row">
+                <?php foreach($teams as $key => $team){  ?>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <div class="leader_team_item">
+                        <a href="#">
+                            <?php echo dt_get_attachment_image($team['dt_ttm_img'], 'full'); ?>
+                        </a>
+                        <div class="content">
+                            <a href="#">
+                                <h4><?php echo dt_extention_wp_kses($team['dt_ttm_name']); ?></h4>
+                            </a>
+                            <div class="position"><?php echo dt_extention_wp_kses($team['dt_ttm_designation']); ?></div>
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+        </div>
+    </section>
+
+
 <?php } ?>
-
-
 
 <?php } ?>              

@@ -24,49 +24,98 @@ class dt_gallery {
             "controls" => "full",
             "icon" => plugins_url('assets/asterisk_yellow.png', __FILE__), // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
-            "params" => array(
-               
-              array(
-                'type' => 'param_group',
-                'value' => '',
-                "heading" => __("Droit Gallery", 'droit-wbpakery-addons'),
-                'param_name' => 'droit_gallery_content',
-                // Note params is mapped inside param-group:
-                'params' => array(
-                    array(
-                        "type" => "attach_image",
-                        "holder" => "div",
-                        "heading" => __("Image", 'droit-wbpakery-addons'),
-                        "param_name" => "dt_gallery_img",
+            "params" => array_merge( array(
+
+                // ================ Select Style ==================== //
+                array(
+                    'type' => 'dropdown',
+                    'heading' => __( 'Style',  "droit-wbpakery-addons" ),
+                    'param_name' => 'style',
+                    'default' => '1',
+                    'value' => array(
+                        esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
+                        esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
                     ),
-                    array(
-                        "type" => "vc_link",
-                        "holder" => "div",
-                        "class" => "",
-                        "heading" => __("Title Description", 'droit-wbpakery-addons'),
-                        "param_name" => "dt_gallery_link",
-                        "description" => __("Enter your description.", 'droit-wbpakery-addons')
+                ), // End Style
+
+                array(
+                    'type' => 'param_group',
+                    'value' => '',
+                    "heading" => __("Droit Gallery", 'droit-wbpakery-addons'),
+                    'param_name' => 'droit_gallery_content',
+                    'dependency' => array(
+                        'element' => 'style',
+                        'value_not_equal_to' =>  '2'
                     ),
-                    array(
-                      "type" => "textfield",
-                      "holder" => "div",
-                      "class" => "dt-title-font",
-                      "heading" => __("Image Top Bottom Position", 'droit-wbpakery-addons'),
-                      "param_name" => "gallery_image_top_pos",
+                    // Note params is mapped inside param-group:
+                    'params' => array(
+                        array(
+                            "type" => "attach_image",
+                            "holder" => "div",
+                            "heading" => __("Image", 'droit-wbpakery-addons'),
+                            "param_name" => "dt_gallery_img",
+                        ),
+                        array(
+                            "type" => "vc_link",
+                            "holder" => "div",
+                            "class" => "",
+                            "heading" => __("Title Description", 'droit-wbpakery-addons'),
+                            "param_name" => "dt_gallery_link",
+                            "description" => __("Enter your description.", 'droit-wbpakery-addons')
+                        ),
+                        array(
+                            "type" => "textfield",
+                            "holder" => "div",
+                            "class" => "dt-title-font",
+                            "heading" => __("Image Top Bottom Position", 'droit-wbpakery-addons'),
+                            "param_name" => "gallery_image_top_pos",
+                        ),
+                        array(
+                            "type" => "textfield",
+                            "holder" => "div",
+                            "class" => "dt-title-font",
+                            "heading" => __("Image Let Right Position", 'droit-wbpakery-addons'),
+                            "param_name" => "gallery_image_left_pos",
+                        ),
+                    )
+                ),
+
+
+                array(
+                    'type' => 'param_group',
+                    'value' => '',
+                    "heading" => __("Droit Gallery", 'droit-wbpakery-addons'),
+                    'param_name' => 'droit_gallery_content2',
+                    'dependency' => array(
+                        'element' => 'style',
+                        'value_not_equal_to' =>  '1'
                     ),
-                    array(
-                      "type" => "textfield",
-                      "holder" => "div",
-                      "class" => "dt-title-font",
-                      "heading" => __("Image Let Right Position", 'droit-wbpakery-addons'),
-                      "param_name" => "gallery_image_left_pos",
-                    ),
-            )),
-              vc_map_add_css_animation(true),
+                    // Note params is mapped inside param-group:
+                    'params' => array(
+                        array(
+                            "type" => "attach_image",
+                            "holder" => "div",
+                            "heading" => __("Image", 'droit-wbpakery-addons'),
+                            "param_name" => "gallery_img",
+                        ),
+                        array(
+                            "type" => "vc_link",
+                            "holder" => "div",
+                            "class" => "",
+                            "heading" => __("Title Description", 'droit-wbpakery-addons'),
+                            "param_name" => "dt_gallery_link",
+                            "description" => __("Enter your description.", 'droit-wbpakery-addons')
+                        ),
+                    )
+                ),
+
+                vc_map_add_css_animation(true),
             )
-        ) );
+
+            )
+        ));
+
     }
-    
     /*
      Header randaraing 
     */
@@ -79,11 +128,17 @@ class dt_gallery {
         'dt_title_description' => '',
         'dt_img_link'=> '',
       ), $atts ) );
-     
 
-      $output = dt_template_part('gallery', null , $atts);
-     
-      return $output;
+
+        $template_style = 1;
+
+        if ( $atts['style'] != '' ) {
+            $template_style = $atts['style'];
+        }
+
+        $output = dt_template_part('gallery', $template_style , $atts);
+
+        return $output;
       
     }
 

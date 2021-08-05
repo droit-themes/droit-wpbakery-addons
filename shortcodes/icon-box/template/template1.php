@@ -13,11 +13,11 @@ $icon_id = 'icon_picker_'.$icon_type;
 
 if($icon_type != 'image') {
 
-    $icon_html = '<i class="'.$$icon_id.'"></i>';
+    $icon_html = '<i class="'.$icon_id.'"></i>';
 
 }elseif($icon_type == 'image') {
 
-    $icon_html = wp_get_attachment_image($$icon_id, 'thumbnail');
+    $icon_html = wp_get_attachment_image($icon_id, 'thumbnail');
 
 }
 
@@ -59,7 +59,7 @@ if(isset($dt_icon_box_description)) {
         <h3><?php echo dt_extention_wp_kses( $title ); ?></h3>
     <?php echo dt_return(dt_link_before_after($icon_box_link, 'after')); ?>
       <div class="description"> 
-      <?php echo   dt_extention_wp_kses($descripton); ?>
+      <?php echo dt_extention_wp_kses($descripton); ?>
      </div>
 </div>
 

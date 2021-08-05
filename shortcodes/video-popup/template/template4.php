@@ -29,8 +29,8 @@ if(is_array($video_id_explode)) {
 
  $icon_id = 'icon_picker_'.$icon_type;
 
- if(isset($$icon_id) && $$icon_id != '') {
-    $icon = $$icon_id;
+ if(isset($icon_id) && $icon_id != '') {
+    $icon = $icon_id;
  }
  $video_url = 'https://www.youtube.com/embed/'. $video_id;
  

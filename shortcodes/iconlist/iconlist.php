@@ -25,41 +25,71 @@ class dt_iconlist {
             "icon" => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
             "params" => array_merge(array(
+
+                // ================ Select Style ==================== //
+                array(
+                    'type' => 'dropdown',
+                    'heading' => __( 'Style',  "droit-wbpakery-addons" ),
+                    'param_name' => 'style',
+                    'default' => '1',
+                    'value' => array(
+                        esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
+                        esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
+                        esc_html__( 'Style 3',  "droit-wbpakery-addons"  ) => '3',
+                    ),
+                ), // End Style
+
                 array(
                     "type" => "textfield",
                     "holder" => "div",
                     "heading" => __("Wrapper class ", 'droit-wbpakery-addons'),
                     "param_name" => "dt_list_icon_wrapper_class",
+                    'dependency' => array(
+                        'element' => 'style',
+                        'value_not_equal_to' => [ '2', '3']
+                    ),
+                ),
 
-                  ),
-                  array(
+                array(
                     "type" => "textfield",
                     "holder" => "div",
                     "heading" => __("Icon margin right ", 'droit-wbpakery-addons'),
                     "param_name" => "dt_list_icon_mr",
                     'group' => __( 'Design Option', 'droit-wbpakery-addons' ),
                     'edit_field_class' => 'vc_col-sm-4',
+                    'dependency' => array(
+                        'element' => 'style',
+                        'value_not_equal_to' => [ '2', '3']
+                    ),
+                ),
 
-                  ),
-                  array(
+                array(
                     "type" => "textfield",
                     "holder" => "div",
                     "heading" => __("Icon Font size ", 'droit-wbpakery-addons'),
                     "param_name" => "dt_list_icon_font_size",
                     'group' => __( 'Design Option', 'droit-wbpakery-addons' ),
                     'edit_field_class' => 'vc_col-sm-4',
+                    'dependency' => array(
+                        'element' => 'style',
+                        'value_not_equal_to' => [ '2', '3']
+                    ),
+                ),
 
-                  ),
-                  array(
+                array(
                     "type" => "colorpicker",
                     "holder" => "div",
                     "heading" => __("Icon color ", 'droit-wbpakery-addons'),
                     "param_name" => "dt_list_icon_color",
                     'group' => __( 'Design Option', 'droit-wbpakery-addons' ),
                     'edit_field_class' => 'vc_col-sm-4',
+                    'dependency' => array(
+                        'element' => 'style',
+                        'value_not_equal_to' => [ '2', '3']
+                    ),
+                ),
 
-                  ),
-                  array(
+                array(
                     "type" => "css_editor",
                     "holder" => "div",
                     "class" => "",
@@ -68,24 +98,93 @@ class dt_iconlist {
                     "value" => '#FF0000', 
                     "description" => __("Choose text color", 'droit-wbpakery-addons'),
                     'group' => __( 'Design Option', 'droit-wbpakery-addons' ),
+                    'dependency' => array(
+                        'element' => 'style',
+                        'value_not_equal_to' => [ '2', '3']
+                    ),
                 ),
-              array(
-                'type' => 'param_group',
-                'value' => '',
-                "heading" => __("Droit list with icon ", 'droit-wbpakery-addons'),
-                'param_name' => 'droit_iconlist',
-                'params' => array_merge(vc_iconfont_selections(), array(
-                    array(
-                        "type" => "textfield",
-                        "holder" => "div",
-                        "heading" => __("Text ", 'droit-wbpakery-addons'),
-                        "param_name" => "dt_list_icon_text",
 
-                      ),
-                  )))
+                // ================ Style 01 ======================== //
+                array(
+                    'type' => 'param_group',
+                    'value' => '',
+                    "heading" => __("Droit list with icon ", 'droit-wbpakery-addons'),
+                    'param_name' => 'droit_iconlist',
+                    'dependency' => array(
+                        'element' => 'style',
+                        'value_not_equal_to' => [ '2', '3' ],
+                    ),
+                    'params' => array_merge(vc_iconfont_selections(), array(
+                        array(
+                            "type" => "textfield",
+                            "holder" => "div",
+                            "heading" => __("Text ", 'droit-wbpakery-addons'),
+                            "param_name" => "dt_list_icon_text",
+                        ),
+                    )),
+                ), //End Style 02
+
+                // ================ Style 02 ======================== //
+                array(
+                    'type' => 'param_group',
+                    'value' => '',
+                    "heading" => __("Droit list Item ", 'droit-wbpakery-addons'),
+                    'param_name' => 'droit_list_items',
+                    'dependency' => array(
+                        'element' => 'style',
+                        'value_not_equal_to' =>  [ '1', '3' ]
+                    ),
+                    'params' => array_merge( array(
+                        array(
+                            "type" => "textfield",
+                            "holder" => "div",
+                            "heading" => __("Text", 'droit-wbpakery-addons'),
+                            "param_name" => "list_item",
+                        ),
+                    ))
+                ), //End Style 02
+
+                // ================ Style 03 ======================== //
+                array(
+                    'type' => 'param_group',
+                    'value' => '',
+                    "heading" => __( 'list Item 02', 'droit-wbpakery-addons'),
+                    'param_name' => 'droit_list_items2',
+                    'dependency' => array(
+                        'element' => 'style',
+                        'value_not_equal_to' =>  [ '1', '2' ]
+                    ),
+                    'params' => array_merge( array(
+
+                        //========================== Group Fields ======================= //
+                        array(
+                            'type' => 'textfield',
+                            'heading' => __( 'Date', 'droit-wbpakery-addons' ),
+                            'param_name' => 'date',
+                        ),
+                        array(
+                            'type' => 'textfield',
+                            'heading' => __( 'Title', 'droit-wbpakery-addons' ),
+                            'param_name' => 'title',
+                        ),
+                        array(
+                            'type' => 'textfield',
+                            'heading' => __( 'Website Title', 'droit-wbpakery-addons' ),
+                            'param_name' => 'website_title',
+                        ),
+                        array(
+                            'type' => 'vc_link',
+                            'heading' => __( 'Link', 'droit-wbpakery-addons' ),
+                            'param_name' => 'link',
+                        ),
+
+                    ))
+                ) //End Style 02
+
+
                 
-                    ), vc_typography_selections('Icon Box Text', 'dt_list_icon'))
-        ) );
+            ), vc_typography_selections('Icon Box Text', 'dt_list_icon'))
+        ));
     }
     
     /*
@@ -98,11 +197,17 @@ class dt_iconlist {
         'icon_type' => 'droit_icon',
         'dt_icon_list' => ''
       ), $atts, $content ) );
-    
-      $output = dt_template_part('iconlist', null , $atts);
-     
-      return $output;
-      
+
+        $template_style = 1;
+
+        if($atts['style'] != '') {
+            $template_style = $atts['style'];
+        }
+
+        $output = dt_template_part('iconlist', $template_style , $atts);
+
+        return $output;
+
     }
 
     /*

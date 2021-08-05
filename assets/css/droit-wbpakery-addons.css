@@ -101,3 +101,33 @@
   html {
     scroll-behavior: smooth;
   }
+
+
+/***============== New CSS by Arif ====================**/
+/****======= List Items =====****/
+.about_me_details_item .sevice_list {
+    width: auto;
+}
+.about_me_details_item .awards_list {
+    margin-top: 0;
+}
+
+/****======= Counter-UP =========****/
+.counter_item .odometer_content h3 {
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+/***====== Title Text =======***/
+.about_action_area_two .about_action_content h6,
+.about_action_area_two .about_action_content h2 {
+    font-weight: 500;
+}
+
+/****======= Icon Boxes =========****/
+.about_features_area_two {
+    padding: 0;
+}
+.about_features_item_two {
+    margin-bottom: 0;
+}

@@ -9,18 +9,17 @@ $p_unique_class = wp_unique_id('dt-counter-up-title-');
 
 $cuonter_num = $cuonter_suffix = $counter_up_title = '';
 
-if(isset($dt_cunter_up_number)) {
+if ( isset($dt_cunter_up_number) ) {
     $cuonter_num = $dt_cunter_up_number;
 }
 
-if(isset($dt_cunter_up_suffix)) {
+if ( isset($dt_cunter_up_suffix) ) {
     $cuonter_suffix = $dt_cunter_up_suffix;
 }
 
-if(isset($dt_cunter_up_title)) {
+if ( isset($dt_cunter_up_title) ) {
     $counter_up_title = $dt_cunter_up_title;
 }
-
 ?>
 <div class="counter_item text-center">
     <div class="odometer_content">
@@ -28,8 +27,7 @@ if(isset($dt_cunter_up_title)) {
         <span class="<?php echo esc_attr( $title_unique_class ); ?>"><?php echo dt_extention_wp_kses($cuonter_suffix); ?></span>
     </div>
     <p class="<?php echo esc_attr( $p_unique_class ); ?>"><?php echo dt_extention_wp_kses($counter_up_title); ?></p>
-</div>           
-
+</div>
 <?php   
 
 wp_enqueue_style('dt_extend_style');

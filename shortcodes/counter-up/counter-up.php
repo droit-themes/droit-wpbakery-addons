@@ -17,14 +17,14 @@ class dt_counter_up {
     public function dt_counter_up() {
       
         vc_map( array(
-            "name" => __("Droit Counter Up", 'droit-wbpakery-addons'),
-            "description" => __("Droit Counter Up spacial button for your section", 'droit-wbpakery-addons'),
-            "base" => "dt_counter_up",
-            "class" => "",
-            "controls" => "full",
-            "icon" => plugins_url('assets/asterisk_yellow.png', __FILE__), // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
+            'name' => __('Droit Counter Up', 'droit-wbpakery-addons'),
+            'description' => __('Droit Counter Up spacial button for your section', 'droit-wbpakery-addons'),
+            'base' => 'dt_counter_up',
+            'class' => "",
+            'controls' => 'full',
+            'icon' => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: 'droit-wbpakery-addons_my_class'
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
-            "params" => array_merge(array(
+            'params' => array_merge(array(
       
                 array(
                     'type' => 'textfield',
@@ -53,7 +53,8 @@ class dt_counter_up {
       extract( shortcode_atts( array(
         'dt_cunter_up_title' => 'Discover more about Rave',
         'dt_cunter_up_number' => '30295',
-      ), $atts ) );
+        'dt_cunter_up_suffix' => '',
+      ), $atts, $content ) );
      
       $output = dt_template_part('counter-up', null , $atts);
      

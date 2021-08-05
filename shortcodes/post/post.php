@@ -38,6 +38,9 @@ class dt_post {
                   esc_html__( 'Style 5',  "droit-wbpakery-addons"  ) => '5',
                   esc_html__( 'Style 6',  "droit-wbpakery-addons"  ) => '6',
                   esc_html__( 'Style 7',  "droit-wbpakery-addons"  ) => '7',
+                  esc_html__( 'Style 8 ( Grid Fullwidth )',  "droit-wbpakery-addons"  ) => '8',
+                  esc_html__( 'Style 9 ( List Fullwidth )',  "droit-wbpakery-addons"  ) => '9',
+                  esc_html__( 'Style 10 ( Blog Grid )',  "droit-wbpakery-addons"  ) => '10',
                 ),
               ),
               array(
