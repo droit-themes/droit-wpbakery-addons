@@ -35,6 +35,7 @@ class dt_call_to_action {
                     'value' => array(
                         esc_html__( 'Style 1',  'droit-wbpakery-addons'  ) => '1',
                         esc_html__( 'Style 2',  'droit-wbpakery-addons'  ) => '2',
+                        esc_html__( 'Style 3',  'droit-wbpakery-addons'  ) => '3',
                     ),
                 ), //End Style
 
@@ -45,7 +46,7 @@ class dt_call_to_action {
                     'param_name' => 'upper_title',
                     'dependency' => array(
                         'element' => 'style',
-                        'value' => '2'
+                        'value' => ['2','3' ]
                     )
                 ), //End Title
 
@@ -56,7 +57,7 @@ class dt_call_to_action {
                     'param_name' => 'title',
                     'dependency' => array(
                         'element' => 'style',
-                        'value' => '2'
+                        'value' => [ '2','3' ]
                     )
                 ), //End Title
 
@@ -79,7 +80,7 @@ class dt_call_to_action {
                     'param_name' => 'f_image',
                     'dependency' => array(
                         'element' => 'style',
-                        'value' => '2'
+                        'value' => [ '2','3' ]
                     )
                 ), //End Featured Image
 
@@ -90,7 +91,7 @@ class dt_call_to_action {
                     'param_name' => 'btn_link',
                     'dependency' => array(
                         'element' => 'style',
-                        'value' => [ '1', '2' ]
+                        'value' => [ '1', '2','3' ]
                     )
                 ), //End Button Style
 
@@ -101,7 +102,7 @@ class dt_call_to_action {
                     'param_name' => 'bg_img',
                     'dependency' => array(
                         'element' => 'style',
-                        'value' => '2'
+                        'value' => [ '2','3' ]
                     ),
                     'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
                 ), //End Featured Image
