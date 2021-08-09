@@ -35,6 +35,7 @@ class dt_team {
                     esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
                     esc_html__( 'Style 3',  "droit-wbpakery-addons"  ) => '3',
                     esc_html__( 'Style 4',  "droit-wbpakery-addons"  ) => '4',
+                    esc_html__( 'Style 5',  "droit-wbpakery-addons"  ) => '5',
                   ),
                 ),
                 array(
@@ -96,8 +97,20 @@ class dt_team {
                     array(
                       "type" => "textfield",
                       "holder" => "div",
+                      "heading" => __("linkedin URL", 'droit-wbpakery-addons'),
+                      "param_name" => "dt_ttm_fb_linkedin",
+                    ),
+                    array(
+                      "type" => "textfield",
+                      "holder" => "div",
                       "heading" => __("Dribble URL", 'droit-wbpakery-addons'),
                       "param_name" => "dt_ttm_fb_dribble",
+                    ),
+                    array(
+                      "type" => "textfield",
+                      "holder" => "div",
+                      "heading" => __("GitHub URL", 'droit-wbpakery-addons'),
+                      "param_name" => "dt_ttm_git_url",
                     ),
                     array(
                         "type" => "textfield",
