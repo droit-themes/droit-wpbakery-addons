@@ -140,6 +140,7 @@ if($dt_gection_greading_bg) {
 				}";
 	wp_add_inline_style( 'dt_wp_inline_style', $dt_greadent_bg );		
 }
+
 $dont_content = '';
 if($dt_enable_dot_shap) {
 	$dont_content = '<div class="dot_shap blue position-absulate"></div><div class="dot_shap purple position-absulate"></div><div class="dot_shap red position-absulate"></div>';
@@ -179,7 +180,18 @@ if($dt_one_page_section == 'yes' && $dt_onepage_paralax_nav_data != '') {
 	$data_name_nav = 'data-name="'.$dt_onepage_paralax_nav_data.'"';
 }
 
+$outss = "<ul class='list-unstyled dot'>
+<li data-parallax='{\"x\": 0, \"y\": 100}'></li>
+<li data-parallax='{\"x\": 0, \"y\": 40}'></li>
+<li data-parallax='{\"x\": 10, \"y\": -40}'></li>
+<li data-parallax='{\"x\": 0, \"y\": -40}'></li>
+<li data-parallax='{\"x\": -40, \"y\": 0}'></li>
+<li data-parallax='{\"x\": -40, \"y\": 20}'></li>
+</ul>
+";
+
 $output .= '<section ' . implode( ' ', $wrapper_attributes ) .$data_name_nav. '>';
+$output .= $outss;
 $output .= $overly_html;
 $output .= $dont_content;
 $output .= $pulse_content;

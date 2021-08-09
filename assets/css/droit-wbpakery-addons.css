@@ -119,6 +119,7 @@
 }
 
 /***====== Title Text =======***/
+.about_banner_area_three .section_title h2,
 .about_action_area_two .about_action_content h6,
 .about_action_area_two .about_action_content h2 {
     font-weight: 500;
@@ -130,4 +131,10 @@
 }
 .about_features_item_two {
     margin-bottom: 0;
+}
+
+/***========== Call to Action ============***/
+.agency_action_area .agency_btn i {
+    font-size: 14px;
+    margin-left: 8px;
 }

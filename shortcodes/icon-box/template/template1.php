@@ -13,7 +13,7 @@ $icon_id = 'icon_picker_'.$icon_type;
 
 if($icon_type != 'image') {
 
-    $icon_html = '<i class="'.$icon_id.'"></i>';
+    $icon_html = '<i class="'.$$icon_id.'"></i>';
 
 }elseif($icon_type == 'image') {
 

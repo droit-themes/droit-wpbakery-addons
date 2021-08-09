@@ -120,6 +120,11 @@ class dt_banner {
                         'value_not_equal_to' => '2'
                     ),
                 ),
+                array(
+                    'type' => 'textfield',
+                    'heading' => esc_html__( 'Wrapper Custom Class', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_banner_wrapper_custom_class',
+                ),
             )
         ) );
     }

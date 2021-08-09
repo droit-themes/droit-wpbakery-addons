@@ -36,10 +36,21 @@ $button_class[] = 'agency_learn_btn h_text_btn';
 $button_class = join(' ', $button_class);
 
 $button_uniqueue_class_icon =  wp_unique_id('doit-button-icon-');
-$button_icon_class[] = !empty( $dt_btn_icon_selector ) ? $dt_btn_icon_selector : 'ti-arrow-right';
-$button_icon_class[] = $button_uniqueue_class_icon;
 
-$button_icon_class = join(' ', $button_icon_class);
+
+$icon_html = '<i class="icon-Millions-of-Songs '.$button_uniqueue_class_icon.'"></i>';
+
+$icon_id = 'icon_picker_'.$icon_type;
+
+if($icon_type != 'image') {
+
+    $icon_html = '<i class="'.$$icon_id.' '.$button_uniqueue_class_icon.'"></i>';
+
+}elseif($icon_type == 'image') {
+
+    $icon_html = wp_get_attachment_image($$icon_id, 'thumbnail');
+
+}
 
 $btn_text_get = '';
 if(isset($dt_btn_text)) {
@@ -51,7 +62,7 @@ echo dt_return($link_beofre);
  
     <span class="<?php echo esc_attr( $button_class ); ?>" data-text="<?php echo esc_attr( $btn_text_get ); ?>">
         <?php echo esc_html($btn_text_get); ?>
-        <i class="<?php echo esc_attr( $button_icon_class ); ?>"></i>
+        <?php echo dt_return($icon_html); ?>
     </span>
 <?php echo dt_return($link_after);
 

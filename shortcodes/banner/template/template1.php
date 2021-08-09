@@ -13,7 +13,11 @@ if(isset($dt_banner_sub_title) && $dt_banner_sub_title != '') {
 }
 
 $wrapper_unique_class  = wp_unique_id('doit-banner-wrapper-');
-$wrapper_class_list[]  = 'about_banner_area custom_pad';
+$wrapper_class_list[]  = 'about_banner_area';
+if(isset($dt_banner_wrapper_custom_class)) {
+   $wrapper_class_list[]  = $dt_banner_wrapper_custom_class;
+}
+
 $wrapper_class_list[]  = $wrapper_unique_class;
 $wrapper_class = join(' ', $wrapper_class_list);
 

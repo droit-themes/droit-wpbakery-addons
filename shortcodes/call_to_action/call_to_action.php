@@ -39,6 +39,7 @@ class dt_call_to_action {
                     ),
                 ), //End Style
 
+
                 //================= Start Upper Title ========================//
                 array(
                     'type' => 'textfield',
@@ -48,7 +49,9 @@ class dt_call_to_action {
                         'element' => 'style',
                         'value' => ['2','3' ]
                     )
-                ), //End Title
+                ),
+                //End Upper Title
+
 
                 //================= Start Title ========================//
                 array(
@@ -61,6 +64,7 @@ class dt_call_to_action {
                     )
                 ), //End Title
 
+
                 //================= Start Content ========================//
                 array(
                     'type' => 'textarea',
@@ -68,7 +72,7 @@ class dt_call_to_action {
                     'param_name' => 'contents',
                     'dependency' => array(
                         'element' => 'style',
-                        'value' => '1'
+                        'value' =>  [ '1', '3' ]
                     )
                 ), //End Content
 
@@ -95,7 +99,31 @@ class dt_call_to_action {
                     )
                 ), //End Button Style
 
-                //================= Featured Image ====================//
+                //================= Shape Images =================//
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Shape Image 1', 'droit-wbpakery-addons' ),
+                    'param_name' => 'shape1',
+                    'dependency' => array(
+                        'element' => 'style',
+                        'value' => '3'
+                    ),
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                ),
+
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Shape Image 2', 'droit-wbpakery-addons' ),
+                    'param_name' => 'shape2',
+                    'dependency' => array(
+                        'element' => 'style',
+                        'value' => '3'
+                    ),
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                ), //End Shape Image
+
+
+                //================= Background ====================//
                 array(
                     'type' => 'attach_image',
                     'heading' => esc_html__( 'Background Image', 'droit-wbpakery-addons' ),
@@ -105,7 +133,7 @@ class dt_call_to_action {
                         'value' => [ '2','3' ]
                     ),
                     'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
-                ), //End Featured Image
+                ), //End Background Image
 
 
             ), vc_typography_selections('Title', 'title'), vc_typography_selections('Review', 'review'), vc_typography_selections('Author Name', 'authoer'), vc_typography_selections('Designation', 'designation')),
@@ -145,7 +173,6 @@ class dt_call_to_action {
     */
     public function dt_call_to_action_loadCssAndJs() {
         wp_register_style( 'dt_extend_style', plugins_url('assets/droit-wbpakery-addons.css', __FILE__) );
-        wp_enqueue_script('slick');
         wp_enqueue_script('droit-wpbakery-addons-script');
     }
 }

@@ -17,33 +17,34 @@ class dt_hero {
     public function dt_hero() {
       
         vc_map( array(
-            "name" => __("Droit Hero Section", 'droit-wbpakery-addons'),
-            "description" => __("Droi Hero Section", 'droit-wbpakery-addons'),
-            "base" => "dt_hero",
-            "class" => "",
-            "controls" => "full",
-            "icon" => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: "droit-wbpakery-addons_my_class"
+            'name' => __('Droit Hero Section', 'droit-wbpakery-addons'),
+            'description' => __('Droit Hero Section', 'droit-wbpakery-addons'),
+            'base' => 'dt_hero',
+            'class' => '',
+            'controls' => 'full',
+            'icon' => DROIT_WPBAKERY_ADDONS_ASSETS_URL_PATH.'/img/icon.png', // or css class name which you can reffer in your css file later. Example: 'droit-wbpakery-addons_my_class'
             'category' => esc_html__( 'Droit', 'droit-wbpakery-addons' ),
-            "params" => array_merge(array(
+            'params' => array_merge(array(
                 array(
                     'type' => 'dropdown',
-                    'heading' => __( 'Testimonial Style',  "droit-wbpakery-addons" ),
+                    'heading' => __( 'Testimonial Style',  'droit-wbpakery-addons' ),
                     'param_name' => 'dt_hero_style',
                     'default' => '1',
                     'value' => array(
-                      esc_html__( 'Select Style',  "droit-wbpakery-addons"  ) => '',
-                      esc_html__( 'Style 1',  "droit-wbpakery-addons"  ) => '1',
-                      esc_html__( 'Style 2',  "droit-wbpakery-addons"  ) => '2',
+                      esc_html__( 'Style 1',  'droit-wbpakery-addons'  ) => '1',
+                      esc_html__( 'Style 2',  'droit-wbpakery-addons'  ) => '2',
+                      esc_html__( 'Style 3',  'droit-wbpakery-addons'  ) => '3',
                     ),
-                  ),
+                  ), //
+                
                 array(
                     'type' => 'textarea',
-                    'heading' => esc_html__( 'Sub title ', 'droit-wbpakery-addons' ),
+                    'heading' => esc_html__( 'Sub Title ', 'droit-wbpakery-addons' ),
                     'param_name' => 'dt_hero_subtitle',
                     'css' => 'csstyle',
                     'dependency' => array(
                         'element' => 'dt_hero_style',
-                        'value' => '1',
+                        'value' => [ '1', '3' ]
                       ),
                 ),
                 array(
@@ -55,6 +56,11 @@ class dt_hero {
                     'type' => 'textarea',
                     'heading' => esc_html__( 'Description', 'droit-wbpakery-addons' ),
                     'param_name' => 'dt_hero_description',
+                ),
+                array(
+                    'type' => 'vc_link',
+                    'heading' => esc_html__( 'Description', 'droit-wbpakery-addons' ),
+                    'param_name' => 'dt_hero_btn_link',
                 ),
                 array(
                     'type' => 'attach_image',
@@ -115,6 +121,131 @@ class dt_hero {
                         'value' => '1',
                       ),
                 ),
+
+
+                //========================== Shape Images ==========================//
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Object Image 1', 'droit-wbpakery-addons' ),
+                    'param_name' => 'obj_image1',
+                    'edit_field_class' => 'vc_col-sm-6',
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '3',
+                    ),
+                ),
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Object Image 2', 'droit-wbpakery-addons' ),
+                    'param_name' => 'obj_image2',
+                    'edit_field_class' => 'vc_col-sm-6',
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '3',
+                    ),
+                ),
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Object Image 3', 'droit-wbpakery-addons' ),
+                    'param_name' => 'obj_image3',
+                    'edit_field_class' => 'vc_col-sm-6',
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '3',
+                    ),
+                ),
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Object Image 4', 'droit-wbpakery-addons' ),
+                    'param_name' => 'obj_image4',
+                    'edit_field_class' => 'vc_col-sm-6',
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '3',
+                    ),
+                ),
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Object Image 5', 'droit-wbpakery-addons' ),
+                    'param_name' => 'obj_image5',
+                    'edit_field_class' => 'vc_col-sm-6',
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '3',
+                    ),
+                ),
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Object Image 6', 'droit-wbpakery-addons' ),
+                    'param_name' => 'obj_image6',
+                    'edit_field_class' => 'vc_col-sm-6',
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '3',
+                    ),
+                ),
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Object Image 7', 'droit-wbpakery-addons' ),
+                    'param_name' => 'obj_image7',
+                    'edit_field_class' => 'vc_col-sm-6',
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '3',
+                    ),
+                ),
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Object Image 8', 'droit-wbpakery-addons' ),
+                    'param_name' => 'obj_image8',
+                    'edit_field_class' => 'vc_col-sm-6',
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '3',
+                    ),
+                ),
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Object Image 9', 'droit-wbpakery-addons' ),
+                    'param_name' => 'obj_image9',
+                    'edit_field_class' => 'vc_col-sm-6',
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '3',
+                    ),
+                ),
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Object Image 10', 'droit-wbpakery-addons' ),
+                    'param_name' => 'obj_image10',
+                    'edit_field_class' => 'vc_col-sm-6',
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '3',
+                    ),
+                ),
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Object Image 11', 'droit-wbpakery-addons' ),
+                    'param_name' => 'obj_image11',
+                    'edit_field_class' => 'vc_col-sm-6',
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '3',
+                    ),
+                ),
+
             ), dt_button_control('hero'), vc_typography_selections('Hero title', 'hero_title'), vc_typography_selections('Hero Sub Title', 'hero_subtitle'), vc_typography_selections('Hero description', 'hero_description')),
          
         ));
@@ -126,9 +257,23 @@ class dt_hero {
     public function dt_hero_rander( $atts, $content = null ) {
 
       extract( shortcode_atts( array(
+        'dt_hero_subtitle' => '',
+        'dt_hero_title' => '',
+        'dt_hero_description' => '',
         'dt_backgroud_color' => '',
         'dt_carosuel_title'     => '',
-        'dt_client_logo_style_list' => 1
+        'dt_client_logo_style_list' => 1,
+        'obj_image1' => '',
+        'obj_image2' => '',
+        'obj_image3' => '',
+        'obj_image4' => '',
+        'obj_image5' => '',
+        'obj_image6' => '',
+        'obj_image7' => '',
+        'obj_image8' => '',
+        'obj_image9' => '',
+        'obj_image10' => '',
+        'obj_image11' => '',
       ), $atts ) );
 
       

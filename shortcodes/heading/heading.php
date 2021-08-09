@@ -220,7 +220,7 @@ class dt_heading extends \WPBakeryShortCode{
                 "type" => "textfield",
                 "holder" => "div",
                 "class" => "dt-title-font",
-                "heading" => esc_html__("Line height", 'droit-wbpakery-addons'),
+                "heading" => esc_html__("Font Weight", 'droit-wbpakery-addons'),
                 "param_name" => "dt_title_font_wegiht",
                 "description" => esc_html__("Title font wight: 600 .", 'droit-wbpakery-addons'),
                 'group' => esc_html__( 'Title Style', 'droit-wbpakery-addons' ),

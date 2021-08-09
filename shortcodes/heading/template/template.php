@@ -11,7 +11,10 @@ $title_aligment =  '';
 if(isset($dt_title_aligment) && $dt_title_aligment != '') {
      $title_aligment =  $dt_title_aligment;
 }
-
+$wrapper_class[] = wp_unique_id('dt-heading-');
+if(isset($element_custon_class) && $element_custon_class != '') {
+     $wrapper_class[] = $element_custon_class;
+}
 $wrapper_class[] = 'text-'.$title_aligment;
 $wrapper_class[] = 'banner_text_intro';
 
