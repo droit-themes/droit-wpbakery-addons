@@ -35,7 +35,7 @@ class dt_hero {
                       esc_html__( 'Style 2',  'droit-wbpakery-addons'  ) => '2',
                       esc_html__( 'Style 3',  'droit-wbpakery-addons'  ) => '3',
                     ),
-                  ), //
+                ), //
                 
                 array(
                     'type' => 'textarea',
@@ -45,7 +45,7 @@ class dt_hero {
                     'dependency' => array(
                         'element' => 'dt_hero_style',
                         'value' => [ '1', '3' ]
-                      ),
+                    ),
                 ),
                 array(
                     'type' => 'textarea',
@@ -246,6 +246,18 @@ class dt_hero {
                     ),
                 ),
 
+                array(
+                    'type' => 'attach_image',
+                    'heading' => esc_html__( 'Background Image', 'droit-wbpakery-addons' ),
+                    'param_name' => 'bg_image',
+                    'edit_field_class' => 'vc_col-sm-6',
+                    'group' => esc_html__( 'Design Option', 'droit-wbpakery-addons' ),
+                    'dependency' => array(
+                        'element' => 'dt_hero_style',
+                        'value' => '3',
+                    ),
+                ),
+
             ), dt_button_control('hero'), vc_typography_selections('Hero title', 'hero_title'), vc_typography_selections('Hero Sub Title', 'hero_subtitle'), vc_typography_selections('Hero description', 'hero_description')),
          
         ));
@@ -274,6 +286,7 @@ class dt_hero {
         'obj_image9' => '',
         'obj_image10' => '',
         'obj_image11' => '',
+        //'bg_image' => '',
       ), $atts ) );
 
       

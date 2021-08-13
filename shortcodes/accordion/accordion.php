@@ -42,14 +42,19 @@ class dt_accordion {
                     'type' => 'param_group',
                     'value' => '',
                     'heading' => __( 'Accordion', 'droit-wbpakery-addons'),
-                    'param_name' => 'accordions',
+                    'param_name' => 'dt_accordions',
                     'params' => array_merge( array(
 
                         //========================== Group Fields ======================= //
                         array(
                             'type' => 'textfield',
-                            'heading' => __( 'Date', 'droit-wbpakery-addons' ),
-                            'param_name' => 'date',
+                            'heading' => __( 'Tab Title', 'droit-wbpakery-addons' ),
+                            'param_name' => 'tab_title',
+                        ),
+                        array(
+                            'type' => 'textarea',
+                            'heading' => __( 'Tab Content', 'droit-wbpakery-addons' ),
+                            'param_name' => 'tab_content',
                         ),
 
                     ))
@@ -78,12 +83,7 @@ class dt_accordion {
     public function dt_accordion_render( $atts, $content = null ) {
 
         extract( shortcode_atts( array(
-            'upper_title' => 'Work with us',
-            'title' => 'Grow your business with instant results',
-            'contents' => '',
-            'btn_link' => 'Work with me',
-            'f_image' => '',
-            'bg_img' => '',
+            //'dt_accordions' => '',
         ), $atts, $content ) );
 
         $template_style = 1;

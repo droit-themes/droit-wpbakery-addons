@@ -5,9 +5,24 @@ $btn_target = !empty($btn['target']) ? $btn['target'] : '_self';
 ?>
 
 <section class="agency_banner_area" id="apps_craft_animation">
-    <div class="decore">
-        <?php echo dt_get_attachment_image( $obj_image1, 'full', array( 'class' => 'layer layer2', 'data-depth' => '0.5' ) ) ?>
-    </div>
+
+    <?php
+
+    $bg_img = wp_get_attachment_image_url( $bg_image, 'full' );
+
+    echo '<pre>' .print_r($bg_img, 1), '</pre>';
+    ?>
+
+    <style>
+        .agency_banner_area:before {
+            background: url(<?php echo $bg_img ?>)no-repeat scroll center 0
+        }
+    </style>
+    <?php if ( !empty($obj_image1) ) : ?>
+        <div class="decore">
+            <?php echo dt_get_attachment_image( $obj_image1, 'full', array( 'class' => 'layer layer2', 'data-depth' => '0.5' ) ) ?>
+        </div>
+    <?php endif; ?>
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-5">
@@ -22,7 +37,7 @@ $btn_target = !empty($btn['target']) ? $btn['target'] : '_self';
                         <?php
                     }
                     if ( !empty( $dt_hero_description ) ) {  ?>
-                        <p class="wow fadeInLeft" data-wow-delay="0.4s"><?php echo esc_html($dt_hero_description) ?></p>
+                        <p class="wow fadeInLeft" data-wow-delay="0.4s"><?php echo dt_extention_wp_kses($dt_hero_description) ?></p>
                         <?php
                     }
                     if ( !empty( $btn['title'] ) ) {  ?>
@@ -90,34 +105,5 @@ $btn_target = !empty($btn['target']) ? $btn['target'] : '_self';
                 </div>
             </div>
         </div>
-
-
-        <div class="banner_quote wow fadeInUp" data-wow-delay="0.2s">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-md-8">
-                    <div class="quote_text">
-                        <h3>We believe that</h3>
-                        <p>
-                            Designing products and services in close partnership with
-                            our clients is the only way to have a real impact on their
-                            business.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="media">
-                        <div class="quote_img">
-                            <img src="assets/img/agency/man_img2.png" alt="" />
-                        </div>
-                        <div class="media-body">
-                            <h6>Randall Perez</h6>
-                            <p>Rave’s Founder</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
     </div>
 </section>

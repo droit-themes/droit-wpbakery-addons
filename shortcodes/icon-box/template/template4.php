@@ -6,11 +6,19 @@ $wrapper_class[] = isset($dt_list_icon_wrapper_class) ? $dt_list_icon_wrapper_cl
 $wrapper_class[] = 'app_service_item text-center wow';
 $wrapper_class = join(' ', $wrapper_class);
 
-$icon_html = '';
+
+$icon_html = '<i class="icon-Millions-of-Songs"></i>';
 
 $icon_id = 'icon_picker_'.$icon_type;
 
-$icon_html = '<i class="'.$icon_id.'"></i>';
+if($icon_type != 'image') {
+
+    $icon_html = '<i class="'.$$icon_id.'"></i>';
+
+}elseif($icon_type == 'image') {
+
+    $icon_html = wp_get_attachment_image($$icon_id, 'thumbnail');
+}
 
 echo '<pre>';
 print_r($icon_html);
