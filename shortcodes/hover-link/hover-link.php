@@ -47,13 +47,12 @@ class dt_hover_link {
                         __( 'Right', 'droit-wbpakery-addons' )  => 'end',
                     ),
                 ),
-                array(
-                    "type" => "checkbox",
-                    "heading" => __( "Show Top Border", "droit-wbpakery-addons" ),
-                    "param_name" => "dt_show_border_dispaly_yes",
-                    "value" => array(esc_html__('Yes', 'droit-wbpakery-addons') => 'yes'),
-                    "std"   => 'yes'
-                  ),   
+                  array(
+                    'type' => 'checkbox',
+                    'heading' => "Show Top Border",
+                    'param_name' => 'dt_show_border_dispaly_yes',
+                    'value' => array( 'Yes' => 'yes' ),
+                    ),     
                 array(
                     'type' => 'colorpicker',
                     'heading' => esc_html__( 'Color', 'droit-wbpakery-addons' ),
@@ -99,8 +98,11 @@ class dt_hover_link {
 
       extract( shortcode_atts( array(
         'dt_btn_text' => 'Discover more about Rave',
+        'icon_type'  => '',
+        'dt_show_border_dispaly_yes' => '',
+        'dt_hover_link_link' => '',
       ), $atts ) );
-     
+    
       $output = dt_template_part('hover-link', null , $atts);
      
       return $output;

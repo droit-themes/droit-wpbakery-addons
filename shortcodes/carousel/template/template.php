@@ -6,7 +6,7 @@ $item_unique_class = wp_unique_id('dt-carousel-');
 $wrapper_class[] = $item_unique_class;
 $wrapper_class[] = 'home_features_area';
 
-$wrapper_class = join('', $wrapper_class);
+$wrapper_class = join(' ', $wrapper_class);
 
 ?>
 
@@ -22,7 +22,7 @@ $wrapper_class = join('', $wrapper_class);
                 <button class="next"><i class="icon-arrow-right"></i></button>
             </div>
         </div>
-        <div class="home_features_slider">
+        <div class="home_features_slider vc-home-feature-slider">
 
         <?php if(!empty($carousel_data)): 
             
@@ -90,5 +90,8 @@ $wrapper_class = join('', $wrapper_class);
         </div>
     </div>
 </section>
-<?php 			
-wp_enqueue_script('droit-wpbakery-addons-script', DROIT_WPBAKERY_JS_URL.'/droit-wpbakery-addons-script.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+<style>
+    .home_features_slider.vc-home-feature-slider .slick-list {
+    margin-right: -600px;
+}
+</style> 			

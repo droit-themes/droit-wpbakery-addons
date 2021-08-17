@@ -143,7 +143,7 @@ class dt_carousel {
       wp_enqueue_style( 'slick-theme' );
 
       // If you need any javascript files on front end, here is how you can load them.
-      //wp_enqueue_script( 'droit-wbpakery-addons_js', plugins_url('assets/droit-wbpakery-addons.js', __FILE__), array('jquery') );
+     wp_enqueue_script( 'droit-wpbakery-addons-script' );
     }
 }
 // Finally initialize code

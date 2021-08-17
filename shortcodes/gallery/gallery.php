@@ -127,12 +127,13 @@ class dt_gallery {
         'dt_title' => '',
         'dt_title_description' => '',
         'dt_img_link'=> '',
+        'style' => 1,
       ), $atts ) );
 
 
         $template_style = 1;
 
-        if ( $atts['style'] != '' ) {
+        if ( isset($atts['style']) && $atts['style'] != '' ) {
             $template_style = $atts['style'];
         }
 

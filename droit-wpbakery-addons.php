@@ -217,7 +217,7 @@ if(!class_exists( 'Droit_WPBakery_Addons' )) {
 			wp_register_script('isotope-pkgd', DROIT_WPBAKERY_VENDORS_URL.'/isotope/isotope.pkgd.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_register_script('fullpage-activation', DROIT_WPBAKERY_JS_URL.'/fullpage-activation.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_register_script('ajax-chimp', DROIT_WPBAKERY_JS_URL.'/ajax-chimp.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
-			wp_register_script('droit-wpbakery-addons-script', DROIT_WPBAKERY_JS_URL.'/droit-wpbakery-addons-script.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
+			wp_register_script('droit-wpbakery-addons-script', DROIT_WPBAKERY_JS_URL.'/droit-wpbakery-addons-script.js', [ 'jquery', 'ajax-chimp' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_register_script('wow', DROIT_WPBAKERY_JS_URL.'/wow.min.js', [ 'jquery' ], DROIT_WPBAKERY_ADDONS, 'true');
 			wp_enqueue_script('wow');
 			wp_enqueue_script('slick');

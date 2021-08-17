@@ -1,10 +1,18 @@
 <?php
-$teams        = vc_param_group_parse_atts($droit_team_content);
+
+$teams = '';
+
+if(isset($droit_team_content) ) {
+    $teams = vc_param_group_parse_atts($droit_team_content);
+}
+
 $dt_team_style = vc_param_group_parse_atts($dt_team_style);
 //$dt_team_title = vc_param_group_parse_atts($dt_team_title);
 
 if($teams != '') {
+
 ?>
+
 <?php if($dt_team_style =='1'){ ?> 
 
 <ul class="list-unstyled home_team_inner">
@@ -128,7 +136,6 @@ if($teams != '') {
             </div>
         </div>
     </section>
-
 
 <?php } ?>
 
