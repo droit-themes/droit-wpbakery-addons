@@ -158,12 +158,12 @@ class dt_portfolio {
         'dt_portfolio_style' => '',
       ), $atts ) );
      
-      $portfolio_style = '';
-      if(isset($dt_portfolio_style)) {
-        $portfolio_style = vc_param_group_parse_atts($dt_portfolio_style);
-      }
+      $portfolio_style = 1;
+      // if(isset($dt_portfolio_style)) {
+      //   $portfolio_style = vc_param_group_parse_atts($dt_portfolio_style);
+      // }
 
-      if(!empty($atts['dt_portfolio_style'])) {
+      if(!empty($atts['dt_portfolio_style']) && '' != $atts['dt_portfolio_style']) {
         $portfolio_style = $atts['dt_portfolio_style'];
       }
 

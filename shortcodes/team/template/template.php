@@ -5,15 +5,18 @@ $teams = '';
 if(isset($droit_team_content) ) {
     $teams = vc_param_group_parse_atts($droit_team_content);
 }
+$dt_team_style_define = '1';
 
-$dt_team_style = vc_param_group_parse_atts($dt_team_style);
+if(isset($dt_team_style)) {
+    $dt_team_style_define = vc_param_group_parse_atts($dt_team_style);
+} 
 //$dt_team_title = vc_param_group_parse_atts($dt_team_title);
 
 if($teams != '') {
 
 ?>
 
-<?php if($dt_team_style =='1'){ ?> 
+<?php if($dt_team_style_define =='1'){ ?> 
 
 <ul class="list-unstyled home_team_inner">
     <?php foreach($teams as $key => $team){ 
@@ -44,7 +47,7 @@ if($teams != '') {
     </li>
 <?php } ?>
 </ul>
-<?php }elseif($dt_team_style =='2'){ ?>
+<?php }elseif($dt_team_style_define =='2'){ ?>
     <section class="about_team_area">
         <div class="pattern_bg parallaxie"></div>
         <div class="container">
@@ -80,7 +83,7 @@ if($teams != '') {
         </div>
     </section>
 
-<?php }elseif($dt_team_style =='3'){ ?>
+<?php }elseif($dt_team_style_define =='3'){ ?>
 
     <section class="leader_team_area">
         <div class="container">
@@ -108,7 +111,7 @@ if($teams != '') {
             </div>
         </div>
     </section>
-<?php }elseif($dt_team_style =='4'){ ?>
+<?php }elseif($dt_team_style_define =='4'){ ?>
 
     <section class="skill_team_area">
         <div class="container">

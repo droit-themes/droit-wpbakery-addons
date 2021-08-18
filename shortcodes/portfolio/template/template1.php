@@ -1,13 +1,13 @@
 <?php
 
 $args = array(
-    'numberposts'      => ($dt_portfolio_show_post != '') ? $dt_portfolio_show_post : '5',
-    'orderby'          => ($dt_select_protflow_orderby != '') ? $dt_select_protflow_orderby : 'date',
-    'order'            => ($dt_select_protflow_orderby != '') ? $dt_select_protflow_orderby : 'DESC',
+    'numberposts'      => (isset($dt_portfolio_show_post) && $dt_portfolio_show_post != '') ? $dt_portfolio_show_post : '5',
+    'orderby'          => (isset($dt_select_protflow_orderby) && $dt_select_protflow_orderby != '') ? $dt_select_protflow_orderby : 'date',
+    'order'            => (isset($dt_select_protflow_order) && $dt_select_protflow_order != '') ? $dt_select_protflow_order : 'DESC',
     'post_type'        => 'portfolio',
 );
 
-if($dt_select_catagory != '' && $dt_category_dispaly == 'yes') {
+if(isset($dt_select_catagory ) && $dt_select_catagory != '' && $dt_category_dispaly == 'yes') {
     $args['tax_query'] =  [
             [
                 'taxonomy' => 'portfolio_cat',
@@ -15,7 +15,6 @@ if($dt_select_catagory != '' && $dt_category_dispaly == 'yes') {
             ]
         ];
 }
-
 
 $posts = get_posts($args);
 
